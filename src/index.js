@@ -22,4 +22,3 @@ const rootReactElement = (
 const target = document.getElementById('root');
 // 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
 render(rootReactElement, target);
- 

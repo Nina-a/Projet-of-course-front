@@ -7,8 +7,9 @@ import './style.scss';
 // == Composant
 const Footer = () => (
   <div className="footer">
-    <h1>Footer</h1>
-
+    <div>Contact</div>
+    <div>Equipe</div>
+    <div>Mentions légales</div>
   </div>
 );
 
