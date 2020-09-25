@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
+import './styles/index.scss';
 // == Import : local
 // Composants
 import App from 'src/components/App';
@@ -21,3 +22,4 @@ const rootReactElement = (
 const target = document.getElementById('root');
 // 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
 render(rootReactElement, target);
+ 
