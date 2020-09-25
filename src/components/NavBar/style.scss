@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 180px;
+  padding: 20px;
+  &-link {
+    margin: 5px 0;
+  }
+  color:white;
+}
+.navigation-link {
+  padding: 50px;
+  font-size: 1.5rem;
+}
+.active {
+  color: red;
+}
+
+// Tout ce qu'il y aura en dessous sera fait pour le responsive
+@media only screen and (max-width: 768px) {
+  .navbar{
+    color: red;
+  }
+}
