@@ -8,7 +8,8 @@ import Planning from '../Planning';
 import Recipes from '../Recipes';
 import ShoppingList from '../ShoppingList';
 import Footer from '../Footer';
-import LoginForm from '../LoginForm'
+import LoginForm from '../LoginForm';
+import RegistUser from '../LoginForm/RegistUser';
 import './styles.css';
 import data from '../../data';
 
@@ -32,6 +33,9 @@ const App = () => (
     </Route>
     <Route exact path="/login">
       <LoginForm className="connexion" />
+    </Route>
+    <Route exact path="/connect">
+      <RegistUser className="se connecter" />
     </Route>
     <Footer className="footer" />
   </div>
