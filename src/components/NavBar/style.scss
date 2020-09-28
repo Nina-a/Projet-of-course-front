@@ -1,20 +1,25 @@
-.navbar {
+
+.navbar{
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   flex-direction: column;
-  height: 50vh;
+  height: 100vh;
   width: 180px;
   padding: 20px;
-  &-link {
-    margin: 5px 0;
-  }
-  color:white;
+  font-weight: bold;
+  background-color: black;
+  opacity:0.70;
 }
 .navigation-link {
   padding: 50px;
   font-size: 1.5rem;
+  margin: 5px 0;
+  color:white;
 }
 .active {
-  color: red;
+  color: #056601   
+  ;
 }
 
 // Tout ce qu'il y aura en dessous sera fait pour le responsive
