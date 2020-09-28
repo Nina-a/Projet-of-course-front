@@ -72,7 +72,7 @@ const LoginForm = ({
     </div>
   );
 };
-
+ 
 LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,

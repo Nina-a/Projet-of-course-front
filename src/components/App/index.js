@@ -8,6 +8,7 @@ import Planning from '../Planning';
 import Recipes from '../Recipes';
 import ShoppingList from '../ShoppingList';
 import Footer from '../Footer';
+import LoginForm from '../LoginForm'
 import './styles.css';
 import data from '../../data';
 
@@ -28,6 +29,9 @@ const App = () => (
     </Route>
     <Route exact path="/shoppingList">
       <ShoppingList className="shoppinglist" />
+    </Route>
+    <Route exact path="/login">
+      <LoginForm className="connexion" />
     </Route>
     <Footer className="footer" />
   </div>
