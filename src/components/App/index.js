@@ -1,8 +1,9 @@
 // == Import npm
 import React from 'react';
-
+import { Route } from 'react-router-dom';
 // == Import
 import NavBar from '../NavBar';
+import Home from '../Home';
 import Planning from '../Planning';
 import Recipes from '../Recipes';
 import ShoppingList from '../ShoppingList';
@@ -19,9 +20,15 @@ const recipeData = data.map((dataObjet) => ({
 const App = () => (
   <div className="app">
     <NavBar className="navbar" />
-    <Recipes list={recipeData} className="recipes" />
-    <Planning className="planning" />
-    <ShoppingList className="shoppinglist" />
+    <Route exact path="/recipes">
+      <Recipes list={recipeData} className="recipes" />
+    </Route>
+    <Route exact path="/planning">
+      <Planning className="planning" />
+    </Route>
+    <Route exact path="/shoppingList">
+      <ShoppingList className="shoppinglist" />
+    </Route>
     <Footer className="footer" />
   </div>
 );
