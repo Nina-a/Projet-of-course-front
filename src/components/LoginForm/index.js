@@ -5,6 +5,7 @@ import Field from './Field';
 // import { useField } from './hooks';
 
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 const LoginForm = ({
   email,
@@ -69,6 +70,8 @@ const LoginForm = ({
           </button>
         </form>
       )}
+
+      <Link to="/register">Inscription</Link>
     </div>
   );
 };
