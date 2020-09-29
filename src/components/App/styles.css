@@ -2,10 +2,24 @@
   display: flex;
 }
 
-
+.header {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  padding: 0 10px;
+  font-weight: bold;
+  padding-top: 50px;
+  font-size: 3rem;
+  margin-bottom: 100px
+}
 
 .main {
   flex: 1;
   height: 100vh;
   overflow-y: auto;
+}
+
+.footer{
+  display: inline;
+  margin-top: 0;
 }

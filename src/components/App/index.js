@@ -21,19 +21,28 @@ const recipeData = data.map((dataObjet) => ({
 const App = () => (
   <div className="app">
     <NavBar className="navbar" />
-    <Route exact path="/recipes">
-      <Recipes list={recipeData} className="recipes" />
-    </Route>
-    <Route exact path="/planning">
-      <Planning className="planning" />
-    </Route>
-    <Route exact path="/shoppingList">
-      <ShoppingList className="shoppinglist" />
-    </Route>
-    <Route exact path="/login">
-      <LoginForm className="connexion" />
-    </Route>
-    <Footer className="footer" />
+    <main className="main">
+      <header className="header">
+        Of'Course
+      </header>
+      <Route exact path="/">
+        <Home className="recipes" />
+      </Route>
+      <Route exact path="/recipes">
+        <Recipes list={recipeData} className="recipes" />
+      </Route>
+      <Route exact path="/planning">
+        <Planning className="planning" />
+      </Route>
+      <Route exact path="/shoppingList">
+        <ShoppingList className="shoppinglist" />
+      </Route>
+      <Route exact path="/login">
+        <LoginForm className="connexion" />
+      </Route>
+      <Footer className="footer" />
+    </main>
+    
   </div>
 );
 

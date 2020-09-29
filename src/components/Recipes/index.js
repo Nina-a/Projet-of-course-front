@@ -7,10 +7,11 @@ import './style.scss';
 
 // == Composant
 const Recipes = ({list}) => (
-  <div className="Recipes">
+  <div className="recipes">
     <h1> Recipes </h1>
     {list.map((recipeDetail) => (
-      <div className="card">        <img className="card-image" alt="illustration" src={recipeDetail.image} />
+      <div className="card">
+        <img className="card-image" alt="illustration" src={recipeDetail.image} />
         <div className="card-infos">
           <h3 className="card-title">{recipeDetail.title}</h3>
           <a className="active">Lien vers la recette</a>
