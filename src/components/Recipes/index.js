@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Composant
-const Recipes = ({list}) => (
+const Recipes = ({ list }) => (
   <div className="Recipes">
     <h1> Recipes </h1>
     {list.map((recipeDetail) => (
-      <div className="card">        <img className="card-image" alt="illustration" src={recipeDetail.image} />
+      <div className="card">
+        <img className="card-image" alt="illustration" src={recipeDetail.image} />
         <div className="card-infos">
+          <button className="add planning" type="button">+</button>
+          <button className="add favorite" type="button">&#9825;</button>
           <h3 className="card-title">{recipeDetail.title}</h3>
           <a className="active">Lien vers la recette</a>
         </div>
