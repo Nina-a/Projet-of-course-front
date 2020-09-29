@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import './style.scss';
 
 // == Composant
-const Recipes = ({ list }) => (
-  <div className="Recipes">
+const Recipes = ({list}) => (
+  <div className="recipes">
     <h1> Recipes </h1>
     {list.map((recipeDetail) => (
       <div className="card">

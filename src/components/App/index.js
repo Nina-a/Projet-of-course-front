@@ -8,8 +8,7 @@ import Planning from '../Planning';
 import Recipes from '../Recipes';
 import ShoppingList from '../ShoppingList';
 import Footer from '../Footer';
-import LoginForm from '../LoginForm';
-import RegistUser from '../LoginForm/RegistUser';
+import LoginForm from '../LoginForm'
 import './styles.css';
 import data from '../../data';
 
@@ -23,25 +22,27 @@ const recipeData = data.map((dataObjet) => ({
 const App = () => (
   <div className="app">
     <NavBar className="navbar" />
-    <Route exact path="/">
-      <Home />
-    </Route>
-    <Route exact path="/recipes">
-      <Recipes list={recipeData} className="recipes" />
-    </Route>
-    <Route exact path="/planning">
-      <Planning className="planning" />
-    </Route>
-    <Route exact path="/shoppingList">
-      <ShoppingList className="shoppinglist" />
-    </Route>
-    <Route exact path="/login">
-      <LoginForm className="connexion" />
-    </Route>
-    <Route exact path="/connect">
-      <RegistUser className="se connecter" />
-    </Route>
-    <Footer className="footer" />
+    <main className="main">
+      <header className="header">
+        Of'Course
+      </header>
+      <Route exact path="/">
+        <Home className="home" />
+      </Route>
+      <Route exact path="/recipes">
+        <Recipes list={recipeData} className="recipes" />
+      </Route>
+      <Route exact path="/planning">
+        <Planning className="planning" />
+      </Route>
+      <Route exact path="/shoppingList">
+        <ShoppingList className="shoppinglist" />
+      </Route>
+      <Route exact path="/login">
+        <LoginForm className="connexion" />
+      </Route>
+      <Footer className="footer" />
+    </main>
   </div>
 );
 

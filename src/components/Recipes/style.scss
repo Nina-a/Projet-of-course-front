@@ -1,3 +1,19 @@
+
+.card{
+    padding-top: 30px;
+    max-width:33%;
+    border: black solid 1px;
+    padding: 0 20px;
+}
+.card-image{
+    max-width: 100%;
+	height: auto;
+}
+
+.recipes{
+    display: flex;
+    flex-direction: row;
+
 .planning{
   background: red;
   width: 30px;
