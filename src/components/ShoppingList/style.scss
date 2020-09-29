@@ -1,0 +1,18 @@
+.shoppingList {
+  margin-top: 1em;
+}
+
+.ingredient {
+  color: #333;
+  background-color: #eee;
+  border-radius: 0.3em;
+  border: 1px solid #ccc;
+  margin: 0.5em 0;
+  padding: 1em;
+  font-size: 1.2em;
+  max-width: 300px;
+  &--done {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+}
