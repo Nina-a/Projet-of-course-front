@@ -4,11 +4,11 @@ import { Route } from 'react-router-dom';
 // == Import
 import NavBar from '../NavBar';
 import Home from '../Home';
-import Planning from '../Planning';
-import Recipes from '../Recipes';
-import ShoppingList from '../ShoppingList';
+import Planning from '../../containers/Planning';
+import Recipes from '../../containers/Recipes';
+import ShoppingList from '../../containers/ShoppingList';
 import Footer from '../Footer';
-import LoginForm from '../LoginForm'
+import LoginForm from '../LoginForm';
 import './styles.css';
 import data from '../../data';
 import RegisterForm from '../RegisterForm';
