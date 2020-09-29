@@ -18,10 +18,14 @@ const recipeData = data.map((dataObjet) => ({
   image: dataObjet.thumbnail,
 }));
 
+
 // == Composant
 const App = () => (
   <div className="app">
     <NavBar className="navbar" />
+    <Route exact path="/">
+      <Home />
+    </Route>
     <Route exact path="/recipes">
       <Recipes list={recipeData} className="recipes" />
     </Route>

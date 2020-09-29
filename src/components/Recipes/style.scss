@@ -1,1 +1,21 @@
-
+.planning{
+  background: red;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  padding:0;
+  float:right;
+}
+.favorite{
+  background: green;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  padding:0;
+  float:right;
+  border: black solid 0.1px;
+}
