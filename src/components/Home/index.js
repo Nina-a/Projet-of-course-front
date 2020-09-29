@@ -11,9 +11,6 @@ import './style.scss';
 const Home = () => (
   <div className="home">
     <div>
-      <div className="nom">
-        <img src={nom} alt="nom" />
-      </div>
       <div className="image_home">
         <img src={recette} alt="liste des courses" />
       </div>
