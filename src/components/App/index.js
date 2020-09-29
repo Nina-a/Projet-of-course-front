@@ -11,6 +11,7 @@ import Footer from '../Footer';
 import LoginForm from '../LoginForm'
 import './styles.css';
 import data from '../../data';
+import RegisterForm from '../RegisterForm';
 
 const recipeData = data.map((dataObjet) => ({
   title: dataObjet.title,
@@ -40,6 +41,9 @@ const App = () => (
       </Route>
       <Route exact path="/login">
         <LoginForm className="connexion" />
+      </Route>
+      <Route exact path="/register">
+        <RegisterForm />
       </Route>
       <Footer className="footer" />
     </main>
