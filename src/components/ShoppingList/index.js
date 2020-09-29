@@ -1,6 +1,7 @@
+/* eslint-disable react/jsx-no-undef */
 // == Import npm
 import React from 'react';
-
+import Ingredient from './ingredient';
 // == Import
 import './style.scss';
 
@@ -9,11 +10,7 @@ const ShoppingList = () => (
   <div className="shoppingList">
     <h1>ShoppingList</h1>
     <ul>
-      <li>carottes</li>
-      <li> choux</li>
-      <li>farine </li>
-      <li>petits pois</li>
-      <li>lait</li>
+      <Ingredient />
     </ul>
   </div>
 );
