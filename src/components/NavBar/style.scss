@@ -6,25 +6,33 @@
   flex-direction: column;
   height: 100vh;
   width: 180px;
-  padding: 20px;
+  padding: 20px 0px;
   font-weight: bold;
   background-color: black;
   opacity:0.70;
 }
 .navigation-link {
-  padding: 50px;
+  padding: 50px 5px;
   font-size: 1.5rem;
   margin: 5px 0;
   color:white;
+  width:180px;
+  text-align: center;
 }
 .active {
   color: #056601   
   ;
 }
-
+.image{
+  width:180px;
+}
 // Tout ce qu'il y aura en dessous sera fait pour le responsive
 @media only screen and (max-width: 768px) {
-  .navbar{
+  .navigation-link{
     color: red;
+    width:100px;
+  }
+  navbar{
+    display: none;
   }
 }

@@ -17,6 +17,7 @@ const recipeData = data.map((dataObjet) => ({
   image: dataObjet.thumbnail,
 }));
 
+
 // == Composant
 const App = () => (
   <div className="app">
@@ -26,7 +27,7 @@ const App = () => (
         Of'Course
       </header>
       <Route exact path="/">
-        <Home className="recipes" />
+        <Home className="home" />
       </Route>
       <Route exact path="/recipes">
         <Recipes list={recipeData} className="recipes" />
@@ -42,7 +43,6 @@ const App = () => (
       </Route>
       <Footer className="footer" />
     </main>
-    
   </div>
 );
 
