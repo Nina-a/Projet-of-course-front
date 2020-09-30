@@ -7,8 +7,7 @@ const mapState = (state) => {
   // console.log('reducerrecipes', reducerrecipes);
   // console.log(state.reducerrecipes, 'state.reducerrecipes');
   console.log('state.reducerrecipes.list', state.reducerrecipes.list);
-  return (
-    state.reducerrecipes.list);
+  return { recipe: state.reducerrecipes.list };
 };
 // == Besoin de consulter et d'envoyer des informations
 // == On a besoin des ingrédients des listes des recettes ajouter par l'utilisateur
