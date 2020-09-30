@@ -1,10 +1,13 @@
+import {
+  FETCH_RECIPES_ERROR,
+  FETCH_RECIPES_SUCCESS,
+} from '../actions/recipes';
 
-import {FETCH_RECIPES_ERROR, FETCH_RECIPES_SUCCESS } from '../actions/recipes';
 export const initialState = {
   list: [],
   error: null,
   loading: false,
-}
+};
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {

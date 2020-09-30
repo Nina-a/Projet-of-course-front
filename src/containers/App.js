@@ -6,6 +6,7 @@ const mapState = null;
 
 const mapDispatch = (dispatch) => ({
   fetchRecipes: () => {
+    console.log('ici je recupere mes données');
     dispatch(fetchRecipes());
   },
 });

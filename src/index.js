@@ -7,9 +7,9 @@ import { Provider } from 'react-redux';
 import './styles/index.scss';
 // == Import : local
 // Composants
-import App from 'src/components/App';
-// Store
 import store from 'src/store';
+import App from './containers/App';
+// Store
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)

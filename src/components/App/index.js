@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 // == Import
 import NavBar from '../NavBar';
@@ -19,39 +19,45 @@ const recipeData = data.map((dataObjet) => ({
 }));
 
 const ingredientData = data.map((dataObjet) => ({
-  ingredient: dataObjet.ingredients
-})
-)
+  ingredient: dataObjet.ingredients,
+}));
 // == Composant
-const App = () => (
-  <div className="app">
-    <NavBar className="navbar" />
-    <main className="main">
-      <header className="header">
-        Of'Course
-      </header>
-      <Route exact path="/">
-        <Home className="home" />
-      </Route>
-      <Route exact path="/recipes">
-        <Recipes list={recipeData} className="recipes" />
-      </Route>
-      <Route exact path="/planning">
-        <Planning className="planning" />
-      </Route>
-      <Route exact path="/shoppingList">
-        <ShoppingList list={ingredientData} className="shoppinglist" />
-      </Route>
-      <Route exact path="/login">
-        <LoginForm className="connexion" />
-      </Route>
-      <Route exact path="/register">
-        <RegisterForm />
-      </Route>
-      <Footer className="footer" />
-    </main>
-  </div>
-);
+// TODO rajouter fetchRecipes
+const App = ({fetchRecipes}) => {
+  useEffect(() => {
+    fetchRecipes();
+    console.log('Hi');
+  }, []);
+  return (
+    <div className="app">
+      <NavBar className="navbar" />
+      <main className="main">
+        <header className="header">
+          Of'Course
+        </header>
+        <Route exact path="/">
+          <Home className="home" />
+        </Route>
+        <Route exact path="/recipes">
+          <Recipes list={recipeData} className="recipes" />
+        </Route>
+        <Route exact path="/planning">
+          <Planning className="planning" />
+        </Route>
+        <Route exact path="/shoppingList">
+          <ShoppingList list={ingredientData} className="shoppinglist" />
+        </Route>
+        <Route exact path="/login">
+          <LoginForm className="connexion" />
+        </Route>
+        <Route exact path="/register">
+          <RegisterForm />
+        </Route>
+        <Footer className="footer" />
+      </main>
+    </div>
+  );
+};
 
 // == Export
 export default App;

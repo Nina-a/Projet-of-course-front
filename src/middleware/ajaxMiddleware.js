@@ -9,7 +9,7 @@ export default (store) => (next) => (action) => {
       // Je lance la requête axios
       axios({
         method: 'get',
-        url: 'http://localhost:8080/recipes',
+        url: 'http://18.209.180.210/api/recipe/list',
       }).then((res) => {
         const { data } = res;
         console.log(data);
