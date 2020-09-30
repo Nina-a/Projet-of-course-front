@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Ingredient = (props) => {
   const { ingredient, onTodoCheck } = props;
   console.log(props);
+  console.log('ingredient', ingredient);
   return (
     <li className="ingredient">
       <input type="checkbox" />
