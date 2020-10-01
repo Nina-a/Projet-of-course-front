@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { fetchRecipes } from '../actions/recipes';
+import { fetchRecipes, addRecipes } from '../actions/recipes';
 
 const mapState = null;
 
@@ -8,6 +8,10 @@ const mapDispatch = (dispatch) => ({
   fetchRecipes: () => {
     console.log('ici je recupere mes données');
     dispatch(fetchRecipes());
+  },
+  addRecipes: () => {
+    console.log('plop');
+    dispatch(addRecipes());
   },
 });
 

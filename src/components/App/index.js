@@ -23,10 +23,12 @@ const ingredientData = data.map((dataObjet) => ({
 }));
 // == Composant
 // TODO rajouter fetchRecipes
-const App = ({fetchRecipes}) => {
+const App = ({fetchRecipes, addRecipes}) => {
   useEffect(() => {
     fetchRecipes();
     console.log('Hi');
+    console.log(addRecipes);
+    // addRecipes();
   }, []);
   return (
     <div className="app">
