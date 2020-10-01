@@ -5,7 +5,7 @@ export default (store) => (next) => (action) => {
   next(action);
   const { dispatch } = store;
   switch (action.type) {
-    case FETCH_RECIPES: 
+    case FETCH_RECIPES:
       // Je lance la requête axios
       axios({
         method: 'get',
