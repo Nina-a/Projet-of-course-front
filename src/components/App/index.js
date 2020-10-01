@@ -30,7 +30,7 @@ const App = ({fetchRecipes}) => {
   }, []);
   return (
     <div className="app">
-      <NavBar className="navbar" />
+      <NavBar className="navigation-bar" />
       <main className="main">
         <header className="header">
           Of'Course
@@ -53,8 +53,8 @@ const App = ({fetchRecipes}) => {
         <Route exact path="/register">
           <RegisterForm />
         </Route>
-        <Footer className="footer" />
       </main>
+      <Footer className="footer" />
     </div>
   );
 };

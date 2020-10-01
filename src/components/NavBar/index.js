@@ -7,7 +7,7 @@ import './style.scss';
 
 // == Composant
 const NavBar = () => (
-  <div className="navbar">
+  <div className="navigation-bar">
     <img className="image" src={logo} alt="logo" />
     <NavLink exact className="navigation-link" to="/">Accueil</NavLink>
     <NavLink exact className="navigation-link" to="/recipes">Recettes</NavLink>
