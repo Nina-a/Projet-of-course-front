@@ -9,7 +9,7 @@ export const initialState = {
   loading: false,
 };
 
-const reducer = (state = initialState, action = {}) => {
+const reducerrecipes = (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_RECIPES_ERROR:
       return {
@@ -27,4 +27,4 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
-export default reducer;
+export default reducerrecipes;
