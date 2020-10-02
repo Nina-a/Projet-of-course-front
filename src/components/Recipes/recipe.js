@@ -7,7 +7,6 @@ import './recipe.scss';
 // == Composant
 const CardRecipe = ({ recipe }) => (
   // console.log('list', recipe)
-  {
   recipe.map((recipeDetail) => (
     <div className="card-wrapper card-action">
       <div id="card-1" className="card card-rotating text-center">
@@ -30,7 +29,7 @@ const CardRecipe = ({ recipe }) => (
       </div>
     </div>
   ))
-};
+);
 
 // == Export
 export default CardRecipe;

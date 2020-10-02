@@ -10,6 +10,7 @@ import './style.scss';
 // TODO Requete a chaque fois que l'on change d'onglet
 // == Composant
 const Recipes = () => {
+  return (
   <div>
     <div className="maintabsrecipes">
       <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -103,7 +104,22 @@ const Recipes = () => {
       </div>
     </div>
   </div>
+)},
+
+Recipes.propTypes = {
+  recipe: PropTypes.arrayOf({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
 };
+// == Export
+export default Recipes;
+
+
+
+
+
+
 
 /* <h1> Recipes </h1>
       {
@@ -120,12 +136,3 @@ const Recipes = () => {
       ))
     }; */
 
-// == PropTypes
-Recipes.propTypes = {
-  recipe: PropTypes.arrayOf({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-};
-// == Export
-export default Recipes;
