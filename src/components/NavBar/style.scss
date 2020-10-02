@@ -10,8 +10,10 @@
   font-weight: bold;
   background-color: black;
   opacity:0.70;
+ 
 }
 .navigation-link {
+ 
   padding: 50px 5px;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -21,18 +23,36 @@
   text-align: center;
   font-family: 'Henny Penny', cursive;
   text-decoration: none;
+  transition: 1s;
+
 }
 .navigation-link:hover {
-
+  transform: scale(1.1);
+  transition: 1s;
   text-decoration: none;
 }
 .active {
-  color: #056601   
-  ;
+  color: #056601;
+}
+.divlogo {
+  position: relative;
+  width: 187px;
+  height: 300px;
 }
 .image{
   width:180px;
+  z-index:1;
+  position: absolute;
 }
+.imagetext{
+  padding-top: 60px;
+  margin-left:40px;
+  width:100px;
+  z-index:2;
+  position: absolute;
+}
+
+
 // Tout ce qu'il y aura en dessous sera fait pour le responsive
 @media only screen and (max-width: 807px) {
   .navigation-link{
