@@ -36,3 +36,39 @@
   float:right;
   border: black solid 0.1px;
 }
+
+
+.maintabsrecipes {
+  margin-top: 300px;
+  text-align: center;
+  width: 60%;
+  margin-left: 20%;
+  border: none
+}
+
+.nav-item-dessert {
+  background-color: #A8D3F7;
+  width: 25%;
+  border:none;
+}
+.nav-item-entree {
+  background-color:#D4B2E2;
+  width: 25%;
+}
+.nav-item-plat {
+  background-color: #ADD69D;
+  width: 25%;
+}
+
+.nav-item-dessert:hover {
+  transform: scale(1.1);
+}
+
+.nav-item-entree:hover {
+  transform: scale(1.1);
+}
+
+.nav-item-plat:hover {
+  transform: scale(1.1);
+}
+

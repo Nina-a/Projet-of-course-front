@@ -32,3 +32,13 @@
   text-decoration: none;
 }
 
+@media only screen and (max-width: 770px) {
+  .footer{
+  width: 100%;
+  margin-left: 0px;
+  text-align: center;
+  }
+  .navigation-link-footer{
+    padding: 0px 0px;
+  }
+}
