@@ -1,20 +1,18 @@
 import { connect } from 'react-redux';
 
 import Recipes from '../components/Recipes';
+import { showTab } from '../actions/recipes';
 // import reducerrecipes from '../reducers/recipes';
 
-const mapState = (state) => {
-  // console.log('state', state);
-  // console.log('reducerrecipes', reducerrecipes);
-  // console.log(state.reducerrecipes, 'state.reducerrecipes');
-  console.log('state.reducerrecipes.list', state.reducerrecipes.list);
-  return { listRecipe: state.reducerrecipes.list };
-};
+const mapState = null;
+// console.log('state', state);
+// console.log('reducerrecipes', reducerrecipes);
+// console.log(state.reducerrecipes, 'state.reducerrecipes');
 
-const mapDispatch = (dispatch) => ({
+const mapDispatch = (dispatch, event) => ({
   onClick: () => {
     console.log('plop');
-    dispatch();
+    dispatch(showTab(event));
   },
 });
 // == Besoin d'envoyer des actions jusqu'au reducer

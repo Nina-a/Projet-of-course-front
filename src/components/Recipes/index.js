@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CardRecipe from '../../containers/Recipe';
 // == Import
@@ -9,86 +9,87 @@ import './style.scss';
 // TODO show active en className sur le bouton où l'on a appuyé
 
 // == Composant
-const Recipes = ({ onClick }) => (
-  <div>
-    <div className="maintabsrecipes">
-      <ul className="nav nav-tabs" id="myTab" role="navigation">
-        <li className="nav-item-entree col-4">
-          <a
-            className="nav-link"
-            id="entree-tab"
-            data-toggle="tab"
-            href="#home"
-            role="tab"
-            aria-controls="home"
-            aria-selected="true"
-            onClick={onClick}
+const Recipes = () => {
+  const [selectedTab, setSelectedTab] = useState('entree');
+
+  return (
+    <div>
+      <div className="maintabsrecipes">
+        <ul className="nav nav-tabs" id="myTab" role="navigation">
+          <li className="nav-item-entree col-4">
+            <a
+              className="nav-link"
+              id="entree-tab"
+              data-toggle="tab"
+              href="#entree"
+              role="tab"
+              aria-controls="entree"
+              aria-selected="true"
+              onClick={() => setSelectedTab('entree')}
+            >
+              Entrée
+            </a>
+          </li>
+          <li className="nav-item-plat col-4">
+            <a
+              className="nav-link"
+              id="plat-tab"
+              data-toggle="tab"
+              href="#plat"
+              role="tab"
+              aria-controls="plat"
+              aria-selected="false"
+              onClick={() => setSelectedTab('plat')}
+            >
+              Plat
+            </a>
+          </li>
+          <li className="nav-item-dessert col-4">
+            <a
+              className="nav-link"
+              id="dessert-tab"
+              data-toggle="tab"
+              href="#dessert"
+              role="tab"
+              aria-controls="dessert"
+              aria-selected="false"
+              onClick={() => setSelectedTab('dessert')}
+            >
+              Dessert
+            </a>
+          </li>
+        </ul>
+        <div className="tab-content" id="myTabContent">
+          <div
+            className={`tab-pane fade ${selectedTab === 'entree' ? 'show active' : ''}`}
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
           >
-            Entrée
-          </a>
-        </li>
-        <li className="nav-item-plat col-4">
-          <a
-            className="nav-link"
-            id="plat-tab"
-            data-toggle="tab"
-            href="#profile"
-            role="tab"
-            aria-controls="profile"
-            aria-selected="false"
-            onClick={onClick}
+            <CardRecipe />
+          </div>
+          <div
+            className={`tab-pane fade ${selectedTab === 'plat' ? 'show active' : ''}`}
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
           >
-            Plat
-          </a>
-        </li>
-        <li className="nav-item-dessert col-4">
-          <a
-            className="nav-link"
-            id="dessert-tab"
-            data-toggle="tab"
-            href="#contact"
-            role="tab"
-            aria-controls="contact"
-            aria-selected="false"
-            onClick={onClick}
+            Je suis un plat
+          </div>
+          <div
+            className={`tab-pane fade ${selectedTab === 'dessert' ? 'show active' : ''}`}
+            id="contact"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
           >
-            Dessert
-          </a>
-        </li>
-      </ul>
-      <div className="tab-content" id="myTabContent">
-        <div
-          className="tab-pane fade show active"
-          id="home"
-          role="tabpanel"
-          aria-labelledby="home-tab"
-        >
-          <CardRecipe />
-        </div>
-        <div
-          className="tab-pane fade"
-          id="profile"
-          role="tabpanel"
-          aria-labelledby="profile-tab"
-        >
-          Je suis un plat
-        </div>
-        <div
-          className="tab-pane fade"
-          id="contact"
-          role="tabpanel"
-          aria-labelledby="contact-tab"
-        >
-          Je suis un dessert
+            Je suis un dessert
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
-
-Recipes.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  );
 };
+
 // == Export
 export default Recipes;
 

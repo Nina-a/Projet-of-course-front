@@ -1,12 +1,14 @@
 import {
   FETCH_RECIPES_ERROR,
   FETCH_RECIPES_SUCCESS,
+  SHOW_TAB,
 } from '../actions/recipes';
 
 export const initialState = {
   list: [],
   error: null,
   loading: false,
+  tab: false,
 };
 
 const reducerrecipes = (state = initialState, action = {}) => {
@@ -21,6 +23,11 @@ const reducerrecipes = (state = initialState, action = {}) => {
         ...state,
         list: [...action.payload],
         error: null,
+      };
+    case SHOW_TAB:
+      return {
+        ...state,
+        tab: true,
       };
     default:
       return state;
