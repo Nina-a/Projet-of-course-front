@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Recipes from '../components/Recipes';
-import { showTab } from '../actions/recipes';
+
 // import reducerrecipes from '../reducers/recipes';
 
 const mapState = null;
@@ -9,12 +9,7 @@ const mapState = null;
 // console.log('reducerrecipes', reducerrecipes);
 // console.log(state.reducerrecipes, 'state.reducerrecipes');
 
-const mapDispatch = (dispatch, event) => ({
-  onClick: () => {
-    console.log('plop');
-    dispatch(showTab(event));
-  },
-});
+const mapDispatch = null;
 // == Besoin d'envoyer des actions jusqu'au reducer
 // == On aura besoin de modifier la liste en fonction des stocks
 

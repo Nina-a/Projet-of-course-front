@@ -55,7 +55,7 @@ const App = ({ fetchRecipes }) => {
   );
 };
 // == PropTypes
-App.prototype = {
+App.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
 };
 
