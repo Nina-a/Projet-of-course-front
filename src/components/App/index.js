@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // == Import
 import NavBar from '../NavBar';
 import Home from '../Home';
@@ -13,20 +14,15 @@ import './styles.css';
 import data from '../../data';
 import RegisterForm from '../RegisterForm';
 
-const recipeData = data.map((dataObjet) => ({
-  title: dataObjet.title,
-  image: dataObjet.thumbnail,
-}));
-
 const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
 }));
 // == Composant
 // TODO rajouter fetchRecipes
-const App = ({fetchRecipes}) => {
+const App = ({ fetchRecipes }) => {
   useEffect(() => {
-    fetchRecipes();
     console.log('Hi');
+    fetchRecipes();
   }, []);
   return (
     <div className="app">
@@ -39,7 +35,7 @@ const App = ({fetchRecipes}) => {
           <Home className="home" />
         </Route>
         <Route exact path="/recipes">
-          <Recipes list={recipeData} className="recipes" />
+          <Recipes className="recipes" />
         </Route>
         <Route exact path="/planning">
           <Planning className="planning" />
@@ -57,6 +53,10 @@ const App = ({fetchRecipes}) => {
       <Footer className="footer" />
     </div>
   );
+};
+// == PropTypes
+App.prototype = {
+  fetchRecipes: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -2,7 +2,7 @@ import React from 'react';
 
 // == Import
 import './style.scss';
-import Field from '../RegisterForm/Field';
+import Field from './Field';
 
 const RegisterForm = () => (
   <div className="register-form">
