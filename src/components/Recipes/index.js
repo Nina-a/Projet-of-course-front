@@ -9,7 +9,7 @@ import './style.scss';
 // TODO show active en className sur le bouton où l'on a appuyé
 
 // == Composant
-const Recipes = () => {
+const Recipes = ({ listEntree, listPlat, listDessert }) => {
   const [selectedTab, setSelectedTab] = useState('entree');
 
   return (
@@ -66,7 +66,7 @@ const Recipes = () => {
             role="tabpanel"
             aria-labelledby="home-tab"
           >
-            <CardRecipe />
+            <CardRecipe recipe={listEntree} />
           </div>
           <div
             className={`tab-pane fade ${selectedTab === 'plat' ? 'show active' : ''}`}
@@ -74,7 +74,7 @@ const Recipes = () => {
             role="tabpanel"
             aria-labelledby="profile-tab"
           >
-            Je suis un plat
+            <CardRecipe recipe={listPlat} />
           </div>
           <div
             className={`tab-pane fade ${selectedTab === 'dessert' ? 'show active' : ''}`}
@@ -82,14 +82,19 @@ const Recipes = () => {
             role="tabpanel"
             aria-labelledby="contact-tab"
           >
-            Je suis un dessert
+            <CardRecipe recipe={listDessert} />
           </div>
         </div>
       </div>
     </div>
   );
 };
-
+// == PropTypes
+Recipes.propTypes = {
+  listEntree: PropTypes.array.isRequired,
+  listPlat: PropTypes.array.isRequired,
+  listDessert: PropTypes.array.isRequired,
+};
 // == Export
 export default Recipes;
 
