@@ -1,42 +1,43 @@
-
-.card{
+.card {
   padding-top: 30px;
-  max-width:20%;
+  max-width: 20%;
   border: black solid 1px;
   padding: 0 20px;
 }
-.card-image{
+
+.card-image {
   max-width: 100%;
-	height: auto;
+  height: auto;
 }
 
-.recipes{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.recipes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-.planning{
+
+.planning {
   background: red;
   width: 30px;
   height: 30px;
   color: white;
   font-size: 1.8rem;
   font-weight: bolder;
-  padding:0;
-  float:right;
+  padding: 0;
+  float: right;
 }
-.favorite{
+
+.favorite {
   background: green;
   width: 30px;
   height: 30px;
   color: white;
   font-size: 1.8rem;
   font-weight: bolder;
-  padding:0;
-  float:right;
+  padding: 0;
+  float: right;
   border: black solid 0.1px;
 }
-
 
 .maintabsrecipes {
   margin-top: 300px;
@@ -49,12 +50,14 @@
 .nav-item-dessert {
   background-color: #A8D3F7;
   width: 25%;
-  border:none;
+  border: none;
 }
+
 .nav-item-entree {
-  background-color:#D4B2E2;
+  background-color: #D4B2E2;
   width: 25%;
 }
+
 .nav-item-plat {
   background-color: #ADD69D;
   width: 25%;
@@ -72,3 +75,8 @@
   transform: scale(1.1);
 }
 
+.tab-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

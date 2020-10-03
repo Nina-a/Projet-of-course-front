@@ -11,7 +11,12 @@ const mapState = (state) => {
   return { listRecipe: state.reducerrecipes.list };
 };
 
-const mapDispatch = null;
+const mapDispatch = (dispatch) => ({
+  onClick: () => {
+    console.log('plop');
+    dispatch();
+  },
+});
 // == Besoin d'envoyer des actions jusqu'au reducer
 // == On aura besoin de modifier la liste en fonction des stocks
 
