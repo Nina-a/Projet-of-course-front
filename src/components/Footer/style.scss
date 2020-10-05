@@ -1,24 +1,25 @@
  .footer {
-
-   position: absolute;
-margin-top: 100%;
+   position: fixed;
+   bottom: 0px;
+   left: 200px;
    background-color: black;
    opacity: 0.70;
    align-items: center;
    flex-direction: row;
-   width: 93%;
-   margin-left:7%;
-
+   width: 100%;
+   display: flex;
    //.nav-items {}
  }
 
  .navigation-link-footer{
-   padding: 0px 330px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  text-align: center;
    font-size: 1.5rem;
    letter-spacing: 2px;
    margin: 5px 0;
    color: white;
-   width: 200px;
    text-align: justify;
    font-family: 'Henny Penny', cursive;
    text-decoration: none;
