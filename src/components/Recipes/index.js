@@ -66,7 +66,9 @@ const Recipes = ({ listEntree, listPlat, listDessert }) => {
             role="tabpanel"
             aria-labelledby="home-tab"
           >
+            <div className="card-group">
             <CardRecipe recipe={listEntree} />
+            </div>
           </div>
           <div
             className={`tab-pane fade ${selectedTab === 'plat' ? 'show active' : ''}`}
@@ -74,7 +76,9 @@ const Recipes = ({ listEntree, listPlat, listDessert }) => {
             role="tabpanel"
             aria-labelledby="profile-tab"
           >
+            <div className="card-group">
             <CardRecipe recipe={listPlat} />
+            </div>
           </div>
           <div
             className={`tab-pane fade ${selectedTab === 'dessert' ? 'show active' : ''}`}
@@ -82,7 +86,9 @@ const Recipes = ({ listEntree, listPlat, listDessert }) => {
             role="tabpanel"
             aria-labelledby="contact-tab"
           >
+           <div className="card-group">
             <CardRecipe recipe={listDessert} />
+          </div>
           </div>
         </div>
       </div>
