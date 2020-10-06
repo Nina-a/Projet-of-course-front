@@ -4,7 +4,7 @@ import Recipes from '../components/Recipes';
 
 // import reducerrecipes from '../reducers/recipes';
 
-const mapState = (state) => {
+const mapStateToProps = (state) => {
   console.log(state);
   return {
     listEntree: state.reducerrecipes.listEntree,
@@ -13,8 +13,8 @@ const mapState = (state) => {
   };
 };
 
-const mapDispatch = null;
+const mapDispatchToProps = null;
 // == Besoin d'envoyer des actions jusqu'au reducer
 // == On aura besoin de modifier la liste en fonction des stocks
 
-export default connect(mapState, mapDispatch)(Recipes);
+export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
