@@ -16,3 +16,10 @@ export const fetchRecipesSuccess = (payload) => ({
 export const fetchRecipesError = () => ({
   type: FETCH_RECIPES_ERROR,
 });
+
+export const addToPlanning = (title, value, category) => ({
+  type: ADD_TO_PLANNING,
+  title,
+  value,
+  category,
+});

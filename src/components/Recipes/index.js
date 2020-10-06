@@ -67,7 +67,7 @@ const Recipes = ({ listEntree, listPlat, listDessert }) => {
             aria-labelledby="home-tab"
           >
             <div className="card-group">
-            <CardRecipe recipe={listEntree} />
+              <CardRecipe recipe={listEntree} />
             </div>
           </div>
           <div
@@ -77,7 +77,7 @@ const Recipes = ({ listEntree, listPlat, listDessert }) => {
             aria-labelledby="profile-tab"
           >
             <div className="card-group">
-            <CardRecipe recipe={listPlat} />
+              <CardRecipe recipe={listPlat} />
             </div>
           </div>
           <div
@@ -86,9 +86,9 @@ const Recipes = ({ listEntree, listPlat, listDessert }) => {
             role="tabpanel"
             aria-labelledby="contact-tab"
           >
-           <div className="card-group">
-            <CardRecipe recipe={listDessert} />
-          </div>
+            <div className="card-group">
+              <CardRecipe recipe={listDessert} />
+            </div>
           </div>
         </div>
       </div>
