@@ -15,7 +15,7 @@ const reducerShoppingList = (state = initialState, action = {}) => {
         const { id } = ingredient[i].ingredient; // id de l'ingrédient
         const { name } = ingredient[i].ingredient; // nom de l'ingrédient
         const { unit } = ingredient[i].ingredient; // unité de l'ingrédient
-        const { quantity } = ingredient[i].ingredient;
+        const { quantity } = action.title.recipeIngredients[i];
         state.shoppingList.push(
           {
             id,
@@ -26,7 +26,27 @@ const reducerShoppingList = (state = initialState, action = {}) => {
         );
       }
 
-      return state;
+      const groupBy = function (xs, key) {
+        return xs.reduce((rv, x) => {
+          (rv[x[key]] = rv[x[key]] || []).push(x);
+          return rv;
+        }, {});
+      };
+
+      const shoppingListGroupe = (groupBy(state.shoppingList, 'id'));
+
+      const shoppingListGroupeEtAdditionne = Object.keys(shoppingListGroupe).map((key) => (
+        {
+          id: key,
+          name: shoppingListGroupe[key][0].name,
+          quantity: shoppingListGroupe[key].reduce((acc, curr) => acc + curr.quantity, 0),
+          untit: shoppingListGroupe[key][0].unit,
+        }));
+
+      return {
+        ...state,
+        shoppingList: [...shoppingListGroupeEtAdditionne],
+      };
     }
     // ingredient est le
     // == Action.payload sera la liste des ingrédients récupérer de la recette

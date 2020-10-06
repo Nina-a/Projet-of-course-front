@@ -7,12 +7,12 @@ const Ingredient = (props) => {
   console.log('ingredient', ingredient);
   return (
     <li>
-      <div class="form-check"> 
-        <label class="form-check-label"> 
-        <input class="checkbox" type="checkbox" /> 
-        For what reason would it be advisable. 
-        <i class="input-helper"></i>
-        </label> 
+      <div className="form-check">
+        <label className="form-check-label">
+          <input className="checkbox" type="checkbox" />
+          For what reason would it be advisable.
+          <i className="input-helper" />
+        </label>
       </div>
     </li>
   );
