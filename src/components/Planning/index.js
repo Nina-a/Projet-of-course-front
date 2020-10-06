@@ -6,13 +6,15 @@ import './style.scss';
 
 // == Composant
 const Planning = () => (
-  <div className="planning">
+  <div className="planningCard">
     <h1>Planning</h1>
-    <div className="card">
-      <div className="card-infos">
-        <h3 className="card-title">Lundi</h3>
-      </div>
-    </div>
+    <p>Lundi</p>
+    <p>Mardi</p>
+    <p>Mercredi</p>
+    <p>Jeudi</p>
+    <p>Vendredi</p>
+    <p>Samedi</p>
+    <p>Dimanche</p>
   </div>
 );
 

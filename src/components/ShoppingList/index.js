@@ -27,14 +27,25 @@ const ShoppingList = (props) => {
 
   return (
     <div className="shoppingList">
-      <h1>ShoppingList</h1>
-      <ul>
-        {
-        list.map((ingredientObjet) => (
-          <Ingredient key={ingredientObjet.id} {...ingredientObjet} />
-        ))
-      }
-      </ul>
+    <h1 className="shoppingList-title">Liste de courses</h1>
+      <div class="list-wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Qté & Produit</th>
+            </tr>
+          </thead>
+        <ul>
+          {
+          list.map((ingredientObjet) => (
+            <Ingredient key={ingredientObjet.id} {...ingredientObjet} />
+          ))
+        }
+        </ul>
+        </table>
+      </div>
+      <button type="button" class="btn btn-danger">Editer ma liste</button>
+      <button type="button" class="btn btn-success" OnClick="javascript:window.print()">Imprimer ma liste</button>
     </div>
   );
 };
