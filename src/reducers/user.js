@@ -1,5 +1,13 @@
 import {
-  LOGIN_INPUT_CHANGE, LOGIN_INPUT_SUBMIT, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_SUCCESS,
+  LOGIN_INPUT_CHANGE,
+  LOGIN_INPUT_SUBMIT,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  LOGOUT_SUCCESS,
+  REGISTER_INPUT_CHANGE,
+  REGISTER_ERROR,
+  REGISTER_SUCCESS,
+  REGISTER_INPUT_SUBMIT,
 } from '../actions/user';
 
 const initialState = {
@@ -45,6 +53,33 @@ const user = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: true,
+      };
+
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isLogged: true,
+        pseudo: action.payload.pseudo,
+        loggedMessage: `Bienvenue ${action.payload.pseudo}`,
+      };
+    case REGISTER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        isLogged: false,
+        pseudo: '',
+        loggedMessage: '',
+      };
+    case REGISTER_INPUT_SUBMIT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case REGISTER_INPUT_CHANGE:
+      return {
+        ...state,
+        ...action.payload,
       };
     default:
       return state;

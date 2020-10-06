@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import Field from './Field';
 // import { useField } from './hooks';
 
 import './style.scss';
-import { Link } from 'react-router-dom';
 
 const LoginForm = ({
   email,
@@ -71,7 +70,7 @@ const LoginForm = ({
         </form>
       )}
 
-      <Link to="/register">Inscription</Link>
+      <Link to="/register">Si vous n'avez pas de compte, merci de vous inscrire ici</Link>
     </div>
   );
 };
