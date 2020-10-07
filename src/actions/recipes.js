@@ -1,7 +1,6 @@
 export const FETCH_RECIPES = 'FETCH_RECIPES';
 export const FETCH_RECIPES_SUCCESS = 'FETCH_RECIPES_SUCCESS';
 export const FETCH_RECIPES_ERROR = 'FETCH_RECIPES_ERROR';
-export const ADD_TO_SHOPPINGLIST = 'ADD_TO_SHOPPINGLIST';
 export const ADD_TO_PLANNING = 'ADD_TO_PLANNING';
 
 export const fetchRecipes = () => ({
