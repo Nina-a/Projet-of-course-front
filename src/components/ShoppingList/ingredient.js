@@ -6,11 +6,14 @@ const Ingredient = (props) => {
   console.log(props);
   console.log('ingredient', ingredient);
   return (
-    <li className="ingredient">
-      <input type="checkbox" />
-      <span>qté </span>
-      <span>unité </span>
-      <span>ingrédient </span>
+    <li>
+      <div className="form-check">
+        <label className="form-check-label">
+          <input className="checkbox" type="checkbox" />
+          For what reason would it be advisable.
+          <i className="input-helper" />
+        </label>
+      </div>
     </li>
   );
 };
