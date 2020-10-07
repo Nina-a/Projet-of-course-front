@@ -8,6 +8,9 @@ import {
   loginError,
   logoutSuccess,
   logoutError,
+  REGISTER_INPUT_SUBMIT,
+  registerSuccess,
+  registerError,
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
@@ -68,7 +71,7 @@ export default (store) => (next) => (action) => {
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
-          // console.error(err);
+          console.error(err);
           dispatch(loginError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
@@ -81,7 +84,7 @@ export default (store) => (next) => (action) => {
         withCredentials: true,
       })
         .then((res) => {
-          const {data} = res;
+          const { data } = res;
           //console.log (data);
           dispatch(logoutSuccess());
         })
@@ -90,6 +93,33 @@ export default (store) => (next) => (action) => {
           dispatch(logoutError());
         });
       break;
+
+    case REGISTER_INPUT_SUBMIT:
+      axios({
+        method: 'post',
+        url: 'http://18.209.180.210/api/user/new',
+        withCredentials: true,
+        data: {
+          email: store.getState().user.email,
+          password: store.getState().user.password,
+          pseudo: store.getState().user.pseudo,
+          avater: store.getState().user.avater,
+          role: 'user',
+        },
+      })
+        .then((res) => {
+          const serverResponse = res.data;
+          // console.log(serverResponse);
+          dispatch(registerSuccess(serverResponse));
+          // Retour du serveur avec les infos du user
+        })
+        .catch((err) => {
+          console.error(err);
+          dispatch(registerError());
+          // En cas d'user non trouvé dans la data, le serveur retourne une erreur
+        });
+      break;
+
     default:
       //console.log('default');
       break;

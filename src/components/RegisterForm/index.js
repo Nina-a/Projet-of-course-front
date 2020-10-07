@@ -15,6 +15,7 @@ const RegisterForm = ({
   loading,
   loggedMessage,
   pseudo,
+  name,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
