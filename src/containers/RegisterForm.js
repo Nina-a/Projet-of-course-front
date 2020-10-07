@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import RegisterForm from '../components/RegisterForm';
-import {checkAuth, registerSuccess, registerInputChange, registerError} from '../actions/user';
+import { checkAuth, registerSuccess, registerInputChange, registerError } from '../actions/user';
 
 
 const mapState = (state) => ({
