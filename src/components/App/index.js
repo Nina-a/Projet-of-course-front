@@ -9,10 +9,10 @@ import Planning from '../../containers/Planning';
 import Recipes from '../../containers/Recipes';
 import ShoppingList from '../../containers/ShoppingList';
 import Footer from '../Footer';
-import LoginForm from '../LoginForm';
+import LoginForm from '../../containers/LoginForm';
 import './styles.css';
 import data from '../../data';
-import RegisterForm from '../RegisterForm';
+import RegisterForm from '../../containers/RegisterForm';
 
 const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
@@ -21,7 +21,6 @@ const ingredientData = data.map((dataObjet) => ({
 // TODO rajouter fetchRecipes
 const App = ({ fetchRecipes }) => {
   useEffect(() => {
-    console.log('Hi');
     fetchRecipes();
   }, []);
   return (

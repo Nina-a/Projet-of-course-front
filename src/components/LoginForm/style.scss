@@ -2,8 +2,9 @@
     width: 50%;
   }
   .login-form-element {
-    display: flex;
     align-items: center;
+    display: flex;
+    flex-direction: column;
   }
   .login-form-message {
     text-align: right;
@@ -18,7 +19,7 @@
     font-weight: 700;
     font-size: 1em;
     color: #fff;
-    background-color: #f17f42;
+    background-color:green;
     border-radius: .3em;
     border: 0;
     padding: .7em;
