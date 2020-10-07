@@ -2,8 +2,9 @@
     width: 50%;
   }
   .login-form-element {
-    display: flex;
     align-items: center;
+    display: flex;
+    flex-direction: column;
   }
   .login-form-message {
     text-align: right;

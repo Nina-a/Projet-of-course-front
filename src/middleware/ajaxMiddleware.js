@@ -38,7 +38,6 @@ export default (store) => (next) => (action) => {
       axios({
         method: 'post',
         url: 'http://18.209.180.210/api/recipe/list', // url à modifier (en cours côté back)
-        withCredentials: true,
         // requête envoyée pour l'authentification de l'user
       })
         .then((res) => {
@@ -57,10 +56,9 @@ export default (store) => (next) => (action) => {
     case LOGIN_INPUT_SUBMIT:
       axios({
         method: 'post',
-        url: 'http://18.209.180.210/api/user/new',
-        withCredentials: true,
+        url: 'http://18.209.180.210/api/login_check',
         data: {
-          email: store.getState().user.email,
+          username: store.getState().user.email,
           password: store.getState().user.password,
         },
       })
@@ -81,7 +79,6 @@ export default (store) => (next) => (action) => {
       axios({
         method: 'post',
         url: 'http://18.209.180.210/api/logout', // url à modifier
-        withCredentials: true,
       })
         .then((res) => {
           const { data } = res;
@@ -98,12 +95,12 @@ export default (store) => (next) => (action) => {
       axios({
         method: 'post',
         url: 'http://18.209.180.210/api/user/new',
-        withCredentials: true,
         data: {
+          name: store.getState().user.name,
           email: store.getState().user.email,
           password: store.getState().user.password,
           pseudo: store.getState().user.pseudo,
-          avater: store.getState().user.avater,
+          avatar: store.getState().user.avater,
           role: 'user',
         },
       })

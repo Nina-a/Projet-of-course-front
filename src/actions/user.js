@@ -45,19 +45,20 @@ export const logoutError = () => ({
   type: LOGOUT_ERROR,
 });
 
+export const registerInputChange = (payload) => ({
+  type: REGISTER_INPUT_CHANGE,
+  payload,
+});
+
+// == Action nécessaires pour s'inscrire
+export const registerInputSubmit = () => ({
+  type: REGISTER_INPUT_SUBMIT,
+});
+
 export const registerSuccess = () => ({
   type: REGISTER_SUCCESS,
 });
 
 export const registerError = () => ({
   type: REGISTER_ERROR,
-});
-
-export const registerInputChange = (payload) => ({
-  type: REGISTER_INPUT_CHANGE,
-  payload,
-});
-
-export const registerInputSubmit = () => ({
-  type: REGISTER_INPUT_SUBMIT,
 });

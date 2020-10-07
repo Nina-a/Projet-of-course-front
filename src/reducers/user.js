@@ -61,7 +61,7 @@ const user = (state = initialState, action = {}) => {
         loading: false,
         isLogged: true,
         pseudo: action.payload.pseudo,
-        loggedMessage: `Bienvenue ${action.payload.pseudo}`,
+        loggedMessage: `Bienvenue ${state.user.pseudo}`,
       };
     case REGISTER_ERROR:
       return {

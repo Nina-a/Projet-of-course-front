@@ -2,7 +2,7 @@ import React from 'react';
 
 // == Import
 import './style.scss';
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 import Field from './Field';
 
 const RegisterForm = ({
@@ -16,10 +16,12 @@ const RegisterForm = ({
   loggedMessage,
   pseudo,
   name,
+  handleRegister,
+  avatar,
 }) => {
-  const handleSubmit = (evt) => {
+  const registerInputSubmit = (evt) => {
     evt.preventDefault();
-    handleLogin();
+    handleRegister();
   };
 
   if (loading) {
@@ -35,9 +37,7 @@ const RegisterForm = ({
       <Container>
         <Row className="justify-content-md-center">
           <Col md={4}>
-            <fieldset>
-              <legend>Formulaire d'inscription</legend>
-
+            <form autoComplete="off" className="login-form-element" onClick={registerInputSubmit}>
               <Field
                 name="email"
                 placeholder="Adresse Email"
@@ -52,9 +52,15 @@ const RegisterForm = ({
               />
               <Field
                 name="pseudo"
-                placeholder="pseudo"
+                placeholder="Pseudo"
                 onChange={changeField}
                 value={pseudo}
+              />
+              <Field
+                name="avatar"
+                placeholder="Avatar"
+                onChange={changeField}
+                value={avatar}
               />
               <Field
                 name="password"
@@ -63,15 +69,13 @@ const RegisterForm = ({
                 onChange={changeField}
                 value={password}
               />
-              <Field
-                name="confirm-password"
-                type="password"
-                placeholder="Confirmer le mot de passe"
-                onChange={changeField}
-                value={password}
-              />
-              <Button type="submit" value="Envoyer">S'inscrire</Button>
-            </fieldset>
+              <button
+                type="submit"
+                className="login-form-button"
+              >
+                s'inscrire
+              </button>
+            </form>
           </Col>
         </Row>
       </Container>

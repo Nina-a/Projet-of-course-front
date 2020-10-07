@@ -1,7 +1,12 @@
 import { connect } from 'react-redux';
 import RegisterForm from '../components/RegisterForm';
-import { checkAuth, registerSuccess, registerInputChange, registerError } from '../actions/user';
-
+import {
+  checkAuth,
+  registerSuccess,
+  registerInputChange,
+  registerError,
+  registerInputSubmit,
+} from '../actions/user';
 
 const mapState = (state) => ({
   email: state.user.email,
@@ -17,7 +22,7 @@ const mapDispatch = (dispatch) => ({
     };
     dispatch(registerInputChange(object));
   },
-  handleCheckAuth:() => {
+  handleCheckAuth: () => {
     dispatch(checkAuth());
   },
   handlerRegisterSuccess: () => {
@@ -25,6 +30,9 @@ const mapDispatch = (dispatch) => ({
   },
   handlerRegisterError: () => {
     dispatch(registerError());
+  },
+  handleRegister: () => {
+    dispatch(registerInputSubmit());
   },
 });
 

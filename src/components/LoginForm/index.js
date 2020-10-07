@@ -46,8 +46,7 @@ const LoginForm = ({
         </div>
       )}
       {!isLogged && (
-
-        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+        <form autoComplete="off" className="login-form-element" onClick={handleSubmit}>
           <Field
             name="email"
             placeholder="Adresse Email"
@@ -74,7 +73,7 @@ const LoginForm = ({
     </div>
   );
 };
- 
+
 LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
@@ -92,4 +91,3 @@ LoginForm.defaultProps = {
 };
 
 export default LoginForm;
-
