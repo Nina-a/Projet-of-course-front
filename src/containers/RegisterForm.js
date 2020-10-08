@@ -13,6 +13,7 @@ const mapState = (state) => ({
   name: state.user.name,
   pseudo: state.user.pseudo,
   password: state.user.password,
+  avatar: state.user.avatar,
 });
 
 const mapDispatch = (dispatch) => ({

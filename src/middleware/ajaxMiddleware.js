@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError } from '../actions/recipes';
+import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError,ADD_RECIPE} from '../actions/recipes';
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
@@ -11,6 +11,7 @@ import {
   REGISTER_INPUT_SUBMIT,
   registerSuccess,
   registerError,
+
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
@@ -112,11 +113,35 @@ export default (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.error(err);
-          dispatch(registerError());
+          //dispatch(registerError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
       break;
 
+    case ADD_RECIPE:
+      axios({
+        method: 'post',
+        url: 'http://18.209.180.210/api/add/recipe',
+        data: {
+          title: store.getState().user.title,
+          subtitle: store.getState().user.subtitle,
+          description: store.getState().user.description,
+          picture: store.getState().user.picture,
+          serving: store.getState().user.serving,
+          private: store.getState().user.private,
+        },
+      })
+        .then((res) => {
+          const serverResponse = res.data;
+          // console.log(serverResponse);
+          dispatch(registerSuccess(serverResponse));
+          // Retour du serveur avec le formulaire de recette complétée
+        })
+        .catch((err) => {
+          console.error(err);
+          dispatch(registerError());
+        });
+      break;
     default:
       //console.log('default');
       break;
