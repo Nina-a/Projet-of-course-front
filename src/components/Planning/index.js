@@ -27,7 +27,7 @@ const Planning = ({
 }) => (
   <div>
     <div className="print">
-      <Pdf targetRef={ref} filename="code-example.pdf">
+      <Pdf targetRef={ref} filename="planning.pdf">
         {({ toPdf }) => <button type="button" onClick={toPdf}>Generate Pdf</button>}
       </Pdf>
     </div>
