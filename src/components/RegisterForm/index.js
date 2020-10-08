@@ -9,11 +9,6 @@ const RegisterForm = ({
   email,
   password,
   changeField,
-  handleLogin,
-  handleLogout,
-  isLogged,
-  loading,
-  loggedMessage,
   pseudo,
   name,
   handleRegister,
@@ -24,20 +19,12 @@ const RegisterForm = ({
     handleRegister();
   };
 
-  if (loading) {
-    return (
-      <div className="login-form">
-        Connexion en cours
-      </div>
-    );
-  }
-
   return (
     <div className="register-form">
       <Container>
         <Row className="justify-content-md-center">
           <Col md={4}>
-            <form autoComplete="off" className="login-form-element" onClick={registerInputSubmit}>
+            <form autoComplete="off" className="login-form-element" onSubmit={registerInputSubmit}>
               <Field
                 name="email"
                 placeholder="Adresse Email"
@@ -58,6 +45,7 @@ const RegisterForm = ({
               />
               <Field
                 name="avatar"
+                type="file"
                 placeholder="Avatar"
                 onChange={changeField}
                 value={avatar}
