@@ -10,7 +10,7 @@ const Ingredient = (ingredientData) => {
       <div className="form-check">
         <label className="form-check-label">
           <input className="checkbox" type="checkbox" />
-          { ingredientData.quantity ? ingredientData.quantity : ''} { ingredientData.quantity ? ingredientData.unity : ''} { ingredientData.name }
+          { ingredientData.quantity ? `${ingredientData.quantity} ${ingredientData.unit}` : '' } { ingredientData.name }
           <i className="input-helper" />
         </label>
       </div>
@@ -22,7 +22,7 @@ Ingredient.propTypes = {
     PropTypes.shape({
       ingredient: PropTypes.string.isRequired,
       quantity: PropTypes.number.isRequired,
-      unity: PropTypes.string.isRequired,
+      unit: PropTypes.string.isRequired,
     }),
   ).isRequired,
   onTodoCheck: PropTypes.func.isRequired,

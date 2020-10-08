@@ -1,6 +1,8 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import Pdf from 'react-to-pdf';
+
 // == Import
 import './style.css';
 
@@ -21,13 +23,21 @@ const Planning = ({
   samedi_soir,
   dimanche_midi,
   dimanche_soir,
-}) => {
-  return (
+  ref = React.createRef(),
+}) => (
+  <div>
+    <div className="print">
+      <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button type="button" onClick={toPdf}>Generate Pdf</button>}
+      </Pdf>
+    </div>
     <div className="planning">
       <section className="main">
+
         <div className="rm-wrapper">
-          <div className="rm-content">
-    
+
+          <div className="rm-content" ref={ref}>
+
             <h4>Lundi</h4>
             <dl>
               <dt>Midi </dt>
@@ -40,7 +50,7 @@ const Planning = ({
               <dd>Plat : {lundi_soir.Plat.title}</dd>
               <dd>Dessert {lundi_soir.Dessert.title}</dd>
             </dl>
-    
+
             <h4>Mardi</h4>
             <dl>
               <dt>Midi </dt>
@@ -52,8 +62,8 @@ const Planning = ({
               <dd>Entrée : {mardi_soir.Entrée.title}</dd>
               <dd>Plat : {mardi_soir.Plat.title}</dd>
               <dd>Dessert {mardi_soir.Dessert.title}</dd>
-              </dl>
-    
+            </dl>
+
             <h4>Mercredi</h4>
             <dl>
               <dt>Midi</dt>
@@ -66,7 +76,7 @@ const Planning = ({
               <dd>Plat : {mercredi_soir.Plat.title}</dd>
               <dd>Dessert {mercredi_soir.Dessert.title}</dd>
             </dl>
-    
+
             <h4>Jeudi</h4>
             <dl>
               <dt>Midi</dt>
@@ -79,7 +89,7 @@ const Planning = ({
               <dd>Plat : {jeudi_soir.Plat.title}</dd>
               <dd>Dessert {jeudi_soir.Dessert.title}</dd>
             </dl>
-    
+
             <h4>Vendredi</h4>
             <dl>
               <dt>Midi</dt>
@@ -92,7 +102,7 @@ const Planning = ({
               <dd>Plat : {vendredi_soir.Plat.title}</dd>
               <dd>Dessert {vendredi_soir.Dessert.title}</dd>
             </dl>
-    
+
             <h4>Samedi</h4>
             <dl>
               <dt>Midi</dt>
@@ -105,7 +115,7 @@ const Planning = ({
               <dd>Plat : {samedi_soir.Plat.title}</dd>
               <dd>Dessert {samedi_soir.Dessert.title}</dd>
             </dl>
-    
+
             <h4>Dimanche</h4>
             <dl>
               <dt>Midi</dt>
@@ -122,8 +132,8 @@ const Planning = ({
         </div>
       </section>
     </div>
-  );
-};
+  </div>
+);
 
 Planning.propTypes = {
   // -------------- LUNDI ---------------

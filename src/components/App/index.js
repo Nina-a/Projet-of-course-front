@@ -26,9 +26,9 @@ const App = ({ fetchRecipes }) => {
     <div className="app">
       <NavBar className="navigation-bar" />
       <main className="main">
-        <header className="header">
+        {/* <header className="header">
           Of'Course
-        </header>
+        </header> */}
         <Route exact path="/">
           <Home className="home" />
         </Route>
