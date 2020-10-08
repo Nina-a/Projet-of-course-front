@@ -12,7 +12,7 @@ import Footer from '../Footer';
 import LoginForm from '../../containers/LoginForm';
 import './styles.css';
 import data from '../../data';
-import RegisterForm from '../../containers/RegisterForm';
+//import RegisterForm from '../../containers/RegisterForm';
 
 const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
@@ -30,7 +30,9 @@ const App = ({ fetchRecipes }) => {
         <header className="header">
           Of'Course
         </header>
-  RecipeMessage,
+        <Route exact path="/">
+          <Home className="home" />
+        </Route>
         <Route exact path="/recipes">
           <Recipes className="recipes" />
         </Route>
@@ -44,7 +46,7 @@ const App = ({ fetchRecipes }) => {
           <LoginForm className="connexion" />
         </Route>
         <Route exact path="/register">
-          <RegisterForm />
+          Hi c'est moi
         </Route>
       </main>
       <Footer className="footer" />
