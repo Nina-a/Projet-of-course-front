@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Ingredient = (props) => {
-  const { ingredient, onTodoCheck } = props;
-  console.log(props);
+const Ingredient = (ingredientData) => {
+  const { ingredient, onTodoCheck } = ingredientData;
+  console.log(ingredientData);
   console.log('ingredient', ingredient);
   return (
     <li>
       <div className="form-check">
         <label className="form-check-label">
           <input className="checkbox" type="checkbox" />
-          For what reason would it be advisable.
+          { ingredientData.quantity ? ingredientData.quantity : ''} { ingredientData.quantity ? ingredientData.unity : ''} { ingredientData.name }
           <i className="input-helper" />
         </label>
       </div>
