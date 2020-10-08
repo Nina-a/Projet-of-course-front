@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 // == Composant
+
 const Planning = ({
   lundi_midi,
   lundi_soir,
@@ -21,12 +22,12 @@ const Planning = ({
   dimanche_midi,
   dimanche_soir,
 }) => {
-  console.log(lundi_midi);
   return (
     <div className="planning">
       <section className="main">
         <div className="rm-wrapper">
           <div className="rm-content">
+    
             <h4>Lundi</h4>
             <dl>
               <dt>Midi </dt>
@@ -39,8 +40,10 @@ const Planning = ({
               <dd>Plat : {lundi_soir.Plat.title}</dd>
               <dd>Dessert {lundi_soir.Dessert.title}</dd>
             </dl>
+    
             <h4>Mardi</h4>
             <dl>
+              <dt>Midi </dt>
               <dd>Entrée : {mardi_midi.Entrée.title}</dd>
               <dd>Plat : {mardi_midi.Plat.title}</dd>
               <dd>Dessert {mardi_midi.Dessert.title}</dd>
@@ -49,7 +52,8 @@ const Planning = ({
               <dd>Entrée : {mardi_soir.Entrée.title}</dd>
               <dd>Plat : {mardi_soir.Plat.title}</dd>
               <dd>Dessert {mardi_soir.Dessert.title}</dd>
-            </dl>
+              </dl>
+    
             <h4>Mercredi</h4>
             <dl>
               <dt>Midi</dt>
@@ -62,6 +66,7 @@ const Planning = ({
               <dd>Plat : {mercredi_soir.Plat.title}</dd>
               <dd>Dessert {mercredi_soir.Dessert.title}</dd>
             </dl>
+    
             <h4>Jeudi</h4>
             <dl>
               <dt>Midi</dt>
@@ -74,6 +79,7 @@ const Planning = ({
               <dd>Plat : {jeudi_soir.Plat.title}</dd>
               <dd>Dessert {jeudi_soir.Dessert.title}</dd>
             </dl>
+    
             <h4>Vendredi</h4>
             <dl>
               <dt>Midi</dt>
@@ -86,6 +92,7 @@ const Planning = ({
               <dd>Plat : {vendredi_soir.Plat.title}</dd>
               <dd>Dessert {vendredi_soir.Dessert.title}</dd>
             </dl>
+    
             <h4>Samedi</h4>
             <dl>
               <dt>Midi</dt>
@@ -98,6 +105,7 @@ const Planning = ({
               <dd>Plat : {samedi_soir.Plat.title}</dd>
               <dd>Dessert {samedi_soir.Dessert.title}</dd>
             </dl>
+    
             <h4>Dimanche</h4>
             <dl>
               <dt>Midi</dt>

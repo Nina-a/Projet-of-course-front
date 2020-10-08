@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import planning from '../components/Planning';
 
+
 const mapStateToProps = (state) => {
   console.log(state);
   console.log(state.planning.planning[1]);
