@@ -5,7 +5,6 @@ import user from './user';
 import planning from './planning';
 import reducerShoppingList from './shoppingList';
 
-
 export default combineReducers({
   counter,
   reducerrecipes,
