@@ -6,32 +6,38 @@ import PropTypes from 'prop-types';
 import './recipe.scss';
 
 // == Composant
-const CardRecipe = ({ recipe }) => {
+const CardRecipe = ({ recipe, addToPlanning }) => {
   console.log(recipe);
   return (
     recipe.map((recipeDetail) => (
-      <div className="card-wrapper card-action">
-        <div id="card-1" className="card card-rotating text-center">
-          <div className="face front">
-            <div className="card-up">
-              <img
-                className="card-img-top"
-                src={recipeDetail.picture}
-                alt="with a of clouds."
-              />
-            </div>
-            <div className="card-body">
-              <h3 className="font-weight-bold mb-3 pb-1">{recipeDetail.title}</h3>
-            </div>
-          </div>
-
-          <div className="face back">
-            <div className="card-body">
-              <a className="rotate-btn" data-card="card-1">
-                <i className="fas fa-undo" />
-                Plus de détails ici
-              </a>
-            </div>
+      <div key={recipeDetail.id} className="card">
+        <img className="card-img-top" src={recipeDetail.picture} alt="Card cap" />
+        <div className="card-body">
+          <h5 className="card-title">{recipeDetail.title}</h5>
+          <div className="divButton">
+            <button type="button" className="btn btn-secondary">Ajouter au favoris</button>
+            <select
+              className="btn btn-primary"
+              name={recipeDetail.title}
+              onChange={(e) => addToPlanning(recipeDetail, e.target.value,
+                recipeDetail.categories[0].title)}
+            >
+              <option value="0">Choississez un jour</option>
+              <option value="1">Lundi midi</option>
+              <option value="2">Lundi soir</option>
+              <option value="3">Mardi midi</option>
+              <option value="4">Mardi soir</option>
+              <option value="5">Mercredi midi</option>
+              <option value="6">Mercredi soir</option>
+              <option value="7">Jeudi midi</option>
+              <option value="8">Jeudi soir</option>
+              <option value="9">Vendredi midi</option>
+              <option value="10">Vendredi soir</option>
+              <option value="11">Samedi midi</option>
+              <option value="12">Samedi soir</option>
+              <option value="13">Dimanche midi</option>
+              <option value="14">Dimanche soir</option>
+            </select>
           </div>
         </div>
       </div>
@@ -44,8 +50,10 @@ CardRecipe.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       picture: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
     }).isRequired,
   ),
+  addToPlanning: PropTypes.func.isRequired,
 };
 // == Export
 export default CardRecipe;

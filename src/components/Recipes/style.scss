@@ -1,19 +1,17 @@
 .card {
   padding-top: 30px;
-  max-width: 20%;
-  border: black solid 1px;
-  padding: 0 20px;
+  min-width: 25%;
+  max-width:33%;
+  max-height: 70%;
+  padding: 0;
+  margin-top:3px;
+  margin-right:3px;
 }
 
 .card-image {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
-}
-
-.recipes {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  margin:0px;
 }
 
 .favorite {
@@ -33,7 +31,8 @@
   text-align: center;
   width: 60%;
   margin-left: 20%;
-  border: none
+  border: none;
+  
 }
 
 .nav-item-dessert {
@@ -52,20 +51,35 @@
   width: 25%;
 }
 
-.nav-item-dessert:hover {
-  transform: scale(1.1);
-}
-
-.nav-item-entree:hover {
-  transform: scale(1.1);
-}
-
-.nav-item-plat:hover {
-  transform: scale(1.1);
-}
-
-.tab-content {
-  display: flex;
+.card-group {
+  overflow-y: scroll;
+  flex-wrap:wrap;
+  margin-top: 10px;
+  display:flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  height: 800px;
+  //justify-content: space-between;
+
+}  
+.btn{
+  margin-right: 3rem;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+.divbutton{
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
