@@ -12,7 +12,6 @@ import Footer from '../Footer';
 import LoginForm from '../../containers/LoginForm';
 import './styles.css';
 import data from '../../data';
-//import RegisterForm from '../../containers/RegisterForm';
 
 const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
