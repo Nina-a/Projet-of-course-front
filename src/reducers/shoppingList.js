@@ -40,7 +40,7 @@ const reducerShoppingList = (state = initialState, action = {}) => {
           id: key,
           name: shoppingListGroupe[key][0].name,
           quantity: shoppingListGroupe[key].reduce((acc, curr) => acc + curr.quantity, 0),
-          untit: shoppingListGroupe[key][0].unit,
+          unity: shoppingListGroupe[key][0].unit,
         }));
 
       return {
