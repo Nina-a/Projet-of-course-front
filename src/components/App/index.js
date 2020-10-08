@@ -30,9 +30,7 @@ const App = ({ fetchRecipes }) => {
         <header className="header">
           Of'Course
         </header>
-        <Route exact path="/">
-          <Home className="home" />
-        </Route>
+  RecipeMessage,
         <Route exact path="/recipes">
           <Recipes className="recipes" />
         </Route>

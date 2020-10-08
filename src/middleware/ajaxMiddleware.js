@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, addRecipeSuccess, addRecipeError, ADD_RECIPE_INPUT_SUBMIT } from '../actions/recipes';
+import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE} from '../actions/recipes';
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
@@ -11,6 +11,7 @@ import {
   REGISTER_INPUT_SUBMIT,
   registerSuccess,
   registerError,
+
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
@@ -105,27 +106,27 @@ export default (store) => (next) => (action) => {
         .then((res) => {
           const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(RegisterSuccess(serverResponse));
+          dispatch(registerSuccess(serverResponse));
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
           console.error(err);
-          dispatch(RegisterError());
+          dispatch(registerError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
       break;
-
-    case ADD_RECIPE_INPUT_SUBMIT:
+    case ADD_RECIPE:
       axios({
         method: 'post',
-        url: 'http://18.209.180.210/api/user/newRecipe',
+        url: 'http://18.209.180.210/api/add/recipe',
         data: {
           title: store.getState().user.title,
           subtitle: store.getState().user.subtitle,
           description: store.getState().user.description,
-          picture: store.getState().user.picture,
+          //picture: store.getState().user.picture,
           servings: store.getState().user.servings,
-          role: 'user',
+          serving: store.getState().user.serving,
+          //private: store.getState().user.private,
         },
       })
         .then((res) => {
@@ -140,7 +141,6 @@ export default (store) => (next) => (action) => {
           // En cas d'échec de la sauvegarde dans la data, le serveur retourne une erreur
         });
       break;
-
     default:
       //console.log('default');
       break;
