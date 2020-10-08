@@ -3,6 +3,8 @@ import React from 'react';
 // == Import
 import './style.scss';
 import { Container, Col, Row } from 'react-bootstrap';
+import { FileInput } from 'react-md';
+
 import Field from './Field';
 
 const RegisterForm = ({
@@ -18,6 +20,7 @@ const RegisterForm = ({
   name,
   handleRegister,
   avatar,
+  onChangeHandle,
 }) => {
   const registerInputSubmit = (evt) => {
     evt.preventDefault();
@@ -25,11 +28,7 @@ const RegisterForm = ({
   };
 
   if (loading) {
-    return (
-      <div className="login-form">
-        Connexion en cours
-      </div>
-    );
+    return <div className="login-form">Connexion en cours</div>;
   }
 
   return (
@@ -37,7 +36,11 @@ const RegisterForm = ({
       <Container>
         <Row className="justify-content-md-center">
           <Col md={4}>
-            <form autoComplete="off" className="login-form-element" onClick={registerInputSubmit}>
+            <form
+              autoComplete="off"
+              className="login-form-element"
+              onClick={registerInputSubmit}
+            >
               <Field
                 name="email"
                 placeholder="Adresse Email"
@@ -69,10 +72,11 @@ const RegisterForm = ({
                 onChange={changeField}
                 value={password}
               />
-              <button
-                type="submit"
-                className="login-form-button"
-              >
+              <div clasName="file-inputs">
+                <FileInput id="plop" />
+              </div>
+
+              <button type="submit" className="login-form-button">
                 s'inscrire
               </button>
             </form>
