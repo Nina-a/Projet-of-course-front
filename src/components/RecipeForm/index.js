@@ -90,9 +90,9 @@ RecipeForm.propTypes = {
 //  RecipeMessage: PropTypes.string,
 };
 
-RecipeForm.defaultProps = {
-  Private: true,
-  RecipeMessage: 'Sauvegardé',
-};
+//RecipeForm.defaultProps = {
+  //Private: true,
+  //RecipeMessage: 'Sauvegardé',
+//};
 
 export default RecipeForm;

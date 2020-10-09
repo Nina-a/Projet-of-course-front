@@ -17,6 +17,7 @@ const initialState = {
   isLogged: false,
   pseudo: '',
   loggedMessage: 'Bienvenue intel',
+  name: '',
 };
 
 const user = (state = initialState, action = {}) => {
@@ -54,7 +55,7 @@ const user = (state = initialState, action = {}) => {
         ...state,
         loading: true,
       };
-
+// == Action pour s'inscrire
     case REGISTER_SUCCESS:
       return {
         ...state,

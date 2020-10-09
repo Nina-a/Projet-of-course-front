@@ -10,6 +10,7 @@ import Recipes from '../../containers/Recipes';
 import ShoppingList from '../../containers/ShoppingList';
 import Footer from '../Footer';
 import LoginForm from '../../containers/LoginForm';
+import RegisterForm from '../../containers/RegisterForm';
 import './styles.css';
 import data from '../../data';
 
@@ -26,9 +27,9 @@ const App = ({ fetchRecipes }) => {
     <div className="app">
       <NavBar className="navigation-bar" />
       <main className="main">
-        {/* <header className="header">
+        <header className="header">
           Of'Course
-        </header> */}
+        </header>
         <Route exact path="/">
           <Home className="home" />
         </Route>
@@ -45,7 +46,7 @@ const App = ({ fetchRecipes }) => {
           <LoginForm className="connexion" />
         </Route>
         <Route exact path="/register">
-          Hi c'est moi
+          <RegisterForm />
         </Route>
       </main>
       <Footer className="footer" />
