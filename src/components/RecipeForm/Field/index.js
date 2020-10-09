@@ -12,20 +12,12 @@ const Field = ({
   type,
   name,
   placeholder,
-  onChange,
 }) => {
-  const handleChange = (evt) => {
-    onChange(evt.target.value, name);
-  };
-
   const inputId = `field-${name}`;
 
   return (
     <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
       <input
-        // React - state
-        value={value}
-        onChange={handleChange}
         // infos de base
         id={inputId}
         type={type}

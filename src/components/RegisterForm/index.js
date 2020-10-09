@@ -4,8 +4,10 @@ import React from 'react';
 import './style.scss';
 import { Container, Col, Row } from 'react-bootstrap';
 import { FileInput } from 'react-md';
+import PropTypes from 'prop-types';
 
 import Field from './Field';
+import { Redirect } from 'react-router';
 
 const RegisterForm = ({
   email,
@@ -15,17 +17,17 @@ const RegisterForm = ({
   name,
   handleRegister,
   avatar,
-  onChangeHandle,
+  isLogged,
 }) => {
   const registerInputSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
   };
-  /**
-    if (loading) {
-      return <div className="login-form">Connexion en cours</div>;
-    }
-  */
+
+  if (isLogged) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <div className="register-form">
       <Container>
@@ -68,9 +70,6 @@ const RegisterForm = ({
                 onChange={changeField}
                 value={password}
               />
-              <div clasName="file-inputs">
-                <FileInput id="plop" />
-              </div>
 
               <button type="submit" className="login-form-button">
                 s'inscrire
@@ -82,5 +81,13 @@ const RegisterForm = ({
     </div>
   );
 };
-
+// == Composant
+Field.propTypes = {
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  pseudo: PropTypes.string.isRequired,
+  handleRegister: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
+};
 export default RegisterForm;

@@ -3,6 +3,8 @@ export const FETCH_RECIPES_SUCCESS = 'FETCH_RECIPES_SUCCESS';
 export const FETCH_RECIPES_ERROR = 'FETCH_RECIPES_ERROR';
 export const ADD_RECIPE = 'ADD_RECIPE';
 export const UPDATE_RECIPE = 'UPDATE_RECIPE';
+export const ADD_RECIPE_SUBMIT = 'ADD_RECIPE_SUBMIT';
+export const ADD_RECIPE_CHANGE_FIELD = 'ADD_RECIPE_CHANGE_FIELD';
 export const ADD_TO_SHOPPINGLIST = 'ADD_TO_SHOPPINGLIST';
 export const ADD_TO_PLANNING = 'ADD_TO_PLANNING';
 export const ADD_TO_RECIPE = 'ADD_TO_RECIPE ';
@@ -30,8 +32,8 @@ export const addToPlanning = (title, value, category) => ({
   category,
 });
 
-export const addToRecipe = () => ({
-  type: ADD_TO_RECIPE,
+export const addToRecipe = (formData) => ({
+  type: ADD_TO_RECIPE
 });
 
 export const addRecipeSuccess = () => ({
@@ -42,8 +44,9 @@ export const addRecipeError = () => ({
   type: ADD_RECIPE_ERROR,
 });
 
-export const addRecipe = () => ({
+export const addRecipe = (payload) => ({
   type: ADD_RECIPE,
+  payload,
 });
 
 export const updateRecipe = () => ({

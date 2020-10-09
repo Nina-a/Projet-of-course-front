@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FileInput } from 'react-md';
 
 // == Import : local
 import './style.scss';
@@ -21,17 +22,24 @@ const Field = ({
 
   return (
     <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
-      <input
-        // React - state
-        value={value}
-        onChange={handleChange}
-        // infos de base
-        id={inputId}
-        type={type}
-        className="field-input"
-        placeholder={placeholder}
-        name={name}
-      />
+
+      {type === 'file' && <FileInput id="plop" />}
+      {
+        (type === 'text' || type === 'number' || type === 'password')
+        && (
+          <input
+            // React - state
+            value={value}
+            onChange={handleChange}
+            // infos de base
+            id={inputId}
+            type={type}
+            className="field-input"
+            placeholder={placeholder}
+            name={name}
+          />
+        )
+      }
 
       <label
         htmlFor={inputId}

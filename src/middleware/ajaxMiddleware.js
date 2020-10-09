@@ -77,10 +77,14 @@ export default (store) => (next) => (action) => {
       break;
 
     case LOGIN_INPUT_LOGOUT:
-      axios({
-        method: 'post',
-        url: 'http://18.209.180.210/api/logout', // url à modifier
-      })
+      axios.get(
+        'http://18.209.180.210/api/logout',
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
+          },
+        },
+      )
         .then((res) => {
           const { data } = res;
           //console.log (data);
@@ -97,7 +101,7 @@ export default (store) => (next) => (action) => {
         method: 'post',
         url: 'http://18.209.180.210/api/user/new',
         data: {
-          username: store.getState().user.email,
+          email: store.getState().user.email,
           name: store.getState().user.name,
           pseudo: store.getState().user.pseudo,
           password: store.getState().user.password,
@@ -106,7 +110,10 @@ export default (store) => (next) => (action) => {
         .then((res) => {
           const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(registerSuccess(serverResponse));
+          dispatch(registerSuccess({
+            ...serverResponse,
+            pseudo: store.getState().user.pseudo,
+          }));
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
@@ -116,23 +123,23 @@ export default (store) => (next) => (action) => {
         });
       break;
     case ADD_RECIPE:
-      axios({
-        method: 'post',
-        url: 'http://18.209.180.210/api/add/recipe',
-        data: {
-          title: store.getState().user.title,
-          subtitle: store.getState().user.subtitle,
-          description: store.getState().user.description,
-          //picture: store.getState().user.picture,
-          servings: store.getState().user.servings,
-          serving: store.getState().user.serving,
-          //private: store.getState().user.private,
+      // https://flaviocopes.com/axios-send-authorization-header/
+      axios.post(
+        'http://18.209.180.210/api/add/recipe',
+        {
+          ...action.payload,
+          private: false,
         },
-      })
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
+          },
+        },
+      )
         .then((res) => {
-          const serverResponse = res.data;
+        //  const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(addRecipeSuccess(serverResponse));
+          // dispatch(addRecipeSuccess(serverResponse));
           // Retour du serveur avec les infos de la recette
         })
         .catch((err) => {
