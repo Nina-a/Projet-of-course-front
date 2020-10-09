@@ -18,6 +18,7 @@ const initialState = {
   pseudo: '',
   loggedMessage: 'Bienvenue intel',
   name: '',
+  avatar: '',
 };
 
 const user = (state = initialState, action = {}) => {
