@@ -45,12 +45,12 @@ export const logoutError = () => ({
   type: LOGOUT_ERROR,
 });
 
+// == Action nécessaires pour s'inscrire
 export const registerInputChange = (payload) => ({
   type: REGISTER_INPUT_CHANGE,
   payload,
 });
 
-// == Action nécessaires pour s'inscrire
 export const registerInputSubmit = () => ({
   type: REGISTER_INPUT_SUBMIT,
 });

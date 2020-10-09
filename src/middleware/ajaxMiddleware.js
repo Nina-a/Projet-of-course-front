@@ -126,7 +126,7 @@ export default (store) => (next) => (action) => {
           title: store.getState().user.title,
           subtitle: store.getState().user.subtitle,
           description: store.getState().user.description,
-          picture: store.getState().user.picture,
+          picture: store.getState().user.avatar,
           serving: store.getState().user.serving,
           private: store.getState().user.private,
         },

@@ -32,8 +32,8 @@ const mapDispatch = (dispatch) => ({
   handlerRegisterError: () => {
     dispatch(registerError());
   },
-  handleRegister: () => {
-    dispatch(registerInputSubmit());
+  handleRegister: (payload) => {
+    dispatch(registerInputSubmit(payload));
   },
 });
 
