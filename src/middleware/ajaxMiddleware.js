@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError } from '../actions/recipes';
+import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, addRecipeSuccess, addRecipeError, ADD_RECIPE_INPUT_SUBMIT } from '../actions/recipes';
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
@@ -96,24 +96,48 @@ export default (store) => (next) => (action) => {
         method: 'post',
         url: 'http://18.209.180.210/api/user/new',
         data: {
+          username: store.getState().user.email,
           name: store.getState().user.name,
-          email: store.getState().user.email,
-          password: store.getState().user.password,
           pseudo: store.getState().user.pseudo,
-          avatar: store.getState().user.avater,
+          password: store.getState().user.password,
+        },
+      })
+        .then((res) => {
+          const serverResponse = res.data;
+          // console.log(serverResponse);
+          dispatch(RegisterSuccess(serverResponse));
+          // Retour du serveur avec les infos du user
+        })
+        .catch((err) => {
+          console.error(err);
+          dispatch(RegisterError());
+          // En cas d'user non trouvé dans la data, le serveur retourne une erreur
+        });
+      break;
+
+    case ADD_RECIPE_INPUT_SUBMIT:
+      axios({
+        method: 'post',
+        url: 'http://18.209.180.210/api/user/newRecipe',
+        data: {
+          title: store.getState().user.title,
+          subtitle: store.getState().user.subtitle,
+          description: store.getState().user.description,
+          picture: store.getState().user.picture,
+          servings: store.getState().user.servings,
           role: 'user',
         },
       })
         .then((res) => {
           const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(registerSuccess(serverResponse));
-          // Retour du serveur avec les infos du user
+          dispatch(addRecipeSuccess(serverResponse));
+          // Retour du serveur avec les infos de la recette
         })
         .catch((err) => {
           console.error(err);
-          dispatch(registerError());
-          // En cas d'user non trouvé dans la data, le serveur retourne une erreur
+          dispatch(addRecipeError());
+          // En cas d'échec de la sauvegarde dans la data, le serveur retourne une erreur
         });
       break;
 
