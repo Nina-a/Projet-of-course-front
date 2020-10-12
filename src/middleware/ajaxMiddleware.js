@@ -138,6 +138,7 @@ export default (store) => (next) => (action) => {
         },
         {
           headers: {
+            // Authorization: `Bearer ${store.getState().user.token}`,
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
           },
         },
