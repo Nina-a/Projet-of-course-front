@@ -34,15 +34,15 @@ const reducerShoppingList = (state = initialState, action = {}) => {
       };
 
       const shoppingListGroupe = (groupBy(state.shoppingList, 'id'));
-
+      console.log(shoppingListGroupe);
       const shoppingListGroupeEtAdditionne = Object.keys(shoppingListGroupe).map((key) => (
         {
           id: key,
           name: shoppingListGroupe[key][0].name,
           quantity: shoppingListGroupe[key].reduce((acc, curr) => acc + curr.quantity, 0),
-          unity: shoppingListGroupe[key][0].unit,
+          unit: shoppingListGroupe[key][0].unit,
         }));
-
+      console.log(shoppingListGroupeEtAdditionne);
       return {
         ...state,
         shoppingList: [...shoppingListGroupeEtAdditionne],

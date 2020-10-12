@@ -104,10 +104,12 @@ export default (store) => (next) => (action) => {
         method: 'post',
         url: 'http://18.209.180.210/api/user/new',
         data: {
-          email: store.getState().user.email,
           name: store.getState().user.name,
-          pseudo: store.getState().user.pseudo,
+          email: store.getState().user.email,
           password: store.getState().user.password,
+          pseudo: store.getState().user.pseudo,
+          avatar: store.getState().user.avatar,
+          role: 'user',
         },
       })
         .then((res) => {
@@ -121,10 +123,11 @@ export default (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.error(err);
-          dispatch(registerError());
+          //dispatch(registerError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
       break;
+
     case ADD_RECIPE:
       // https://flaviocopes.com/axios-send-authorization-header/
       axios.post(

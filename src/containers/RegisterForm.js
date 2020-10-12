@@ -14,7 +14,6 @@ const mapState = (state) => ({
   pseudo: state.user.pseudo,
   password: state.user.password,
   avatar: state.user.avatar,
-  isLogged: state.user.isLogged,
 });
 
 const mapDispatch = (dispatch) => ({
@@ -33,8 +32,8 @@ const mapDispatch = (dispatch) => ({
   handlerRegisterError: () => {
     dispatch(registerError());
   },
-  handleRegister: () => {
-    dispatch(registerInputSubmit());
+  handleRegister: (payload) => {
+    dispatch(registerInputSubmit(payload));
   },
 });
 

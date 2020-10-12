@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // == Import : local
 import './style.scss';
 
-
 // == Composant
 const Field = ({
   value,
@@ -41,7 +40,6 @@ Field.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
 };
 
 // Valeurs par défaut pour les props

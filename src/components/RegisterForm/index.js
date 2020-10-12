@@ -1,93 +1,87 @@
 import React from 'react';
 
-// == Import
 import './style.scss';
-import { Container, Col, Row } from 'react-bootstrap';
-import { FileInput } from 'react-md';
-import PropTypes from 'prop-types';
 
-import Field from './Field';
-import { Redirect } from 'react-router';
-
-const RegisterForm = ({
-  email,
-  password,
-  changeField,
-  pseudo,
-  name,
+const RegisterFrom = ({
   handleRegister,
+  name,
+  password,
+  email,
+  pseudo,
   avatar,
-  isLogged,
+  onChange,
+  changeField,
 }) => {
-  const registerInputSubmit = (evt) => {
+  const handleRegisterSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
   };
 
-  if (isLogged) {
-    return <Redirect to="/" />;
-  }
+  const changeInput = (evt) => {
+    console.log(evt.target.value);
+    changeField(evt.target.value, evt.target.name);
+    console.log(evt.target.value);
+    console.log(evt.target.name);
+  };
 
   return (
-    <div className="register-form">
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col md={4}>
-            <form
-              autoComplete="off"
-              className="login-form-element"
-              onSubmit={registerInputSubmit}
-            >
-              <Field
-                name="email"
-                placeholder="Adresse Email"
-                onChange={changeField}
-                value={email}
-              />
-              <Field
-                name="name"
-                placeholder="Nom"
-                onChange={changeField}
-                value={name}
-              />
-              <Field
-                name="pseudo"
-                placeholder="Pseudo"
-                onChange={changeField}
-                value={pseudo}
-              />
-              <Field
-                name="avatar"
-                type="file"
-                placeholder="Avatar"
-                onChange={changeField}
-                value={avatar}
-              />
-              <Field
-                name="password"
-                type="password"
-                placeholder="Mot de passe"
-                onChange={changeField}
-                value={password}
-              />
-
-              <button type="submit" className="login-form-button">
-                s'inscrire
-              </button>
-            </form>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <form onSubmit={handleRegisterSubmit}>
+      <div className="form-group">
+        <input
+          type="name"
+          className="form-control"
+          id="name"
+          onChange={changeInput}
+          name="name"
+          value={name}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="email"
+          className="form-control"
+          id="email"
+          onChange={changeInput}
+          name="email"
+          value={email}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="password"
+          className="form-control"
+          id="password"
+          placeholder="password"
+          onChange={changeInput}
+          name="password"
+          value={password}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control"
+          id="pseudo"
+          placeholder="pseudo"
+          onChange={changeInput}
+          name="pseudo"
+          value={pseudo}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="file"
+          className="form-control"
+          id="password"
+          placeholder="avatar"
+          onChange={changeInput}
+          name="avatar"
+          value={avatar}
+        />
+      </div>
+      <button type="submit" className="btn btn-primary">Submit</button>
+    </form>
   );
 };
-// == Composant
-Field.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  pseudo: PropTypes.string.isRequired,
-  handleRegister: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired,
-};
-export default RegisterForm;
+
+export default RegisterFrom;

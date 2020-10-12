@@ -10,9 +10,9 @@ import Recipes from '../../containers/Recipes';
 import ShoppingList from '../../containers/ShoppingList';
 import Footer from '../Footer';
 import LoginForm from '../../containers/LoginForm';
+import RegisterForm from '../../containers/RegisterForm';
 import './styles.css';
 import data from '../../data';
-import RegisterForm from '../../containers/RegisterForm';
 import RecipeForm from '../../containers/RecipeForm';
 
 const ingredientData = data.map((dataObjet) => ({
