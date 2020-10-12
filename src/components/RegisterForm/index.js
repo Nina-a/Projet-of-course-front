@@ -19,7 +19,22 @@ const RegisterFrom = ({
 
   const changeInput = (evt) => {
     console.log(evt.target.value);
-    changeField(evt.target.value, evt.target.name);
+    if (evt.target.name === 'avatar') {
+      const reader = new FileReader();
+
+      reader.addEventListener(
+        'load', () => {
+          // convert image file to base64 string
+          changeField(reader.result, 'avatar');
+        },
+        false,
+      );
+
+      reader.readAsDataURL(evt.target.files[0]);
+    }
+    else {
+      changeField(evt.target.value, evt.target.name);
+    }
     console.log(evt.target.value);
     console.log(evt.target.name);
   };
@@ -76,7 +91,6 @@ const RegisterFrom = ({
           placeholder="avatar"
           onChange={changeInput}
           name="avatar"
-          value={avatar}
         />
       </div>
       <button type="submit" className="btn btn-primary">Submit</button>

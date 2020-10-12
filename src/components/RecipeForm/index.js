@@ -12,6 +12,7 @@ const RecipeForm = ({
     evt.preventDefault();
     const formData = new FormData(evt.currentTarget);
 
+    debugger;
     sendForm({
       title: formData.get('title'),
       subtitle: formData.get('subtitle'),
