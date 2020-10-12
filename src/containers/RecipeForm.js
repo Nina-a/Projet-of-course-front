@@ -9,6 +9,7 @@ const mapState = (state) => ({
   picture: state.user.picture,
   serving: state.user.servings,
   private: state.user.private, // boolean
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatch = (dispatch) => ({

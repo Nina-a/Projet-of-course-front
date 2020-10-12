@@ -15,6 +15,7 @@ const LoginForm = ({
   handleLogin,
   handleLogout,
   loading,
+  isLogged,
 }) => {
   // https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
   const [user, setUser] = useState(false);
@@ -24,7 +25,7 @@ const LoginForm = ({
     if (loggedInUser) {
       setUser(JSON.parse(loggedInUser));
     }
-  }, []);
+  }, [isLogged]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

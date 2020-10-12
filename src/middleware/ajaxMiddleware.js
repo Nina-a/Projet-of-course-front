@@ -66,7 +66,10 @@ export default (store) => (next) => (action) => {
         .then((res) => {
           const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(loginSuccess(serverResponse));
+          dispatch(loginSuccess({
+            token: serverResponse,
+            pseudo: store.getState().user.email,
+          }));
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
