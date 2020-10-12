@@ -1,0 +1,138 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+  }
+  @import 'https://fonts.googleapis.com/css?family=Roboto';
+html, body {
+  height: 100%;
+  width: 100%;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;    
+  background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
+/* Normal Button */
+button {
+  display: inline-block;
+  margin: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.125em;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  width: 300px;
+  letter-spacing: 4px;
+  border-radius: 2px;
+}
+button:focus, 
+button:hover {
+  background-color: #ea4c89;
+  box-shadow: 0 0 0 0.1875rem white, 
+              0 0 0 0.375rem #ea4c89;
+}
+button:active {
+  background-color: #ea4c89;
+  box-shadow: 0 0 0 0.1875rem #ea4c89, 
+              0 0 0 0.375rem #ea4c89;
+  transition-duration: 75ms;
+}
+/* Outline Button */
+button.outline {
+  background-color: transparent;
+  color: white;
+}
+button.outline:focus, 
+button.outline:hover {
+  border-color: #ea4c89;
+  color: #ea4c89;
+}
+button.outline:active {
+  border-color: #ea4c89;
+  color: #ea4c89;
+}
+  h3{
+	  padding: 10px;
+  }
+  ul {
+	list-style-type: none;
+	}
+li{
+	padding: 3px;
+}
+  .containerplanning {
+	margin: auto;
+  }
+  .heading {
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 50px;
+  }
+  .row {
+	  margin-top: 10%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-flow: wrap;
+  }
+  .cardplanning {
+	width: 14%;
+	background: #fff;
+	border: 1px solid #ccc;
+	margin-bottom: 50px;
+	transition: 0.3s;
+  }
+  .cardplanning-header {
+	text-align: center;
+	padding: 50px 10px;
+	background: linear-gradient(to right, #8dcaff, #bbff9c);
+	color: #fff;
+  }
+  .cardplanning-body {
+	padding: 30px 20px;
+	text-align: center;
+	font-size: 18px;
+  }
+  .cardplanning-body .btn {
+	display: block;
+	color: #fff;
+	text-align: center;
+	background: linear-gradient(to right, #ff416c, #ff4b2b);
+	margin-top: 30px;
+	text-decoration: none;
+	padding: 10px 5px;
+  }
+  .cardplanning:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+  }
+  @media screen and (max-width: 1000px) {
+	.cardplanning {
+	  width: 40%;
+	}
+  }
+  @media screen and (max-width: 620px) {
+	.container {
+	  width: 100%;
+	}
+	.heading {
+	  padding: 20px;
+	  font-size: 20px;
+	}
+	.cardplanning {
+	  width: 80%;
+	}
+  }

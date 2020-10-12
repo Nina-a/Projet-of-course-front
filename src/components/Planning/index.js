@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Pdf from 'react-to-pdf';
 
 // == Import
-import './style.css';
+import './planning.css';
 
 // == Composant
 
@@ -31,106 +31,152 @@ const Planning = ({
         {({ toPdf }) => <button type="button" onClick={toPdf}>Generate Pdf</button>}
       </Pdf>
     </div>
-    <div className="planning">
-      <section className="main">
+    <div className="containerplanning">
+      <div className="heading">
+        <h1>Menu de la semaine</h1>
+      </div>
 
-        <div className="rm-wrapper">
+      <div className="row">
 
-          <div className="rm-content" ref={ref}>
+        <div className="cardplanning">
 
-            <h4>Lundi</h4>
-            <dl>
-              <dt>Midi </dt>
-              <dd>Entrée : {lundi_midi.Entrée.title}</dd>
-              <dd>Plat : {lundi_midi.Plat.title}</dd>
-              <dd>Dessert {lundi_midi.Dessert.title}</dd>
+          <div className="cardplanning-header">
+            <h1>Lundi</h1>
+          </div>
 
-              <dt>Soir</dt>
-              <dd>Entrée : {lundi_soir.Entrée.title}</dd>
-              <dd>Plat : {lundi_soir.Plat.title}</dd>
-              <dd>Dessert {lundi_soir.Dessert.title}</dd>
-            </dl>
+          <div className="cardplanning-body">
+            <h3>Midi</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+            <h3>Soir</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+          </div>
 
-            <h4>Mardi</h4>
-            <dl>
-              <dt>Midi </dt>
-              <dd>Entrée : {mardi_midi.Entrée.title}</dd>
-              <dd>Plat : {mardi_midi.Plat.title}</dd>
-              <dd>Dessert {mardi_midi.Dessert.title}</dd>
+        </div>
 
-              <dt>Soir</dt>
-              <dd>Entrée : {mardi_soir.Entrée.title}</dd>
-              <dd>Plat : {mardi_soir.Plat.title}</dd>
-              <dd>Dessert {mardi_soir.Dessert.title}</dd>
-            </dl>
-
-            <h4>Mercredi</h4>
-            <dl>
-              <dt>Midi</dt>
-              <dd>Entrée : {mercredi_midi.Entrée.title}</dd>
-              <dd>Plat : {mercredi_midi.Plat.title}</dd>
-              <dd>Dessert {mercredi_midi.Dessert.title}</dd>
-
-              <dt>Soir</dt>
-              <dd>Entrée : {mercredi_soir.Entrée.title}</dd>
-              <dd>Plat : {mercredi_soir.Plat.title}</dd>
-              <dd>Dessert {mercredi_soir.Dessert.title}</dd>
-            </dl>
-
-            <h4>Jeudi</h4>
-            <dl>
-              <dt>Midi</dt>
-              <dd>Entrée : {jeudi_midi.Entrée.title}</dd>
-              <dd>Plat : {jeudi_midi.Plat.title}</dd>
-              <dd>Dessert {jeudi_midi.Dessert.title}</dd>
-
-              <dt>Soir</dt>
-              <dd>Entrée : {jeudi_soir.Entrée.title}</dd>
-              <dd>Plat : {jeudi_soir.Plat.title}</dd>
-              <dd>Dessert {jeudi_soir.Dessert.title}</dd>
-            </dl>
-
-            <h4>Vendredi</h4>
-            <dl>
-              <dt>Midi</dt>
-              <dd>Entrée : {vendredi_midi.Entrée.title}</dd>
-              <dd>Plat : {vendredi_midi.Plat.title}</dd>
-              <dd>Dessert {vendredi_midi.Dessert.title}</dd>
-
-              <dt>Soir</dt>
-              <dd>Entrée : {vendredi_soir.Entrée.title}</dd>
-              <dd>Plat : {vendredi_soir.Plat.title}</dd>
-              <dd>Dessert {vendredi_soir.Dessert.title}</dd>
-            </dl>
-
-            <h4>Samedi</h4>
-            <dl>
-              <dt>Midi</dt>
-              <dd>Entrée : {samedi_midi.Entrée.title}</dd>
-              <dd>Plat : {samedi_midi.Plat.title}</dd>
-              <dd>Dessert {samedi_midi.Dessert.title}</dd>
-
-              <dt>Soir</dt>
-              <dd>Entrée : {samedi_soir.Entrée.title}</dd>
-              <dd>Plat : {samedi_soir.Plat.title}</dd>
-              <dd>Dessert {samedi_soir.Dessert.title}</dd>
-            </dl>
-
-            <h4>Dimanche</h4>
-            <dl>
-              <dt>Midi</dt>
-              <dd>Entrée : {dimanche_midi.Entrée.title}</dd>
-              <dd>Plat : {dimanche_midi.Plat.title}</dd>
-              <dd>Dessert {dimanche_midi.Dessert.title}</dd>
-
-              <dt>Soir</dt>
-              <dd>Entrée : {dimanche_soir.Entrée.title}</dd>
-              <dd>Plat : {dimanche_soir.Plat.title}</dd>
-              <dd>Dessert {dimanche_soir.Dessert.title}</dd>
-            </dl>
+        <div className="cardplanning">
+          <div className="cardplanning-header">
+            <h1>Mardi</h1>
+          </div>
+          <div className="cardplanning-body">
+            <h3>Midi</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+            <h3>Soir</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
           </div>
         </div>
-      </section>
+        <div className="cardplanning">
+          <div className="cardplanning-header">
+            <h1>Mercredi</h1>
+          </div>
+          <div className="cardplanning-body">
+            <h3>Midi</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+            <h3>Soir</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+          </div>
+        </div>
+        <div className="cardplanning">
+          <div className="cardplanning-header">
+            <h1>Jeudi</h1>
+          </div>
+          <div className="cardplanning-body">
+            <h3>Midi</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+            <h3>Soir</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+          </div>
+        </div>
+        <div className="cardplanning">
+          <div className="cardplanning-header">
+            <h1>Vendredi</h1>
+          </div>
+          <div className="cardplanning-body">
+            <h3>Midi</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+            <h3>Soir</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+          </div>
+        </div>
+        <div className="cardplanning">
+          <div className="cardplanning-header">
+            <h1>Samedi</h1>
+          </div>
+          <div className="cardplanning-body">
+            <h3>Midi</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+            <h3>Soir</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+          </div>
+        </div>
+        <div className="cardplanning">
+          <div className="cardplanning-header">
+            <h1>Dimanche</h1>
+          </div>
+          <div className="cardplanning-body">
+            <h3>Midi</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+            <h3>Soir</h3>
+            <ul>
+              <li>Entréé</li>
+              <li>Plat</li>
+              <li>Dessert</li>
+            </ul>
+          </div>
+        </div>
+        <button className="outline">Retour à la liste de course</button>
+      </div>
     </div>
   </div>
 );

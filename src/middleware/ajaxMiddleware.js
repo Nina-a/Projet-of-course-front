@@ -123,7 +123,7 @@ export default (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.error(err);
-          //dispatch(registerError());
+          dispatch(registerError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
       break;
