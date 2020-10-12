@@ -81,7 +81,7 @@ export default (store) => (next) => (action) => {
 
     case LOGIN_INPUT_LOGOUT:
       axios.get(
-        'http://18.209.180.210/api/logout',
+        'http://18.209.180.210/logout',
         {
           headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,

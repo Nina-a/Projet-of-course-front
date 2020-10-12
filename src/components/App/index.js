@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // == Import
-import NavBar from '../NavBar';
+import NavBar from '../../containers/NavBar';
 import Home from '../Home';
 import Planning from '../../containers/Planning';
 import Recipes from '../../containers/Recipes';
