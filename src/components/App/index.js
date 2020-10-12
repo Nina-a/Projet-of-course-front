@@ -13,6 +13,7 @@ import LoginForm from '../../containers/LoginForm';
 import RegisterForm from '../../containers/RegisterForm';
 import './styles.css';
 import data from '../../data';
+import RecipeForm from '../../containers/RecipeForm';
 
 const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
@@ -47,6 +48,9 @@ const App = ({ fetchRecipes }) => {
         </Route>
         <Route exact path="/register">
           <RegisterForm />
+        </Route>
+        <Route exact path="/addRecipe">
+          <RecipeForm className="RecipeForm" />
         </Route>
       </main>
       <Footer className="footer" />

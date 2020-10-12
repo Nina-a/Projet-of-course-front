@@ -31,8 +31,15 @@ const user = (state = initialState, action = {}) => {
         loggedMessage: '',
       };
     case LOGIN_SUCCESS:
+      localStorage.setItem('user', JSON.stringify({
+        token: action.payload.token,
+        isLogged: true,
+        pseudo: action.payload.pseudo,
+        loggedMessage: `Bienvenue ${action.payload.pseudo}`,
+      }));
       return {
         ...state,
+        token: action.payload.token,
         loading: false,
         isLogged: true,
         pseudo: action.payload.pseudo,

@@ -6,55 +6,47 @@ import Field from './Field';
 import './style.scss';
 
 const RecipeForm = ({
-  title,
-  subtitle,
-  description,
-  picture,
-  servings,
-  changeField,
-  handleSubmit,
+  sendForm,
 }) => {
   const handleSubmitInternal = (evt) => {
     evt.preventDefault();
-    handleSubmit();
+    const formData = new FormData(evt.currentTarget);
+
+    sendForm({
+      title: formData.get('title'),
+      subtitle: formData.get('subtitle'),
+      description: formData.get('description'),
+      servings: formData.get('servings'),
+    });
   };
 
   return (
     <div className="recipe-form">
       <form autoComplete="off" className="reciupe-form-element" onSubmit={handleSubmitInternal}>
         <Field
+          name="title"
           title="titre de la recette"
           placeholder="titre"
-          onChange={changeField}
-          value={title}
         />
         <Field
           name="subtitle"
           type="text"
           placeholder="sous-titre"
-          onChange={changeField}
-          value={subtitle}
         />
         <Field
           name="description"
           type="text"
           placeholder="décrire les étapes ici"
-          onChange={changeField}
-          value={description}
         />
         <Field
           name="picture"
           type="file"
           placeholder="photo de la recette"
-          onChange={changeField}
-          value={picture}
         />
         <Field
           name="servings"
           type="number"
           placeholder="indiquer le nombre de personnes"
-          onChange={changeField}
-          value={servings}
         />
         {
           /**
@@ -78,21 +70,7 @@ const RecipeForm = ({
 };
 
 RecipeForm.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
-  servings: PropTypes.string.isRequired,
-//  private: PropTypes.select.isRequired,
-  changeField: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-//  handleLogout: PropTypes.func.isRequired,
-//  RecipeMessage: PropTypes.string,
+  sendForm: PropTypes.func.isRequired,
 };
-
-//RecipeForm.defaultProps = {
-  //Private: true,
-  //RecipeMessage: 'Sauvegardé',
-//};
 
 export default RecipeForm;

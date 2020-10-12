@@ -2,19 +2,29 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CardRecipe from '../../containers/Recipe';
+import { Button, Card } from 'react-bootstrap';
+
 // == Import
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 // TODO action sur les liens a
 // TODO show active en className sur le bouton où l'on a appuyé
 
 // == Composant
-const Recipes = ({ listEntree, listPlat, listDessert }) => {
+const Recipes = ({ listEntree, listPlat, listDessert, isLogged }) => {
   const [selectedTab, setSelectedTab] = useState('entree');
 
   return (
     <div>
       <div className="maintabsrecipes">
+        {
+          isLogged && (
+            <Link to="/addRecipe">
+              <Button variant="success" size="lg">Ajouter une recette</Button>
+            </Link>
+          )
+        }
         <ul className="nav nav-tabs" id="myTab" role="navigation">
           <li className="nav-item-entree col-4">
             <a

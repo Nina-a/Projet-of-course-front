@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
     listEntree: state.reducerrecipes.listEntree,
     listPlat: state.reducerrecipes.listPlat,
     listDessert: state.reducerrecipes.listDessert,
+    isLogged: state.user.isLogged,
   };
 };
 

@@ -5,6 +5,8 @@ import Field from './Field';
 // import { useField } from './hooks';
 
 import './style.scss';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const LoginForm = ({
   email,
@@ -12,10 +14,19 @@ const LoginForm = ({
   changeField,
   handleLogin,
   handleLogout,
-  isLogged,
   loading,
-  loggedMessage,
+  isLogged,
 }) => {
+  // https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('user');
+    if (loggedInUser) {
+      setUser(JSON.parse(loggedInUser));
+    }
+  }, [isLogged]);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
@@ -31,10 +42,10 @@ const LoginForm = ({
 
   return (
     <div className="login-form">
-      {isLogged && (
+      {user && user.isLogged && (
         <div className="login-form-logged">
           <p className="login-form-message">
-            {loggedMessage}
+            {user.loggedMessage}
           </p>
           <button
             type="button"
@@ -45,8 +56,8 @@ const LoginForm = ({
           </button>
         </div>
       )}
-      {!isLogged && (
-        <form autoComplete="off" className="login-form-element" onClick={handleSubmit}>
+      {!user && (
+        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
           <Field
             name="email"
             placeholder="Adresse Email"

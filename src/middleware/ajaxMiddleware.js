@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError,ADD_RECIPE} from '../actions/recipes';
+import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE} from '../actions/recipes';
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
@@ -66,7 +66,10 @@ export default (store) => (next) => (action) => {
         .then((res) => {
           const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(loginSuccess(serverResponse));
+          dispatch(loginSuccess({
+            token: serverResponse,
+            pseudo: store.getState().user.email,
+          }));
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
@@ -77,10 +80,14 @@ export default (store) => (next) => (action) => {
       break;
 
     case LOGIN_INPUT_LOGOUT:
-      axios({
-        method: 'post',
-        url: 'http://18.209.180.210/api/logout', // url à modifier
-      })
+      axios.get(
+        'http://18.209.180.210/api/logout',
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
+          },
+        },
+      )
         .then((res) => {
           const { data } = res;
           //console.log (data);
@@ -101,14 +108,17 @@ export default (store) => (next) => (action) => {
           email: store.getState().user.email,
           password: store.getState().user.password,
           pseudo: store.getState().user.pseudo,
-          avatar: store.getState().user.avater,
+          avatar: store.getState().user.avatar,
           role: 'user',
         },
       })
         .then((res) => {
           const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(registerSuccess(serverResponse));
+          dispatch(registerSuccess({
+            ...serverResponse,
+            pseudo: store.getState().user.pseudo,
+          }));
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
@@ -119,27 +129,29 @@ export default (store) => (next) => (action) => {
       break;
 
     case ADD_RECIPE:
-      axios({
-        method: 'post',
-        url: 'http://18.209.180.210/api/add/recipe',
-        data: {
-          title: store.getState().user.title,
-          subtitle: store.getState().user.subtitle,
-          description: store.getState().user.description,
-          picture: store.getState().user.avatar,
-          serving: store.getState().user.serving,
-          private: store.getState().user.private,
+      // https://flaviocopes.com/axios-send-authorization-header/
+      axios.post(
+        'http://18.209.180.210/api/add/recipe',
+        {
+          ...action.payload,
+          private: false,
         },
-      })
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
+          },
+        },
+      )
         .then((res) => {
-          const serverResponse = res.data;
+        //  const serverResponse = res.data;
           // console.log(serverResponse);
-          dispatch(registerSuccess(serverResponse));
-          // Retour du serveur avec le formulaire de recette complétée
+          // dispatch(addRecipeSuccess(serverResponse));
+          // Retour du serveur avec les infos de la recette
         })
         .catch((err) => {
           console.error(err);
-          dispatch(registerError());
+          dispatch(addRecipeError());
+          // En cas d'échec de la sauvegarde dans la data, le serveur retourne une erreur
         });
       break;
     default:
