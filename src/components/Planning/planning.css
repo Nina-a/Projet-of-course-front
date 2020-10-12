@@ -71,15 +71,23 @@ button.outline:active {
 	list-style-type: none;
 	}
 li{
-	padding: 3px;
+  padding: 3px;
+}
+.moment{
+  font-style: italic;
+  text-decoration-line: underline;
+}
+.day{
+  font-size:30px;
 }
   .containerplanning {
 	margin: auto;
   }
-  .heading {
+  .planningTitle {
 	text-align: center;
 	font-size: 30px;
-	margin-bottom: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   }
   .row {
 	  margin-top: 10%;
