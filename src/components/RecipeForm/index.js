@@ -12,6 +12,11 @@ const RecipeForm = ({
     evt.preventDefault();
     const formData = new FormData(evt.currentTarget);
 
+    const file = document.getElementById('field-picture').files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', function() { console.log(this.result); });
+    reader.readAsDataURL(file);
+
     sendForm({
       title: formData.get('title'),
       subtitle: formData.get('subtitle'),
