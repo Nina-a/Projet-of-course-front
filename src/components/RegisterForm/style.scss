@@ -1,11 +1,40 @@
 form{
-  padding-top: 15%;
+  padding-top: 10%;
   justify-items: center;
-  width:50%;
+  width:45%;
   margin: auto;
 }
 .divfile{
   background-color: white;
+}
+
+.registerForm-title {
+  font-size:100px;
+  margin-bottom: 100px;
+  font-family: 'Dancing Script';
+}
+
+.registerFormButton{
+  display: inline-block;
+  margin: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  outline: none;
+  background-color: black;
+  opacity:0.60;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.125em;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  width: 300px;
+  letter-spacing: 4px;
+  border-radius: 2px;
 }
 @media screen and (max-width: 620px) {
   form{
@@ -16,6 +45,9 @@ form{
   }
   .divfile{
     font-size:0.8rem
+  }
+  .registerForm-title{
+    font-size: 60px;
   }
   }
  
