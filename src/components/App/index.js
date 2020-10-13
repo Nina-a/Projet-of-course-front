@@ -53,7 +53,7 @@ const App = ({ fetchRecipes, checkAuth }) => {
         <Route exact path="/addRecipe">
           <RecipeForm className="RecipeForm" />
         </Route>
-      </main>
+        </main>
       <Footer className="footer" />
     </div>
   );
