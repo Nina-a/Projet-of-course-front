@@ -17,10 +17,14 @@ const RecipeForm = ({
 }) => {
   const dispatch = useDispatch();
 
+  const [ingredientsWithQuantie, setIngredientsWithQuantie] = useState([]);
 
   const handleSubmitInternal = (evt) => {
     evt.preventDefault();
     const formData = new FormData(evt.currentTarget);
+
+    console.log(ingredientsWithQuantie);
+    return;
 
     // console.log(formData.getAll('ingredients[]'));
     // console.log(formData.getAll('quantity[]'));
@@ -56,10 +60,11 @@ const RecipeForm = ({
         />
         <div className="field input-group">
           <select name="category" className="custom-select">
+            <option value="">Sélectionner la catégorie</option>
             {listCategories.map((category) => <option value="{category.id}">{category.title}</option>)}
           </select>
         </div>
-        <IngredientsForm listIngredients={listIngredients} />
+        <IngredientsForm listIngredients={listIngredients} setIngredientsWithQuantie={setIngredientsWithQuantie} ingredientsWithQuantie={ingredientsWithQuantie} />
         <div className="field input-group">
           <textarea className="form-control" rows="6" name="description" placeholder="écrire les étapes ici" />
         </div>

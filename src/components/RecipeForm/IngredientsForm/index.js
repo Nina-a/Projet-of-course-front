@@ -2,10 +2,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const IngredientsForm = ({ listIngredients }) => {
+const IngredientsForm = ({ ingredientsWithQuantie, setIngredientsWithQuantie, listIngredients }) => {
   console.log('test');
-
-  const [ingredientsWithQuantie, setIngredientsWithQuantie] = useState([]);
 
   const [currentIngredient, setCurrentIngredient] = useState({ id: null, quantity: '' });
 

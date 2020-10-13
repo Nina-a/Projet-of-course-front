@@ -135,7 +135,7 @@ export default (store) => (next) => (action) => {
         'http://18.209.180.210/api/add/recipe',
         {
           ...action.payload,
-          private: false,
+          private: true,
           user: 25,
         },
         {
