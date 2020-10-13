@@ -32,7 +32,7 @@ const Planning = ({
   <div>
 
     <div className="containerplanning">
-
+      <h1 className="planning-title">Planning de la semaine</h1>
       <div className="print">
         <Pdf targetRef={ref} filename="planning.pdf" options={options} scale={0.6}>
           {({ toPdf }) => <button type="button" onClick={toPdf}>Generate Pdf</button>}

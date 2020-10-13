@@ -1,7 +1,7 @@
 .login-form {
     padding-top: 10%;
     justify-items: center;
-    width:45%;
+    width:60%;
     margin: auto;
   }
   .login-form-element {
@@ -48,4 +48,23 @@
     border: 0;
     padding: .7em;
     opacity: 0.60;
+    text-decoration-line: none;
   }
+  @media screen and (max-width: 620px) {
+    form{
+      width:80%;
+    }
+    .divfile{
+      font-size:0.8rem
+    }
+    .login-title{
+      font-size: 60px;
+    }
+    .registerFormButton{
+      width:60%;
+      margin:auto;
+    }
+    .login-form-button{
+      width:100%;
+    }
+    }
