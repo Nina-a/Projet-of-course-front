@@ -1,10 +1,14 @@
 .shoppingList {
-  margin-top: 300px;
+  margin-top: 100px;
   text-align: center;
- 
-  
 }
 
+.table{
+font-size:20px;
+}
+li{
+  font-size:18px;
+}
 @page {
 size: A4;
 margin: 1cm;
@@ -221,7 +225,6 @@ body {
 }
 
 .list-wrapper ul li {
-  font-size: .9375rem;
   padding: .4rem 0;
   border-bottom: 1px solid #f3f3f3
 }
@@ -299,7 +302,7 @@ body {
   min-height: 18px;
   display: block;
   margin-left: 1.75rem;
-  font-size: 0.875rem;
+  //font-size: 0.875rem;
   line-height: 1.5
 }
 
@@ -383,7 +386,7 @@ input[type="checkbox"] {
   -o-transform: scale(0);
   transform: scale(0);
   content: '\F12C';
-  font-size: .9375rem;
+  //font-size: .9375rem;
   font-weight: bold;
   color: #ffffff
 }
@@ -452,7 +455,7 @@ input[type="checkbox"] {
 }
 
 .list-wrapper ul li {
-  font-size: .9375rem;
+  //font-size: .9375rem;
   padding: .4rem 0;
   border-bottom: 1px solid #f3f3f3
 }
