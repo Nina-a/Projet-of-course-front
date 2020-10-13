@@ -33,11 +33,7 @@ const Planning = ({
 
     <div className="containerplanning">
       <h1 className="planning-title">Planning de la semaine</h1>
-      <div className="print">
-        <Pdf targetRef={ref} filename="planning.pdf" options={options} scale={0.6}>
-          {({ toPdf }) => <button type="button" onClick={toPdf}>Generate Pdf</button>}
-        </Pdf>
-      </div>
+
       <div className="row" ref={ref}>
 
         <div className="cardplanning">
@@ -177,7 +173,13 @@ const Planning = ({
             </ul>
           </div>
         </div>
-        <a className="button" type="button" href="/shoppingList">Retour à la liste de course</a>
+
+      </div>
+      <div className="print">
+      <a className="button" type="button" href="/shoppingList">Retour à la liste de course</a>
+        <Pdf targetRef={ref} filename="planning.pdf" options={options} scale={0.48}>
+          {({ toPdf }) => <button type="button" onClick={toPdf}>Generate Pdf</button>}
+        </Pdf>
       </div>
     </div>
   </div>

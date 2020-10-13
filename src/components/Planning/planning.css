@@ -134,6 +134,8 @@ li{
 
 .print{
   margin-top:5%;
+  width: 20%;
+  margin:auto;
 }
   .containerplanning {
 	margin: auto;
@@ -154,7 +156,7 @@ li{
   width:100%;
   }
   .cardplanning {
-	width: 14%;
+	width: 10%;
 	background: #fff;
 	border: 1px solid #ccc;
 	margin-bottom: 50px;
@@ -199,5 +201,8 @@ li{
 	}
 	.cardplanning {
 	  width: 80%;
-	}
+  }
+  .print{
+    margin-left: 0%;
+  }
   }
