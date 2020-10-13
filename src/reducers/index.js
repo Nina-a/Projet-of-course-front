@@ -5,6 +5,8 @@ import user from './user';
 import planning from './planning';
 import reducerShoppingList from './shoppingList';
 import recipeForm from './recipeForm';
+import categories from './category';
+import ingredients from './ingredient';
 
 export default combineReducers({
   counter,
@@ -13,4 +15,6 @@ export default combineReducers({
   planning,
   reducerShoppingList,
   recipeForm,
+  categories,
+  ingredients,
 });

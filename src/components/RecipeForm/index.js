@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import Field from './Field';
-// import { useField } from './hooks';
-
 import './style.scss';
+import { fetchIngredient } from '../../actions/ingredients';
+import { fetchCategories } from '../../actions/categories';
+import { fetchQuantities } from '../../actions/quantities';
+import { useState } from 'react';
+import IngredientsForm from './IngredientsForm';
 
 const RecipeForm = ({
   sendForm,
+  listCategories,
+  listIngredients,
+  listQuantities,
 }) => {
+  const dispatch = useDispatch();
+
+
   const handleSubmitInternal = (evt) => {
     evt.preventDefault();
     const formData = new FormData(evt.currentTarget);
+
+    // console.log(formData.getAll('ingredients[]'));
+    // console.log(formData.getAll('quantity[]'));
 
     sendForm({
       title: formData.get('title'),
@@ -21,6 +34,12 @@ const RecipeForm = ({
       serving: parseInt(formData.get('serving'), 10),
     });
   };
+
+  useEffect(() => {
+    dispatch(fetchIngredient());
+    dispatch(fetchCategories());
+    dispatch(fetchQuantities());
+  }, []);
 
   return (
     <div className="recipe-form">
@@ -37,16 +56,10 @@ const RecipeForm = ({
         />
         <div className="field input-group">
           <select name="category" className="custom-select">
-            <option value="starter">Entrée</option>
-            <option value="dish">Plat</option>
-            <option value="dessert">Dessert</option>
+            {listCategories.map((category) => <option value="{category.id}">{category.title}</option>)}
           </select>
         </div>
-        <Field
-          name="ingredient"
-          type="text"
-          placeholder="ingrédient"
-        />
+        <IngredientsForm listIngredients={listIngredients} />
         <div className="field input-group">
           <textarea className="form-control" rows="6" name="description" placeholder="écrire les étapes ici" />
         </div>
@@ -84,6 +97,8 @@ const RecipeForm = ({
 
 RecipeForm.propTypes = {
   sendForm: PropTypes.func.isRequired,
+  listCategories: PropTypes.array.isRequired,
+  listIngredients: PropTypes.array.isRequired,
 };
 
 export default RecipeForm;
