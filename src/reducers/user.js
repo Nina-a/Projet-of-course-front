@@ -13,8 +13,8 @@ import {
 
 const initialState = {
   loading: false,
-  email: 'acidman@herocorp.io',
-  password: 'fructis',
+  email: '',
+  password: '',
   isLogged: false,
   pseudo: '',
   loggedMessage: 'Bienvenue intel',

@@ -49,6 +49,7 @@ const RegisterFrom = ({
           onChange={changeInput}
           name="name"
           value={name}
+          placeholder="Nom"
         />
       </div>
       <div className="form-group">
@@ -58,6 +59,7 @@ const RegisterFrom = ({
           id="email"
           onChange={changeInput}
           name="email"
+          placeholder="Email"
           value={email}
         />
       </div>
@@ -83,16 +85,15 @@ const RegisterFrom = ({
           value={pseudo}
         />
       </div>
-      <div className="form-group">
-        <input
-          type="file"
-          className="form-control"
-          id="password"
-          placeholder="avatar"
-          onChange={changeInput}
-          name="avatar"
-        />
+      <div className="form-group divfile">
+        <label className="custom-file-upload">
+          <input
+            type="file"
+            onChange={changeInput}
+          />
+        </label>
       </div>
+
       <button type="submit" className="btn btn-primary">Submit</button>
     </form>
   );
