@@ -11,6 +11,7 @@ import {
   REGISTER_INPUT_SUBMIT,
   registerSuccess,
   registerError,
+  addRecipeError,
 
 } from '../actions/user';
 
@@ -81,7 +82,7 @@ export default (store) => (next) => (action) => {
 
     case LOGIN_INPUT_LOGOUT:
       axios.get(
-        'http://18.209.180.210/api/logout',
+        'http://18.209.180.210/logout',
         {
           headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
@@ -123,7 +124,7 @@ export default (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.error(err);
-          //dispatch(registerError());
+          dispatch(registerError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
       break;
@@ -135,6 +136,7 @@ export default (store) => (next) => (action) => {
         {
           ...action.payload,
           private: false,
+          user: 25,
         },
         {
           headers: {

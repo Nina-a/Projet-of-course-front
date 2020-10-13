@@ -15,14 +15,16 @@ const RecipeForm = ({
     sendForm({
       title: formData.get('title'),
       subtitle: formData.get('subtitle'),
+      category: formData.get('category'),
+      ingredient: formData.get('ingredient'),
       description: formData.get('description'),
-      servings: formData.get('servings'),
+      serving: parseInt(formData.get('serving'), 10),
     });
   };
 
   return (
     <div className="recipe-form">
-      <form autoComplete="off" className="reciupe-form-element" onSubmit={handleSubmitInternal}>
+      <form autoComplete="off" className="recipe-form-element" onSubmit={handleSubmitInternal}>
         <Field
           name="title"
           title="titre de la recette"
@@ -33,21 +35,32 @@ const RecipeForm = ({
           type="text"
           placeholder="sous-titre"
         />
+        <div className="field input-group">
+          <select name="category" className="custom-select">
+            <option value="starter">Entrée</option>
+            <option value="dish">Plat</option>
+            <option value="dessert">Dessert</option>
+          </select>
+        </div>
         <Field
-          name="description"
+          name="ingredient"
           type="text"
-          placeholder="décrire les étapes ici"
+          placeholder="ingrédient"
         />
+        <div className="field input-group">
+          <textarea className="form-control" rows="6" name="description" placeholder="écrire les étapes ici" />
+        </div>
         <Field
           name="picture"
           type="file"
           placeholder="photo de la recette"
         />
         <Field
-          name="servings"
+          name="serving"
           type="number"
           placeholder="indiquer le nombre de personnes"
         />
+
         {
           /**
           <Field

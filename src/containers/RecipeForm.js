@@ -5,6 +5,7 @@ import { addRecipe } from '../actions/recipes';
 const mapState = (state) => ({
   title: state.user.title,
   subtitle: state.user.subtitle,
+  category: state.user.category,
   description: state.user.description,
   picture: state.user.picture,
   serving: state.user.servings,

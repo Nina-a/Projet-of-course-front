@@ -32,7 +32,7 @@ const user = (state = initialState, action = {}) => {
       };
     case LOGIN_SUCCESS:
       localStorage.setItem('user', JSON.stringify({
-        token: action.payload.token,
+        token: action.payload.token.token,
         isLogged: true,
         pseudo: action.payload.pseudo,
         loggedMessage: `Bienvenue ${action.payload.pseudo}`,
