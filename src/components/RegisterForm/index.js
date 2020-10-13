@@ -40,7 +40,7 @@ const RegisterFrom = ({
   };
 
   return (
-    <div className="divForm">
+    <div className="divFormLogin">
       <form onSubmit={handleRegisterSubmit}>
         <h1 className="registerForm-title">Formulaire d'inscription</h1>
         <div className="form-group">

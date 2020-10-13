@@ -29,10 +29,10 @@ const App = ({ fetchRecipes, checkAuth }) => {
     <div className="app">
       <NavBar className="navigation-bar" />
       <main className="main">
-        <header className="header">
-          Of'Course
-        </header>
         <Route exact path="/">
+          <header className="header">
+            Of'Course
+          </header>
           <Home className="home" />
         </Route>
         <Route exact path="/recipes">

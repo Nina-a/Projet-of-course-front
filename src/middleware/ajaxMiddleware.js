@@ -72,6 +72,7 @@ export default (store) => (next) => (action) => {
             token: serverResponse,
             pseudo: store.getState().user.email,
           }));
+          window.location.assign('/');
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
