@@ -14,22 +14,32 @@ const Home = () => (
   <div className="home">
     <div className="maindiv">
       <div className="recette">
-        <a href="./recipes">
-          <img className="homeimg" src={recette} alt="liste des courses" />
-        </a>
-        <p>1) Commencez par choisir votre recette</p>
+        <div className="div_home_img">
+          <a href="./recipes">
+            <img className="homeimg" src={recette} alt="liste des courses" />
+          </a>
+        </div>
+        <div className="div_home_p"><p>1) Commencez par choisir votre recette</p></div>
       </div>
       <div className="agenda">
-        <a href="./planning">
-          <img className="homeimg" src={planning} alt="liste des courses" />
-        </a>
-        <p>2) Plannifiez vos repas en un clin d'oeil</p>
+        <div className="div_agenda_img">
+          <a href="./planning">
+            <img className="homeimg" src={planning} alt="liste des courses" />
+          </a>
+        </div>
+        <div className="div_agenda_p">
+          <p>2) Plannifiez vos repas en un clin d'oeil</p>
+        </div>
       </div>
       <div className="course">
-        <a href="./shoppingList">
-          <img className="homeimg" src={course} alt="liste des courses" />
-        </a>
-        <p>3) Et voilà, votre liste de courses est prête !!</p>
+        <div className="div_course_img">
+          <a href="./shoppingList">
+            <img className="homeimg" src={course} alt="liste des courses" />
+          </a>
+        </div>
+        <div className="div_course_p">
+          <p>3) Et voilà, votre liste de courses est prête !!</p>
+        </div>
       </div>
     </div>
   </div>

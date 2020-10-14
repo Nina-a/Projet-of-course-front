@@ -8,7 +8,16 @@ main {
   position: relative;
   height: 100vh;
 }
+.smartphone-menu-trigger{
+  text-align: center;
+}
+.linkNavBar{
+  text-align:center;
+}
 .menu {
+  -webkit-box-shadow: 10px 4px 23px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 4px 23px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 4px 23px 0px rgba(0,0,0,0.75);
   height: 100vh;
   width: 240px;
   position: fixed;
@@ -41,7 +50,6 @@ main {
   text-align: center;
   // font-family: 'Henny Penny', cursive;
   font-family: 'Dancing Script';
-
   text-decoration: none;
   transition: 1s;
 }

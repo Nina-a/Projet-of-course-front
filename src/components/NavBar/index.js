@@ -21,7 +21,6 @@ const NavBar = ({ isLogged }) => (
     <NavLink exact className="navigation-link" to="/login">
       { !isLogged ? 'Connexion' : 'Déconnexion' }
     </NavLink>
-
   </nav>
 );
 
