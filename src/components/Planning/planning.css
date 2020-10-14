@@ -4,9 +4,8 @@
 	box-sizing: border-box;
   }
   @import 'https://fonts.googleapis.com/css?family=Roboto';
+  
 html, body {
-  height: 100%;
-  width: 100%;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;    
@@ -197,12 +196,18 @@ li{
 	}
 	.heading {
 	  padding: 20px;
-	  font-size: 20px;
+    font-size: 20px;
 	}
 	.cardplanning {
 	  width: 80%;
   }
   .print{
     margin-left: 0%;
+  }
+  .html{
+    background-repeat:repeat-y;
+  }
+  .body{
+    background-repeat:repeat-y;
   }
   }

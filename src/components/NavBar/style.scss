@@ -33,7 +33,6 @@ main {
 
 .navigation-link {
   padding: 50px 5px;
-  font-size: 1.5rem;
   letter-spacing :2px;
   margin: 5px 0;
   color:black;
@@ -182,4 +181,17 @@ main {
   .menu:focus .smartphone-menu-trigger {
     pointer-events: none;
   }
+}
+@media screen and (max-width: 620px) {
+  .menu{
+  background-color: black;
+}
+.smartphone-menu-trigger{
+  text-align: center;
+}
+.navigation-link{
+  color: white;
+  margin:auto;
+  font-size: 30px;
+}
 }
