@@ -9,10 +9,10 @@ import './style.scss';
 
 // == Composant
 const NavBar = ({ isLogged }) => (
-  <nav className="menu">
+  <nav className="menu" tabIndex="0">
     <div className="smartphone-menu-trigger" />
     <header className="avatar">
-      <img src={logo} alt="logo"/>
+      <img src={logo} alt="logo" />
     </header>
     <NavLink exact className="navigation-link" to="/">Accueil</NavLink>
     <NavLink exact className="navigation-link" to="/recipes">Recettes</NavLink>
