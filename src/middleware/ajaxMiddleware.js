@@ -1,7 +1,9 @@
 import axios from 'axios';
-import {
-  FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE,
-} from '../actions/recipes';
+
+import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE, addRecipeSuccess, addRecipeError } from '../actions/recipes';
+import { FETCH_CATEGORIES, FETCH_CATEGORIES_SUCCESS, fetchCategoriesSuccess } from '../actions/categories';
+import { FETCH_INGREDIENT,FETCH_INGREDIENT_SUCCESS, fetchIngredientSuccess} from '../actions/ingredients';
+
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
@@ -13,7 +15,6 @@ import {
   REGISTER_INPUT_SUBMIT,
   registerSuccess,
   registerError,
-
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
@@ -138,7 +139,8 @@ export default (store) => (next) => (action) => {
         'http://18.209.180.210/api/add/recipe',
         {
           ...action.payload,
-          private: false,
+          private: true,
+          user: 25,
         },
         {
           headers: {
@@ -148,15 +150,35 @@ export default (store) => (next) => (action) => {
         },
       )
         .then((res) => {
-        //  const serverResponse = res.data;
+          const serverResponse = res.data;
           // console.log(serverResponse);
-          // dispatch(addRecipeSuccess(serverResponse));
+          dispatch(addRecipeSuccess(serverResponse));
           // Retour du serveur avec les infos de la recette
         })
         .catch((err) => {
           console.error(err);
           dispatch(addRecipeError());
           // En cas d'échec de la sauvegarde dans la data, le serveur retourne une erreur
+        });
+      break;
+    case FETCH_CATEGORIES:
+      axios({
+        method: 'get',
+        url: 'http://18.209.180.210/api/categorie/list',
+      })
+        .then((res) => {
+          const serverResponse = res.data;
+          dispatch(fetchCategoriesSuccess(serverResponse));
+        });
+      break;
+    case FETCH_INGREDIENT:
+      axios({
+        method: 'get',
+        url: 'http://18.209.180.210/api/ingredient/list',
+      })
+        .then((res) => {
+          const serverResponse = res.data;
+          dispatch(fetchIngredientSuccess(serverResponse));
         });
       break;
     default:
