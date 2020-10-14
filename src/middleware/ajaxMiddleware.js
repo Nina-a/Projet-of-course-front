@@ -1,7 +1,9 @@
 import axios from 'axios';
+
 import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE, addRecipeSuccess, addRecipeError } from '../actions/recipes';
 import { FETCH_CATEGORIES, FETCH_CATEGORIES_SUCCESS, fetchCategoriesSuccess } from '../actions/categories';
 import { FETCH_INGREDIENT,FETCH_INGREDIENT_SUCCESS, fetchIngredientSuccess} from '../actions/ingredients';
+
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
@@ -71,6 +73,7 @@ export default (store) => (next) => (action) => {
             token: serverResponse,
             pseudo: store.getState().user.email,
           }));
+          window.location.assign('/');
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {
@@ -91,7 +94,7 @@ export default (store) => (next) => (action) => {
       )
         .then((res) => {
           const { data } = res;
-          //console.log (data);
+          // console.log (data);
           dispatch(logoutSuccess());
         })
         .catch((err) => {
@@ -120,7 +123,8 @@ export default (store) => (next) => (action) => {
             ...serverResponse,
             pseudo: store.getState().user.pseudo,
           }));
-          // Retour du serveur avec les infos du user
+          window.location.assign('/login');
+        // Retour du serveur avec les infos du user
         })
         .catch((err) => {
           console.error(err);
@@ -140,6 +144,7 @@ export default (store) => (next) => (action) => {
         },
         {
           headers: {
+            // Authorization: `Bearer ${store.getState().user.token}`,
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
           },
         },

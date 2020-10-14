@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // == Import
-import NavBar from '../NavBar';
+import NavBar from '../../containers/NavBar';
 import Home from '../Home';
 import Planning from '../../containers/Planning';
 import Recipes from '../../containers/Recipes';
@@ -20,18 +20,19 @@ const ingredientData = data.map((dataObjet) => ({
 }));
 // == Composant
 // TODO rajouter fetchRecipes
-const App = ({ fetchRecipes }) => {
+const App = ({ fetchRecipes, checkAuth }) => {
   useEffect(() => {
+    checkAuth();
     fetchRecipes();
   }, []);
   return (
     <div className="app">
       <NavBar className="navigation-bar" />
       <main className="main">
-        <header className="header">
-          Of'Course
-        </header>
         <Route exact path="/">
+          <header className="header">
+            Of'Course
+          </header>
           <Home className="home" />
         </Route>
         <Route exact path="/recipes">
@@ -52,8 +53,9 @@ const App = ({ fetchRecipes }) => {
         <Route exact path="/addRecipe">
           <RecipeForm className="RecipeForm" />
         </Route>
+        <Footer className="footer" />
       </main>
-      <Footer className="footer" />
+
     </div>
   );
 };

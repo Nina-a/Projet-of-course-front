@@ -23,12 +23,14 @@ const RecipeForm = ({
     evt.preventDefault();
     const formData = new FormData(evt.currentTarget);
 
+
     console.log(ingredientsWithQuantie);
     return;
 
     // console.log(formData.getAll('ingredients[]'));
     // console.log(formData.getAll('quantity[]'));
 
+    debugger;
     sendForm({
       title: formData.get('title'),
       subtitle: formData.get('subtitle'),

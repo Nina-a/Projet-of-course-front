@@ -1,5 +1,8 @@
 .login-form {
-    width: 50%;
+    padding-top: 10%;
+    justify-items: center;
+    width:60%;
+    margin: auto;
   }
   .login-form-element {
     align-items: center;
@@ -26,3 +29,42 @@
     height: 2.5em;
   }
   
+  .login-title {
+    font-size:100px;
+    margin-bottom: 50px;
+    font-family: 'Dancing Script';
+    text-align: center;
+  }
+
+  .registerLink{
+    margin-top:2rem;
+    height: 60px;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1em;
+    color: #fff;
+    background-color:black;
+    border-radius: .3em;
+    border: 0;
+    padding: .7em;
+    opacity: 0.60;
+    text-decoration-line: none;
+  }
+  @media screen and (max-width: 620px) {
+    form{
+      width:80%;
+    }
+    .divfile{
+      font-size:0.8rem
+    }
+    .login-title{
+      font-size: 60px;
+    }
+    .registerFormButton{
+      width:60%;
+      margin:auto;
+    }
+    .login-form-button{
+      width:100%;
+    }
+    }

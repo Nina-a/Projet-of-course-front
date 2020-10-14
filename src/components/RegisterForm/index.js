@@ -19,68 +19,86 @@ const RegisterFrom = ({
 
   const changeInput = (evt) => {
     console.log(evt.target.value);
-    changeField(evt.target.value, evt.target.name);
+    if (evt.target.name === 'avatar') {
+      const reader = new FileReader();
+
+      reader.addEventListener(
+        'load', () => {
+          // convert image file to base64 string
+          changeField(reader.result, 'avatar');
+        },
+        false,
+      );
+
+      reader.readAsDataURL(evt.target.files[0]);
+    }
+    else {
+      changeField(evt.target.value, evt.target.name);
+    }
     console.log(evt.target.value);
     console.log(evt.target.name);
   };
 
   return (
-    <form onSubmit={handleRegisterSubmit}>
-      <div className="form-group">
-        <input
-          type="name"
-          className="form-control"
-          id="name"
-          onChange={changeInput}
-          name="name"
-          value={name}
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          onChange={changeInput}
-          name="email"
-          value={email}
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="password"
-          className="form-control"
-          id="password"
-          placeholder="password"
-          onChange={changeInput}
-          name="password"
-          value={password}
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control"
-          id="pseudo"
-          placeholder="pseudo"
-          onChange={changeInput}
-          name="pseudo"
-          value={pseudo}
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="file"
-          className="form-control"
-          id="password"
-          placeholder="avatar"
-          onChange={changeInput}
-          name="avatar"
-          value={avatar}
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
-    </form>
+    <div className="divFormLogin">
+      <form onSubmit={handleRegisterSubmit}>
+        <h1 className="registerForm-title">Formulaire d'inscription</h1>
+        <div className="form-group">
+          <input
+            type="name"
+            className="form-control"
+            id="name"
+            onChange={changeInput}
+            name="name"
+            value={name}
+            placeholder="Nom"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            onChange={changeInput}
+            name="email"
+            placeholder="Email"
+            value={email}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            className="form-control"
+            id="password"
+            placeholder="password"
+            onChange={changeInput}
+            name="password"
+            value={password}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            id="pseudo"
+            placeholder="pseudo"
+            onChange={changeInput}
+            name="pseudo"
+            value={pseudo}
+          />
+        </div>
+        <div className="form-group divfile">
+          <label className="custom-file-upload">
+            <input
+              className="input-file"
+              type="file"
+              onChange={changeInput}
+            />
+          </label>
+        </div>
+        <button type="submit" className="btn registerFormButton">Submit</button>
+      </form>
+    </div>
   );
 };
 

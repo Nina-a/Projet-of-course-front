@@ -1,0 +1,208 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+  }
+  @import 'https://fonts.googleapis.com/css?family=Roboto';
+html, body {
+  height: 100%;
+  width: 100%;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;    
+  background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.planning-title {
+  margin-top:100px;
+  font-size:100px;
+  margin-bottom: 100px;
+  font-family: 'Dancing Script';
+  text-align: center;
+}
+/* Normal Button */
+button {
+  display: inline-block;
+  margin: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  outline: none;
+  background-color: black;
+  opacity:0.60;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.125em;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  width: 300px;
+  letter-spacing: 4px;
+  border-radius: 2px;
+}
+button:focus, 
+button:hover {
+  background-color: #056601;
+  box-shadow: 0 0 0 0.1875rem white, 
+              0 0 0 0.375rem #056601;
+}
+button:active {
+  background-color: #056601;
+  box-shadow: 0 0 0 0.1875rem #056601, 
+              0 0 0 0.375rem #056601;
+  transition-duration: 75ms;
+}
+
+.button{
+  display: inline-block;
+  margin: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  outline: none;
+  background-color: black;
+  opacity:0.60;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.125em;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+  width: 300px;
+  letter-spacing: 4px;
+  border-radius: 2px;
+}
+.button:focus, 
+.button:hover {
+  background-color: #056601;
+  box-shadow: 0 0 0 0.1875rem white, 
+              0 0 0 0.375rem #056601;
+  color: white;
+  text-decoration-line: none;
+}
+.button:active {
+  background-color: #056601;
+  box-shadow: 0 0 0 0.1875rem #056601, 
+              0 0 0 0.375rem #056601;
+  transition-duration: 75ms;
+}
+
+
+
+/* Outline Button */
+button.outline {
+  background-color: black;
+  opacity:0.60;
+  color: white;
+  border: black
+}
+button.outline:focus, 
+button.outline:hover {
+  border-color: #056601;
+  color: #056601;
+}
+button.outline:active {
+  border-color: #056601;
+  color: #056601;
+}
+  h3{
+	  padding: 10px;
+  }
+  ul {
+	list-style-type: none;
+	}
+li{
+  padding: 3px;
+}
+.moment{
+  font-style: italic;
+  text-decoration-line: underline;
+}
+.day{
+  font-size:30px;
+}
+
+.print{
+  margin-top:5%;
+  width: 20%;
+  margin:auto;
+}
+  .containerplanning {
+	margin: auto;
+  }
+  .planningTitle {
+	text-align: center;
+	font-size: 30px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  }
+  .row {
+    margin-top: 2%;
+    padding-top: 5%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+  flex-flow: wrap;
+  width:100%;
+  }
+  .cardplanning {
+	width: 10%;
+	background: #fff;
+	border: 1px solid #ccc;
+	margin-bottom: 50px;
+	transition: 0.3s;
+  }
+  .cardplanning-header {
+	text-align: center;
+	padding: 50px 10px;
+	background: linear-gradient(to right, #8dcaff, #bbff9c);
+	color: #fff;
+  }
+  .cardplanning-body {
+	padding: 30px 20px;
+	text-align: center;
+	font-size: 18px;
+  }
+  .cardplanning-body .btn {
+	display: block;
+	color: #fff;
+	text-align: center;
+	background: linear-gradient(to right, #ff416c, #ff4b2b);
+	margin-top: 30px;
+	text-decoration: none;
+	padding: 10px 5px;
+  }
+  .cardplanning:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+  }
+  @media screen and (max-width: 1000px) {
+	.cardplanning {
+	  width: 40%;
+	}
+  }
+  @media screen and (max-width: 620px) {
+	.container {
+	  width: 100%;
+	}
+	.heading {
+	  padding: 20px;
+	  font-size: 20px;
+	}
+	.cardplanning {
+	  width: 80%;
+  }
+  .print{
+    margin-left: 0%;
+  }
+  }
