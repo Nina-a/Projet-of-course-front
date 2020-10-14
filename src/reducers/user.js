@@ -8,26 +8,48 @@ import {
   REGISTER_ERROR,
   REGISTER_SUCCESS,
   REGISTER_INPUT_SUBMIT,
+  CHECK_AUTH,
 } from '../actions/user';
 
 const initialState = {
   loading: false,
-  email: 'acidman@herocorp.io',
-  password: 'fructis',
+  email: '',
+  password: '',
   isLogged: false,
   pseudo: '',
   loggedMessage: 'Bienvenue intel',
   name: '',
   avatar: '',
+  token: '',
 };
 
 const user = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHECK_AUTH:
+    {
+      const userStorage = localStorage.getItem('user');
+      if (userStorage && JSON.parse(userStorage)) {
+        const userToken = JSON.parse(userStorage).token;
+        if (userToken) {
+          return {
+            ...state,
+            token: userToken,
+            isLogged: true,
+          };
+        }
+      }
+
+      return {
+        ...state,
+      };
+    }
+
     case LOGOUT_SUCCESS:
       return {
         ...state,
         isLogged: false,
         pseudo: '',
+        token: '',
         loggedMessage: '',
       };
     case LOGIN_SUCCESS:
@@ -63,7 +85,7 @@ const user = (state = initialState, action = {}) => {
         ...state,
         loading: true,
       };
-// == Action pour s'inscrire
+      // == Action pour s'inscrire
     case REGISTER_SUCCESS:
       return {
         ...state,

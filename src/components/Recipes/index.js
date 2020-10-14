@@ -17,7 +17,8 @@ const Recipes = ({ listEntree, listPlat, listDessert, isLogged }) => {
   const [selectedTab, setSelectedTab] = useState('entree');
 
   return (
-    <div>
+    <div className="recipesDiv">
+      <h1 className="recipes-title">Liste des recettes</h1>
       <div className="maintabsrecipes">
         {
           isLogged && (

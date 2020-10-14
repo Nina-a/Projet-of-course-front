@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Field from './Field';
 // import { useField } from './hooks';
 
 import './style.scss';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 const LoginForm = ({
   email,
@@ -42,6 +40,7 @@ const LoginForm = ({
 
   return (
     <div className="login-form">
+      <h1 className="login-title">Formulaire de connexion</h1>
       {user && user.isLogged && (
         <div className="login-form-logged">
           <p className="login-form-message">
@@ -77,10 +76,10 @@ const LoginForm = ({
           >
             OK
           </button>
+          <Link className="registerLink" to="/register">Si vous n'avez pas de compte, merci de vous inscrire ici</Link>
+
         </form>
       )}
-
-      <Link to="/register">Si vous n'avez pas de compte, merci de vous inscrire ici</Link>
     </div>
   );
 };
