@@ -82,7 +82,7 @@ export default (store) => (next) => (action) => {
         });
       break;
 
-    case LOGIN_INPUT_LOGOUT:
+   /* case LOGIN_INPUT_LOGOUT:
       axios.get(
         axios({
           method: 'get',
@@ -97,16 +97,17 @@ export default (store) => (next) => (action) => {
         .then((res) => {
           debugger;
           const { data } = res;
-          // console.log (data);
+          console.log(data);
           dispatch(logoutSuccess());
         })
         .catch((err) => {
           debugger;
           // console.error(err);
-          dispatch(logoutError());
+          dispatch(logoutSuccess());
         });
+      window.location.assign('/');
       break;
-
+*/
     case REGISTER_INPUT_SUBMIT:
       axios({
         method: 'post',
