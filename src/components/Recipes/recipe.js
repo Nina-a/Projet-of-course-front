@@ -1,12 +1,14 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 // == Import
 import './recipe.scss';
 
 // == Composant
-const CardRecipe = ({ recipe, addToPlanning }) => {
+const CardRecipe = ({ recipe, addToPlanning, isLogged }) => {
   console.log(recipe);
   return (
     recipe.map((recipeDetail) => (
@@ -15,7 +17,13 @@ const CardRecipe = ({ recipe, addToPlanning }) => {
         <div className="card-body">
           <h5 className="card-title">{recipeDetail.title}</h5>
           <div className="divButton">
-            <button type="button" className="btn btn-secondary">Ajouter au favoris</button>
+            {
+          isLogged && (
+            <Link to="/addRecipe">
+              <Button variant="success" size="lg">Ajouter au favoris</Button>
+            </Link>
+          )
+        }
             <select
               className="btn btn-primary"
               name={recipeDetail.title}
