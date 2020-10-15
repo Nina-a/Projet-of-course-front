@@ -1,9 +1,7 @@
 import axios from 'axios';
-
 import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE, addRecipeSuccess, addRecipeError } from '../actions/recipes';
-import { FETCH_CATEGORIES, FETCH_CATEGORIES_SUCCESS, fetchCategoriesSuccess } from '../actions/categories';
-import { FETCH_INGREDIENT,FETCH_INGREDIENT_SUCCESS, fetchIngredientSuccess} from '../actions/ingredients';
-
+import { FETCH_CATEGORIES, fetchCategoriesSuccess } from '../actions/categories';
+import { FETCH_INGREDIENT, fetchIngredientSuccess } from '../actions/ingredients';
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
