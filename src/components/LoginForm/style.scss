@@ -29,7 +29,7 @@
     height: 2.5em;
   }
   
-  .login-title {
+  .login-title, .loadingConnexion-title{
     font-size:100px;
     margin-bottom: 50px;
     font-family: 'Dancing Script';
@@ -37,6 +37,7 @@
   }
 
   .registerLink{
+    padding-top:20px;
     margin-top:2rem;
     height: 60px;
     margin-bottom: 2rem;
@@ -46,7 +47,7 @@
     background-color:black;
     border-radius: .3em;
     border: 0;
-    padding: .7em;
+    padding: 20px  0.7em 0.7em 0.7em;
     opacity: 0.60;
     text-decoration-line: none;
   }

@@ -11,7 +11,6 @@ import {
   CHECK_AUTH,
   LOGIN_INPUT_LOGOUT,
 } from '../actions/user';
-import { Redirect } from 'react-router';
 
 const initialState = {
   loading: false,
@@ -49,6 +48,7 @@ const user = (state = initialState, action = {}) => {
     case LOGIN_INPUT_LOGOUT:
     {
       localStorage.removeItem('user');
+      window.location.assign('/');
       return {
         ...state,
         isLogged: false,
@@ -56,8 +56,6 @@ const user = (state = initialState, action = {}) => {
         token: '',
         loggedMessage: '',
       };
-      window.location.assign('/');
-      Redirect('/')
     }
 
     case LOGIN_SUCCESS:

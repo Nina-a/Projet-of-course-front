@@ -38,7 +38,7 @@ const LoginForm = ({
   if (loading) {
     return (
       <div className="login-form">
-        Connexion en cours
+        <h1 className="loadingConnexion-title">Connexion en cours</h1>
       </div>
     );
   }
