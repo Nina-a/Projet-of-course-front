@@ -19,9 +19,7 @@ const CardRecipe = ({ recipe, addToPlanning, isLogged }) => {
           <div className="divButton">
             {
           isLogged && (
-            <Link to="/addRecipe">
-              <Button variant="success" size="lg">Ajouter au favoris</Button>
-            </Link>
+          <Button className="add_to_favorite" variant="success" size="lg">Ajouter au favoris</Button>
           )
         }
             <select

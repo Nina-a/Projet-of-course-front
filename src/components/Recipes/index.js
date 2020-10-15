@@ -13,7 +13,9 @@ import CardRecipe from '../../containers/Recipe';
 // TODO show active en className sur le bouton où l'on a appuyé
 
 // == Composant
-const Recipes = ({ listEntree, listPlat, listDessert, isLogged }) => {
+const Recipes = ({
+  listEntree, listPlat, listDessert, isLogged,
+}) => {
   const [selectedTab, setSelectedTab] = useState('entree');
 
   return (
@@ -21,11 +23,14 @@ const Recipes = ({ listEntree, listPlat, listDessert, isLogged }) => {
       <h1 className="recipes-title">Liste des recettes</h1>
       <div className="maintabsrecipes">
         {
-          isLogged && (
-            <Link to="/addRecipe">
-              <Button variant="success" size="lg">Ajouter une recette</Button>
-            </Link>
-          )
+        isLogged && (
+        <div className="button_add_recipe">
+          <Link to="/addRecipe">
+            <Button className="add_recipe" variant="success" size="lg">Ajouter une recette</Button>
+          </Link>
+        </div>
+        )
+
         }
         <ul className="nav nav-tabs" id="myTab" role="navigation">
           <li className="nav-item-entree col-4">

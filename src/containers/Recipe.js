@@ -20,6 +20,7 @@ const mapStateToProps = (state) => {
     samedi_soir: state.planning[12],
     dimanche_midi: state.planning[13],
     dimanche_soir: state.planning[14],
+    isLogged: state.user.isLogged,
   };
 };
 // == Besoin de consulter et d'envoyer des informations

@@ -48,9 +48,7 @@ const LoginForm = ({
       <h1 className="login-title">Formulaire de connexion</h1>
       {user && user.isLogged && (
         <div className="login-form-logged">
-          <p className="login-form-message">
-            {user.loggedMessage}
-          </p>
+
           <button
             type="button"
             className="login-form-button"

@@ -32,7 +32,7 @@ const ShoppingList = ({ shoppingList }) => {
       </div>
       <button type="button" className="btn btn-danger">Editer ma liste</button>
       <Pdf targetRef={ref} filename="liste de course.pdf">
-        {({ toPdf }) => <button type="button" className="btn btn-success" onClick={toPdf}>Télécharger ma liste</button>}
+        {({ toPdf }) => <button type="button" className="btn btn-success" onClick={toPdf} scale={0.60}>Télécharger ma liste</button>}
       </Pdf>
 
     </div>
