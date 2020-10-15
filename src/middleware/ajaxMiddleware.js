@@ -69,7 +69,7 @@ export default (store) => (next) => (action) => {
           // console.log(serverResponse);
           dispatch(loginSuccess({
             token: serverResponse,
-            pseudo: store.getState().user.email,
+            pseudo: store.getState().user.name,
           }));
           window.location.assign('/');
           // Retour du serveur avec les infos du user
@@ -81,9 +81,12 @@ export default (store) => (next) => (action) => {
         });
       break;
 
-    case LOGIN_INPUT_LOGOUT:
+   /* case LOGIN_INPUT_LOGOUT:
       axios.get(
-        'http://18.209.180.210/logout',
+        axios({
+          method: 'get',
+          url: 'http://18.209.180.210/logout',
+        }),
         {
           headers: {
             Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
@@ -91,16 +94,19 @@ export default (store) => (next) => (action) => {
         },
       )
         .then((res) => {
+          debugger;
           const { data } = res;
-          // console.log (data);
+          console.log(data);
           dispatch(logoutSuccess());
         })
         .catch((err) => {
+          debugger;
           // console.error(err);
-          dispatch(logoutError());
+          dispatch(logoutSuccess());
         });
+      window.location.assign('/');
       break;
-
+*/
     case REGISTER_INPUT_SUBMIT:
       axios({
         method: 'post',

@@ -9,6 +9,12 @@ body {
   font-size: 16px;
 }
 
+@media screen and (max-width: 620px) {
+  .body{
+    background-repeat:repeat-y;
+  }
+  }
+
 /* 
   // or you can import your own font
   @font-face {    font-family: 'Roboto';

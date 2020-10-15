@@ -14,16 +14,21 @@ const Home = () => (
   <div className="home">
     <div className="maindiv">
       <div className="recette">
-        <img className="homeimg" src={recette} alt="liste des courses" />
+        <a href="./recipes">
+          <img className="homeimg" src={recette} alt="liste des courses" />
+        </a>
         <p>1) Commencez par choisir votre recette</p>
-        <img className="fleche" src={fleche} alt="fleche craie" />
       </div>
       <div className="agenda">
-        <img className="homeimg" src={planning} alt="liste des courses" />
+        <a href="./planning">
+          <img className="homeimg" src={planning} alt="liste des courses" />
+        </a>
         <p>2) Plannifiez vos repas en un clin d'oeil</p>
       </div>
       <div className="course">
-        <img className="homeimg" src={course} alt="liste des courses" />
+        <a href="./shoppingList">
+          <img className="homeimg" src={course} alt="liste des courses" />
+        </a>
         <p>3) Et voilà, votre liste de courses est prête !!</p>
       </div>
     </div>

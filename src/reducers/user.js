@@ -9,7 +9,9 @@ import {
   REGISTER_SUCCESS,
   REGISTER_INPUT_SUBMIT,
   CHECK_AUTH,
+  LOGIN_INPUT_LOGOUT,
 } from '../actions/user';
+import { Redirect } from 'react-router';
 
 const initialState = {
   loading: false,
@@ -44,7 +46,9 @@ const user = (state = initialState, action = {}) => {
       };
     }
 
-    case LOGOUT_SUCCESS:
+    case LOGIN_INPUT_LOGOUT:
+    {
+      localStorage.removeItem('user');
       return {
         ...state,
         isLogged: false,
@@ -52,6 +56,10 @@ const user = (state = initialState, action = {}) => {
         token: '',
         loggedMessage: '',
       };
+      window.location.assign('/');
+      Redirect('/')
+    }
+
     case LOGIN_SUCCESS:
       localStorage.setItem('user', JSON.stringify({
         token: action.payload.token.token,

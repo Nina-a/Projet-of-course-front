@@ -30,6 +30,11 @@ const LoginForm = ({
     handleLogin();
   };
 
+  const handleLogoutForm = (evt) => {
+    evt.preventDefault();
+    handleLogout();
+  };
+
   if (loading) {
     return (
       <div className="login-form">
@@ -49,7 +54,7 @@ const LoginForm = ({
           <button
             type="button"
             className="login-form-button"
-            onClick={handleLogout}
+            onClick={handleLogoutForm}
           >
             Déconnexion
           </button>
