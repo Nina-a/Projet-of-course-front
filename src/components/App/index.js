@@ -8,13 +8,12 @@ import Home from '../Home';
 import Planning from '../../containers/Planning';
 import Recipes from '../../containers/Recipes';
 import ShoppingList from '../../containers/ShoppingList';
-import Footer from '../Footer';
 import LoginForm from '../../containers/LoginForm';
 import RegisterForm from '../../containers/RegisterForm';
 import './styles.css';
 import data from '../../data';
 import RecipeForm from '../../containers/RecipeForm';
-import PageTeam from '../../components/PageTeam';
+import PageTeam from '../PageTeam';
 
 const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
@@ -57,7 +56,6 @@ const App = ({ fetchRecipes, checkAuth }) => {
         <Route exact path="/team">
           <PageTeam className="PageTeam" />
         </Route>
-        <Footer className="footer" />
       </main>
 
     </div>

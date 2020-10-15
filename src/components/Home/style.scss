@@ -133,22 +133,34 @@ p{
     display:flex;
     justify-items: center;
   }
+  .home{
+    margin-top:50px;
+  }
   .header {
-
     margin:0px;
+  }
+  .div_home_p, .div_agenda_p, .div_course_p{
+    margin:auto;
+    text-align:center;
   }
   .fleche{
     display:none;
   }
-  .course, .agenda,.recette{
-    margin:0px;
-    margin-bottom: 5rem;
-  }
   p{
     display:initial;
-    font-size:30px;
+    font-size:23px;
+    margin:auto;
+    font-family: 'Times New Roman', Times, serif;
   }
-  .agenda{
+  .agenda, .course, .recette{
     text-align: left;
+    margin-right: 0px;
+    margin-left:0px;
+    width:100%;
+    margin-bottom: 30px;
+
+  }
+  .homeimg{
+    display: none;
   }
 }
