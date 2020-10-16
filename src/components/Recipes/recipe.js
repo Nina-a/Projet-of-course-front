@@ -23,7 +23,7 @@ const CardRecipe = ({ recipe, addToPlanning, isLogged }) => {
           )
         }
             <select
-              className="btn btn-primary"
+              className="btn btn-info"
               name={recipeDetail.title}
               onChange={(e) => addToPlanning(recipeDetail, e.target.value,
                 recipeDetail.categories[0].title)}
