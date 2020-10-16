@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
 import './style.scss';
@@ -86,15 +87,6 @@ const RegisterFrom = ({
             name="pseudo"
             value={pseudo}
           />
-        </div>
-        <div className="form-group divfile">
-          <label className="custom-file-upload">
-            <input
-              className="input-file"
-              type="file"
-              onChange={changeInput}
-            />
-          </label>
         </div>
         <button type="submit" className="btn registerFormButton">Submit</button>
       </form>

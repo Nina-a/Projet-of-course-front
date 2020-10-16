@@ -1,5 +1,3 @@
-.recipesDiv {
-  
   .recipes-title {
     font-size:100px;
     margin-bottom: 150px;
@@ -8,9 +6,16 @@
     margin-top:100px;
   }
 
+
+.add_to_favorite{
+  margin-bottom:20px;
+}
+.button_add_recipe{
+  margin-bottom: 20px;
+  }
   .card {
     padding-top: 30px;
-    min-width: 25%;
+    min-width: 20%;
     max-width:33%;
     max-height: 70%;
     padding: 0;
@@ -71,7 +76,7 @@
 
   }  
   .btn{
-    margin-right: 3rem;
+    margin:auto;
   }
 
   ::-webkit-scrollbar {
@@ -92,5 +97,3 @@
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
   }
-
-}

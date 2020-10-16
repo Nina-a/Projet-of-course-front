@@ -116,7 +116,7 @@ export default (store) => (next) => (action) => {
           email: store.getState().user.email,
           password: store.getState().user.password,
           pseudo: store.getState().user.pseudo,
-          avatar: store.getState().user.avatar,
+          //avatar: store.getState().user.avatar,
           role: 'user',
         },
       })

@@ -19,22 +19,22 @@ const PageTeam = () => (
     <h1> La Team Of'Course <br />(Tous développeurs!)</h1>
     <CardDeck>
       <Card>
-        <Card.Img variant="top" src={nina} />
+        <Card.Img className="phototeam" variant="top" src={nina} />
         <Card.Title>Nina Le Duc</Card.Title>
         <Card.Title>Product Owner & Scrum Master</Card.Title>
       </Card>
       <Card>
-        <Card.Img variant="top" src={aurore} />
+        <Card.Img className="phototeam" variant="top" src={aurore} />
         <Card.Title>Aurore Fayet</Card.Title>
         <Card.Title>Lead dev Front</Card.Title>
       </Card>
       <Card>
-        <Card.Img variant="top" src={anthony} />
+        <Card.Img className="phototeam" variant="top" src={anthony} />
         <Card.Title>Anthony Maillard</Card.Title>
         <Card.Title>Lead dev Back</Card.Title>
       </Card>
       <Card>
-        <Card.Img variant="top" src={cyril} />
+        <Card.Img className="phototeam" variant="top" src={cyril} />
         <Card.Title>Cyril Rufin</Card.Title>
         <Card.Title>Git Master</Card.Title>
       </Card>

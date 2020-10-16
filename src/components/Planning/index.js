@@ -176,7 +176,6 @@ const Planning = ({
 
       </div>
       <div className="print">
-      <a className="button" type="button" href="/shoppingList">Retour à la liste de course</a>
         <Pdf targetRef={ref} filename="planning.pdf" options={options} scale={0.48}>
           {({ toPdf }) => <button type="button" onClick={toPdf}>Generate Pdf</button>}
         </Pdf>
