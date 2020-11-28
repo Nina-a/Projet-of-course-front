@@ -1,11 +1,10 @@
+// == Import npm
 import React from 'react';
-import { link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import course from '../../assets/images/courses.png';
 import planning from '../../assets/images/planning.png';
 import recette from '../../assets/images/recettes.png';
-import fleche from '../../assets/images/fleche.png';
 
-import nom from '../../assets/images/nom.png';
 // == Import
 import './style.scss';
 
@@ -15,17 +14,17 @@ const Home = () => (
     <div className="maindiv">
       <div className="recette">
         <div className="div_home_img">
-          <a href="./recipes">
+          <NavLink exact className="navigation-link" to="/recipes">
             <img className="homeimg" src={recette} alt="liste des courses" />
-          </a>
+          </NavLink>
         </div>
         <div className="div_home_p"><p>1) Commencez par choisir votre recette</p></div>
       </div>
       <div className="agenda">
         <div className="div_agenda_img">
-          <a href="./planning">
+          <NavLink exact className="navigation-link" to="/planning">
             <img className="homeimg" src={planning} alt="liste des courses" />
-          </a>
+          </NavLink>
         </div>
         <div className="div_agenda_p">
           <p>2) Plannifiez vos repas en un clin d'oeil</p>
@@ -33,9 +32,9 @@ const Home = () => (
       </div>
       <div className="course">
         <div className="div_course_img">
-          <a href="./shoppingList">
+          <NavLink exact className="navigation-link" to="/shoppingList">
             <img className="homeimg" src={course} alt="liste des courses" />
-          </a>
+          </NavLink>
         </div>
         <div className="div_course_p">
           <p>3) Et voilà, votre liste de courses est prête !!</p>
