@@ -1,8 +1,8 @@
 // == Import npm
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 // == Import
 import './style.scss';
@@ -13,9 +13,11 @@ import Tabs from '../Tabs';
 // TODO show active en className sur le bouton où l'on a appuyé
 
 // == Composant
-const Recipes = ({
-  listEntree, listPlat, listDessert, isLogged,
-}) => {
+const Recipes = (
+  {
+    listEntree, listPlat, listDessert, isLogged,
+  },
+) => {
   console.log('plop');
 
   return (
@@ -23,13 +25,13 @@ const Recipes = ({
       <h1 className="recipes-title">Liste des recettes</h1>
       <div className="maintabsrecipes">
         {isLogged && (
-        <div className="button_add_recipe">
-          <Link to="/addRecipe">
-            <Button className="add_recipe" variant="success" size="lg">
-              Ajouter une recette
-            </Button>
-          </Link>
-        </div>
+          <div className="button_add_recipe">
+            <Link to="/addRecipe">
+              <Button className="add_recipe" variant="success" size="lg">
+                Ajouter une recette
+              </Button>
+            </Link>
+          </div>
         )}
 
         <Tabs>
@@ -58,6 +60,7 @@ Recipes.propTypes = {
   listEntree: PropTypes.array.isRequired,
   listPlat: PropTypes.array.isRequired,
   listDessert: PropTypes.array.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 // == Export
 export default Recipes;
