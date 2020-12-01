@@ -1,12 +1,12 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+// == Import intern
+import './style.scss';
 import course from '../../assets/images/courses.png';
 import planning from '../../assets/images/planning.png';
 import recette from '../../assets/images/recettes.png';
-
-// == Import
-import './style.scss';
 
 // == Composant
 const Home = () => (
@@ -18,7 +18,7 @@ const Home = () => (
             <img className="homeimg" src={recette} alt="liste des courses" />
           </NavLink>
         </div>
-        <div className="div_home_p"><p>1) Commencez par choisir votre recette</p></div>
+        <div className="div_home_p"><p>1) Commencez par choisir vos recettes</p></div>
       </div>
       <div className="agenda">
         <div className="div_agenda_img">

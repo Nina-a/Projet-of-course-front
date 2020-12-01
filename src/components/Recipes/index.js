@@ -1,113 +1,56 @@
 // == Import npm
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, Card } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 // == Import
 import './style.scss';
 import { Link } from 'react-router-dom';
 import CardRecipe from '../../containers/Recipe';
-
+import Tabs from '../Tabs';
 // TODO action sur les liens a
 // TODO show active en className sur le bouton où l'on a appuyé
 
 // == Composant
-const Recipes = ({
-  listEntree, listPlat, listDessert, isLogged,
-}) => {
-  const [selectedTab, setSelectedTab] = useState('entree');
+const Recipes = (
+  {
+    listEntree, listPlat, listDessert, isLogged,
+  },
+) => {
+  console.log('plop');
 
   return (
     <div className="recipesDiv">
       <h1 className="recipes-title">Liste des recettes</h1>
       <div className="maintabsrecipes">
-        {
-        isLogged && (
-        <div className="button_add_recipe">
-          <Link to="/addRecipe">
-            <Button className="add_recipe" variant="success" size="lg">Ajouter une recette</Button>
-          </Link>
-        </div>
-        )
+        {isLogged && (
+          <div className="button_add_recipe">
+            <Link to="/addRecipe">
+              <Button className="add_recipe" variant="success" size="lg">
+                Ajouter une recette
+              </Button>
+            </Link>
+          </div>
+        )}
 
-        }
-        <ul className="nav nav-tabs" id="myTab" role="navigation">
-          <li className="nav-item-entree col-4">
-            <a
-              className="nav-link"
-              id="entree-tab"
-              data-toggle="tab"
-              href="#entree"
-              role="tab"
-              aria-controls="entree"
-              aria-selected="true"
-              onClick={() => setSelectedTab('entree')}
-            >
-              Entrée
-            </a>
-          </li>
-          <li className="nav-item-plat col-4">
-            <a
-              className="nav-link"
-              id="plat-tab"
-              data-toggle="tab"
-              href="#plat"
-              role="tab"
-              aria-controls="plat"
-              aria-selected="false"
-              onClick={() => setSelectedTab('plat')}
-            >
-              Plat
-            </a>
-          </li>
-          <li className="nav-item-dessert col-4">
-            <a
-              className="nav-link"
-              id="dessert-tab"
-              data-toggle="tab"
-              href="#dessert"
-              role="tab"
-              aria-controls="dessert"
-              aria-selected="false"
-              onClick={() => setSelectedTab('dessert')}
-            >
-              Dessert
-            </a>
-          </li>
-        </ul>
-        <div className="tab-content" id="myTabContent">
-          <div
-            className={`tab-pane fade ${selectedTab === 'entree' ? 'show active' : ''}`}
-            id="home"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          >
+        <Tabs>
+          <div label="Entrées" className="entree">
             <div className="card-group">
               <CardRecipe recipe={listEntree} />
             </div>
           </div>
-          <div
-            className={`tab-pane fade ${selectedTab === 'plat' ? 'show active' : ''}`}
-            id="profile"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
-          >
+          <div label="Plats">
             <div className="card-group">
               <CardRecipe recipe={listPlat} />
             </div>
           </div>
-          <div
-            className={`tab-pane fade ${selectedTab === 'dessert' ? 'show active' : ''}`}
-            id="contact"
-            role="tabpanel"
-            aria-labelledby="contact-tab"
-          >
+          <div label="Desserts">
             <div className="card-group">
               <CardRecipe recipe={listDessert} />
             </div>
           </div>
-        </div>
+        </Tabs>
       </div>
     </div>
   );
@@ -117,6 +60,7 @@ Recipes.propTypes = {
   listEntree: PropTypes.array.isRequired,
   listPlat: PropTypes.array.isRequired,
   listDessert: PropTypes.array.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 // == Export
 export default Recipes;
