@@ -1,18 +1,21 @@
 import { connect } from 'react-redux';
+
 import Recipes from '../components/Recipes';
+
 // import reducerrecipes from '../reducers/recipes';
 
-const mapState = (state) => {
-  // console.log('state', state);
-  // console.log('reducerrecipes', reducerrecipes);
-  // console.log(state.reducerrecipes, 'state.reducerrecipes');
-  console.log('state.reducerrecipes.list', state.reducerrecipes.list);
-  return { recipe: state.reducerrecipes.list };
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    listEntree: state.reducerrecipes.listEntree,
+    listPlat: state.reducerrecipes.listPlat,
+    listDessert: state.reducerrecipes.listDessert,
+    isLogged: state.user.isLogged,
+  };
 };
-// == Besoin de consulter et d'envoyer des informations
-// == On a besoin des ingrédients des listes des recettes ajouter par l'utilisateur
-const mapDispatch = null;
+
+const mapDispatchToProps = null;
 // == Besoin d'envoyer des actions jusqu'au reducer
 // == On aura besoin de modifier la liste en fonction des stocks
 
-export default connect(mapState, mapDispatch)(Recipes);
+export default connect(mapStateToProps, mapDispatchToProps)(Recipes);

@@ -6,6 +6,10 @@ export const CHECK_AUTH = 'CHECK_AUTH';
 export const LOGIN_INPUT_LOGOUT = 'LOGIN_INPUT_LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_ERROR = 'LOGOUT_ERROR';
+export const REGISTER_INPUT_SUBMIT = 'REGISTER_INPUT_SUBMIT';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_ERROR = 'REGISTER_ERROR';
+export const REGISTER_INPUT_CHANGE = 'REGISTER_INPUT_CHANGE';
 
 export const checkAuth = () => ({
   type: CHECK_AUTH,
@@ -39,4 +43,22 @@ export const logoutSuccess = () => ({
 
 export const logoutError = () => ({
   type: LOGOUT_ERROR,
+});
+
+// == Action nécessaires pour s'inscrire
+export const registerInputChange = (payload) => ({
+  type: REGISTER_INPUT_CHANGE,
+  payload,
+});
+
+export const registerInputSubmit = () => ({
+  type: REGISTER_INPUT_SUBMIT,
+});
+
+export const registerSuccess = () => ({
+  type: REGISTER_SUCCESS,
+});
+
+export const registerError = () => ({
+  type: REGISTER_ERROR,
 });

@@ -5,33 +5,19 @@
 .header {
   display: flex;
   justify-content: center;
-  height: 60px;
+  height: 110px;
   padding: 0 10px;
   font-weight: bold;
-  padding-top: 50px;
-  margin-top: 75px;
-  font-size: 14rem;
-  margin-bottom: 100px;
-  font-family: 'Henny Penny', cursive;
+  padding: 25px 0px;
+  margin: 40px 0px;
+  font-size: 12rem;
+  font-family: 'Dancing Script';
 }
 
-.main {
-
+main.main {
   flex: 1;
-  height: 100vh;
-  overflow-y: auto;
-}
-.footer{
-
-  display: inline;
-  margin-top: 0;
-}
-
-.fleche  {
-
-  width:300px;
-  height:300px;
-  
+  height: 100%;
+  /** overflow-y: auto; */
 }
 
 .homeimg {
@@ -72,7 +58,7 @@
 
   .header {
     margin-top:50px;
-    margin-bottom:100px;
+    margin-bottom:50px;
     font-size: 5rem;
   }
 
@@ -90,8 +76,8 @@
 @media only screen and (max-width: 320px) {
 
   .header {
-    margin-top:50px;
-    margin-bottom:100px;
+    margin-top:70px;
+    margin-bottom:50px;
     font-size: 4rem;
   }
 
@@ -103,6 +89,7 @@
 
   .home {
     height: auto;
+    margin-top: 0px;
   }
 }
 

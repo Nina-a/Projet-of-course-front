@@ -1,0 +1,10 @@
+.shoppingList {
+    margin-top: 300px;
+    text-align: center;
+  }
+
+  @page {
+    size: A4;
+    margin: 1cm;
+    }
+    

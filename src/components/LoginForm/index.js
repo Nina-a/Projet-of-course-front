@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import Field from './Field';
 // import { useField } from './hooks';
 
 import './style.scss';
-import { Link } from 'react-router-dom';
 
 const LoginForm = ({
   email,
@@ -13,41 +12,53 @@ const LoginForm = ({
   changeField,
   handleLogin,
   handleLogout,
-  isLogged,
   loading,
-  loggedMessage,
+  isLogged,
 }) => {
+  // https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
+  const [user, setUser] = useState(false);
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('user');
+    if (loggedInUser) {
+      setUser(JSON.parse(loggedInUser));
+    }
+  }, [isLogged]);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
   };
 
+  const handleLogoutForm = (evt) => {
+    evt.preventDefault();
+    handleLogout();
+  };
+
   if (loading) {
     return (
       <div className="login-form">
-        Connexion en cours
+        <h1 className="loadingConnexion-title">Connexion en cours</h1>
       </div>
     );
   }
 
   return (
     <div className="login-form">
-      {isLogged && (
+      <h1 className="login-title">Formulaire de connexion</h1>
+      {user && user.isLogged && (
         <div className="login-form-logged">
-          <p className="login-form-message">
-            {loggedMessage}
-          </p>
+
           <button
             type="button"
             className="login-form-button"
-            onClick={handleLogout}
+            onClick={handleLogoutForm}
           >
             Déconnexion
           </button>
         </div>
       )}
-      {!isLogged && (
-
+      {!user && (
         <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
           <Field
             name="email"
@@ -68,14 +79,14 @@ const LoginForm = ({
           >
             OK
           </button>
+          <Link className="registerLink" to="/register">Si vous n'avez pas de compte, merci de vous inscrire ici</Link>
+
         </form>
       )}
-
-      <Link to="/register">Inscription</Link>
     </div>
   );
 };
- 
+
 LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
@@ -93,4 +104,3 @@ LoginForm.defaultProps = {
 };
 
 export default LoginForm;
-
