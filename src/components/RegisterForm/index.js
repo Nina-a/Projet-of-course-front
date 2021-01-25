@@ -3,7 +3,7 @@ import React from 'react';
 
 import './style.scss';
 
-const RegisterFrom = ({
+const RegisterForm = ({
   handleRegister,
   name,
   password,
@@ -94,4 +94,4 @@ const RegisterFrom = ({
   );
 };
 
-export default RegisterFrom;
+export default RegisterForm;

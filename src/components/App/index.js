@@ -13,7 +13,6 @@ import RegisterForm from '../../containers/RegisterForm';
 import './styles.css';
 import data from '../../data';
 import RecipeForm from '../../containers/RecipeForm';
-import PageTeam from '../PageTeam';
 
 const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
@@ -52,9 +51,6 @@ const App = ({ fetchRecipes, checkAuth }) => {
         </Route>
         <Route exact path="/addRecipe">
           <RecipeForm className="RecipeForm" />
-        </Route>
-        <Route exact path="/team">
-          <PageTeam className="PageTeam" />
         </Route>
       </main>
 
