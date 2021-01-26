@@ -1,7 +1,20 @@
 import axios from 'axios';
-import { FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE, addRecipeSuccess, addRecipeError } from '../actions/recipes';
-import { FETCH_CATEGORIES, fetchCategoriesSuccess } from '../actions/categories';
-import { FETCH_INGREDIENT, fetchIngredientSuccess } from '../actions/ingredients';
+import {
+  FETCH_RECIPES,
+  fetchRecipesSuccess,
+  fetchRecipesError,
+  ADD_RECIPE,
+  addRecipeSuccess,
+  addRecipeError,
+} from '../actions/recipes';
+import {
+  FETCH_CATEGORIES,
+  fetchCategoriesSuccess,
+} from '../actions/categories';
+import {
+  FETCH_INGREDIENT,
+  fetchIngredientSuccess,
+} from '../actions/ingredients';
 import {
   LOGIN_INPUT_SUBMIT,
   CHECK_AUTH,
@@ -36,6 +49,7 @@ export default (store) => (next) => (action) => {
         });
       break;
 
+<<<<<<< HEAD
     case CHECK_AUTH:
       axios({
         method: 'post',
@@ -135,6 +149,58 @@ export default (store) => (next) => (action) => {
           dispatch(registerError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
+=======
+    case ADD_RECIPE:
+      // https://flaviocopes.com/axios-send-authorization-header/
+      axios
+        .post(
+          'http://18.209.180.210/api/add/recipe',
+          {
+            ...action.payload,
+            private: true,
+            user: 25,
+          },
+          {
+            headers: {
+              // Authorization: `Bearer ${store.getState().user.token}`,
+              Authorization: `Bearer ${
+                JSON.parse(localStorage.getItem('user')).token
+              }`,
+            },
+          }
+        )
+        .then((res) => {
+          const serverResponse = res.data;
+          // console.log(serverResponse);
+          dispatch(addRecipeSuccess(serverResponse));
+          // Retour du serveur avec les infos de la recette
+        })
+        .catch((err) => {
+          console.error(err);
+          dispatch(addRecipeError());
+          // En cas d'échec de la sauvegarde dans la data, le serveur retourne une erreur
+        });
+      break;
+
+    case FETCH_CATEGORIES:
+      axios({
+        method: 'get',
+        url: 'http://18.209.180.210/api/categorie/list',
+      }).then((res) => {
+        const serverResponse = res.data;
+        dispatch(fetchCategoriesSuccess(serverResponse));
+      });
+      break;
+
+    case FETCH_INGREDIENT:
+      axios({
+        method: 'get',
+        url: 'http://18.209.180.210/api/ingredient/list',
+      }).then((res) => {
+        const serverResponse = res.data;
+        dispatch(fetchIngredientSuccess(serverResponse));
+      });
+>>>>>>> 0f40748395de488da54d66daf69100ede4833285
       break;
     default:
       // console.log('default');

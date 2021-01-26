@@ -26,3 +26,4 @@ const NavBar = ({ isLogged }) => (
 
 // == Pas besoin de props !!!!
 export default NavBar;
+

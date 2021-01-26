@@ -19,7 +19,6 @@ const RegisterForm = ({
   };
 
   const changeInput = (evt) => {
-    console.log(evt.target.value);
     if (evt.target.name === 'avatar') {
       const reader = new FileReader();
 
@@ -36,8 +35,6 @@ const RegisterForm = ({
     } else {
       changeField(evt.target.value, evt.target.name);
     }
-    console.log(evt.target.value);
-    console.log(evt.target.name);
   };
 
   return (
