@@ -32,6 +32,7 @@ export const registerError = () => ({
   type: REGISTER_ERROR,
 });
 
+// == 
 export const checkAuth = () => ({
   type: CHECK_AUTH,
 });
