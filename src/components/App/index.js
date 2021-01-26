@@ -21,7 +21,7 @@ const ingredientData = data.map((dataObjet) => ({
 // TODO rajouter fetchRecipes
 const App = ({ fetchRecipes, checkAuth }) => {
   useEffect(() => {
-    checkAuth();
+    //checkAuth();
     fetchRecipes();
   }, []);
   return (

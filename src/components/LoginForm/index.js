@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Field from './Field';
 // import { useField } from './hooks';
 
 import './style.scss';
@@ -23,6 +22,10 @@ const LoginForm = ({
   const handleLogoutForm = (evt) => {
     evt.preventDefault();
     handleLogout();
+  };
+
+  const changeInput = (evt) => {
+    changeField(evt.target.value, evt.target.name);
   };
 
   if (loading) {
@@ -50,19 +53,28 @@ const LoginForm = ({
       )}
       {!isLogged && (
         <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-          <Field
-            name="email"
-            placeholder="Adresse Email"
-            onChange={changeField}
-            value={email}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            onChange={changeField}
-            value={password}
-          />
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              onChange={changeInput}
+              name="email"
+              value={email}
+              placeholder="Email"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              onChange={changeInput}
+              name="password"
+              value={password}
+              placeholder="Mot de passe"
+            />
+          </div>
           <button
             type="submit"
             className="login-form-button"

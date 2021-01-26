@@ -1,15 +1,11 @@
 import {
+  REGISTER_INPUT_CHANGE,
+  REGISTER_INPUT_SUBMIT,
+  REGISTER_SUCCESS,
+  REGISTER_ERROR,
   LOGIN_INPUT_CHANGE,
   LOGIN_INPUT_SUBMIT,
   LOGIN_SUCCESS,
-  LOGIN_ERROR,
-  LOGOUT_SUCCESS,
-  REGISTER_INPUT_CHANGE,
-  REGISTER_ERROR,
-  REGISTER_SUCCESS,
-  REGISTER_INPUT_SUBMIT,
-  CHECK_AUTH,
-  LOGIN_INPUT_LOGOUT,
 } from '../actions/user';
 
 const initialState = {
@@ -22,11 +18,45 @@ const initialState = {
   name: '',
   avatar: '',
   token: '',
+  redirectToHomepage: false,
 };
 
 const user = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHECK_AUTH:
+    // =================== Action pour s'inscrire==========================================
+    // L'action d'inscription s'est bien déroulée
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isLogged: true,
+        pseudo: state.pseudo,
+        loggedMessage: `Bienvenue ${state.pseudo}`,
+        redirectToHomepage: true,
+      };
+    // L'action d'inscription n'a pas aboutie
+    // TODO
+    case REGISTER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        isLogged: false,
+        pseudo: '',
+        loggedMessage: '',
+      };
+    // Soumission du formulaire d'inscription
+    case REGISTER_INPUT_SUBMIT:
+      return {
+        ...state,
+        loading: true,
+      };
+    // Changement des valeurs dans le formulaire d'inscription
+    case REGISTER_INPUT_CHANGE:
+      return {
+        ...state,
+        ...action.payload,
+      };
+      /* case CHECK_AUTH:
     {
       const userStorage = localStorage.getItem('user');
       if (userStorage && JSON.parse(userStorage)) {
@@ -44,8 +74,8 @@ const user = (state = initialState, action = {}) => {
         ...state,
       };
     }
-
-    case LOGIN_INPUT_LOGOUT:
+    */
+      /* case LOGIN_INPUT_LOGOUT:
     {
       localStorage.removeItem('user');
       window.location.assign('/');
@@ -57,14 +87,17 @@ const user = (state = initialState, action = {}) => {
         loggedMessage: '',
       };
     }
-
-    case LOGIN_SUCCESS:
-      localStorage.setItem('user', JSON.stringify({
-        token: action.payload.token.token,
-        isLogged: true,
-        pseudo: action.payload.pseudo,
-        loggedMessage: `Bienvenue ${action.payload.pseudo}`,
-      }));
+*/
+      /* case LOGIN_SUCCESS:
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          token: action.payload.token.token,
+          isLogged: true,
+          pseudo: action.payload.pseudo,
+          loggedMessage: `Bienvenue ${action.payload.pseudo}`,
+        }),
+      );
       return {
         ...state,
         token: action.payload.token,
@@ -72,54 +105,31 @@ const user = (state = initialState, action = {}) => {
         isLogged: true,
         pseudo: action.payload.pseudo,
         loggedMessage: `Bienvenue ${action.payload.pseudo}`,
-      };
-    case LOGIN_ERROR:
+      }; */
+
+      /* case LOGIN_ERROR:
       return {
         ...state,
         loading: false,
         isLogged: false,
         pseudo: '',
         loggedMessage: '',
-      };
-    case LOGIN_INPUT_CHANGE:
+      }; */
+
+      /* case LOGIN_INPUT_CHANGE:
       return {
         ...state,
         ...action.payload,
       };
+      */
+      /*
     case LOGIN_INPUT_SUBMIT:
       return {
         ...state,
         loading: true,
       };
-      // == Action pour s'inscrire
-      // L'action d'inscription s'est bien déroulée
-    case REGISTER_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        isLogged: true,
-        pseudo: state.pseudo,
-        loggedMessage: `Bienvenue ${state.pseudo}`,
-      };
+      */
 
-    case REGISTER_ERROR:
-      return {
-        ...state,
-        loading: false,
-        isLogged: false,
-        pseudo: '',
-        loggedMessage: '',
-      };
-    case REGISTER_INPUT_SUBMIT:
-      return {
-        ...state,
-        loading: true,
-      };
-    case REGISTER_INPUT_CHANGE:
-      return {
-        ...state,
-        ...action.payload,
-      };
     default:
       return state;
   }

@@ -14,6 +14,7 @@ const mapState = (state) => ({
   pseudo: state.user.pseudo,
   password: state.user.password,
   avatar: state.user.avatar,
+  redirectToHomepage: state.user.redirectToHomepage,
 });
 
 const mapDispatch = (dispatch) => ({
@@ -24,15 +25,17 @@ const mapDispatch = (dispatch) => ({
     };
     dispatch(registerInputChange(object));
   },
+  /*
   handleCheckAuth: () => {
     dispatch(checkAuth());
   },
-  handlerRegisterSuccess: () => {
-    dispatch(registerSuccess());
-  },
-  handlerRegisterError: () => {
-    dispatch(registerError());
-  },
+  */
+  // handlerRegisterSuccess: (payload) => {
+  //   dispatch(registerSuccess(payload));
+  // },
+  // handlerRegisterError: () => {
+  //   dispatch(registerError());
+  // },
   handleRegister: (payload) => {
     dispatch(registerInputSubmit(payload));
   },

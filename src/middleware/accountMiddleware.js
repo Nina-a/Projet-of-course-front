@@ -32,13 +32,13 @@ export default (store) => (next) => (action) => {
               ...serverResponse,
               token: serverResponse,
               pseudo: store.getState().user.pseudo,
-            })
+            }),
           );
           // TODO Faire un message qui préviens de la réussite de l'inscription
           alert(
-            "Votre inscription est bien prise en compte Vous allez être redirigé vers la page d'acceuil"
+            "Votre inscription est bien prise en compte Vous allez être redirigé vers la page d'acceuil",
           );
-          window.location.assign('/');
+          // window.location.assign('/');
           // Retour du serveur avec les infos du user
         })
         .catch((err) => {

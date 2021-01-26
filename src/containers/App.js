@@ -10,9 +10,11 @@ const mapDispatch = (dispatch) => ({
     console.log('ici je recupere mes données');
     dispatch(fetchRecipes());
   },
+  /*
   checkAuth: () => {
     dispatch(checkAuth());
   },
+  */
 });
 
 export default connect(mapState, mapDispatch)(App);

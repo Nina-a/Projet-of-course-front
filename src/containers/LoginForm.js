@@ -8,6 +8,7 @@ const mapState = (state) => ({
   isLogged: state.user.isLogged,
   loggedMessage: state.user.loggedMessage,
   loading: state.user.loading,
+  redirectToHomepage: state.redirectToHomepage,
 });
 
 const mapDispatch = (dispatch) => ({
