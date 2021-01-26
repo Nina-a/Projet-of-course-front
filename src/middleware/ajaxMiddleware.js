@@ -23,7 +23,7 @@ export default (store) => (next) => (action) => {
       // Je lance la requête axios
       axios({
         method: 'get',
-        url: 'http://18.209.180.210/api/recipe/list',
+        url: 'http://of-course-back/public/recipes',
       })
         .then((res) => {
           const { data } = res;
@@ -134,55 +134,6 @@ export default (store) => (next) => (action) => {
           console.error(err);
           dispatch(registerError());
           // En cas d'user non trouvé dans la data, le serveur retourne une erreur
-        });
-      break;
-
-    case ADD_RECIPE:
-      // https://flaviocopes.com/axios-send-authorization-header/
-      axios.post(
-        'http://18.209.180.210/api/add/recipe',
-        {
-          ...action.payload,
-          private: true,
-          user: 25,
-        },
-        {
-          headers: {
-            // Authorization: `Bearer ${store.getState().user.token}`,
-            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
-          },
-        },
-      )
-        .then((res) => {
-          const serverResponse = res.data;
-          // console.log(serverResponse);
-          dispatch(addRecipeSuccess(serverResponse));
-          // Retour du serveur avec les infos de la recette
-        })
-        .catch((err) => {
-          console.error(err);
-          dispatch(addRecipeError());
-          // En cas d'échec de la sauvegarde dans la data, le serveur retourne une erreur
-        });
-      break;
-    case FETCH_CATEGORIES:
-      axios({
-        method: 'get',
-        url: 'http://18.209.180.210/api/categorie/list',
-      })
-        .then((res) => {
-          const serverResponse = res.data;
-          dispatch(fetchCategoriesSuccess(serverResponse));
-        });
-      break;
-    case FETCH_INGREDIENT:
-      axios({
-        method: 'get',
-        url: 'http://18.209.180.210/api/ingredient/list',
-      })
-        .then((res) => {
-          const serverResponse = res.data;
-          dispatch(fetchIngredientSuccess(serverResponse));
         });
       break;
     default:

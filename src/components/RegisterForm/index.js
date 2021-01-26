@@ -3,7 +3,7 @@ import React from 'react';
 
 import './style.scss';
 
-const RegisterFrom = ({
+const RegisterForm = ({
   handleRegister,
   name,
   password,
@@ -24,16 +24,16 @@ const RegisterFrom = ({
       const reader = new FileReader();
 
       reader.addEventListener(
-        'load', () => {
+        'load',
+        () => {
           // convert image file to base64 string
           changeField(reader.result, 'avatar');
         },
-        false,
+        false
       );
 
       reader.readAsDataURL(evt.target.files[0]);
-    }
-    else {
+    } else {
       changeField(evt.target.value, evt.target.name);
     }
     console.log(evt.target.value);
@@ -71,7 +71,7 @@ const RegisterFrom = ({
             type="password"
             className="form-control"
             id="password"
-            placeholder="password"
+            placeholder="Mot de passe"
             onChange={changeInput}
             name="password"
             value={password}
@@ -88,10 +88,12 @@ const RegisterFrom = ({
             value={pseudo}
           />
         </div>
-        <button type="submit" className="btn registerFormButton">Submit</button>
+        <button type="submit" className="btn registerFormButton">
+          Submit
+        </button>
       </form>
     </div>
   );
 };
 
-export default RegisterFrom;
+export default RegisterForm;

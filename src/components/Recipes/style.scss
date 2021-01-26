@@ -1,22 +1,115 @@
-  .recipes-title {
-    font-size:100px;
-    margin-bottom: 50px;
-    font-family: 'Dancing Script';
-    text-align: center;
-    margin-top:70px;
-  }
+.recipes-title {
+  font-size:100px;
+  margin-bottom: 50px;
+  font-family: 'Dancing Script';
+  text-align: center;
+  margin-top:70px;
+}
 
 .add_to_favorite{
-  margin-bottom:20px;
+margin-bottom:20px;
 }
 .button_add_recipe{
-  margin-bottom: 20px;
-  }
+margin-bottom: 20px;
+}
+
+.card {
+  padding-top: 30px;
+  min-width: 20%;
+  max-width:30%;
+  max-height: 70%;
+  padding: 0;
+  margin-top:3px;
+  margin-right:3px;
+  text-align: center;
+  display: block;
+}
+
+.card-image {
+  max-width: 90%;
+  height: auto;
+  padding-top:100px;
+}
+
+.favorite {
+  background: green;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  padding: 0;
+  float: right;
+  border: black solid 0.1px;
+}
+
+.maintabsrecipes {
+  text-align: center;
+  width: 80%;
+  border: none;
+  margin-left: 200px;
+}
+
+.card-group {
+  overflow-y: scroll;
+  flex-wrap:wrap;
+  display:flex;
+  flex-direction: row;
+  height: 735px;
+  margin-top: 10px;
+  //justify-content: space-between;
+
+}  
+.btn{
+  margin:auto;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+.divbutton{
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+.tab-list {  
+  padding-left: 0;
+ color: white;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  border-radius: 10px;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  width: 25%;
+  background-color: #b36fb0;
+}
+
+.tab-list-active {
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+  background-color: #b237ca;
+
+}
+
+@media (max-width: 1600px) {
 
   .card {
     padding-top: 30px;
-    min-width: 20%;
-    max-width:30%;
+    min-width: 33%;
     max-height: 70%;
     padding: 0;
     margin-top:3px;
@@ -25,81 +118,19 @@
     display: block;
   }
 
-  .card-image {
-    max-width: 90%;
-    height: auto;
-  }
+}
 
-  .favorite {
-    background: green;
-    width: 30px;
-    height: 30px;
-    color: white;
-    font-size: 1.8rem;
-    font-weight: bolder;
+@media (max-width: 1200px) {
+
+  .card {
+    padding-top: 30px;
+    min-width: 49%;
+    max-height: 70%;
     padding: 0;
-    float: right;
-    border: black solid 0.1px;
-  }
-
-  .maintabsrecipes {
+    margin-top:3px;
+    margin-right:3px;
     text-align: center;
-    width: 80%;
-    border: none;
-    margin-left: 200px;
+    display: block;
   }
 
-  .card-group {
-    overflow-y: scroll;
-    flex-wrap:wrap;
-    display:flex;
-    flex-direction: row;
-    height: 700px;
-    margin-top: 10px;
-    //justify-content: space-between;
-
-  }  
-  .btn{
-    margin:auto;
-  }
-
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
-  }
-
-  .divbutton{
-    display: flex;
-    flex-direction: column;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-  }
-
-  .tab-list {  
-    padding-left: 0;
-   color: white;
-  }
-  
-  .tab-list-item {
-    display: inline-block;
-    list-style: none;
-    border-radius: 10px;
-    margin-bottom: -1px;
-    padding: 0.5rem 0.75rem;
-    width: 25%;
-    background-color: #71b36f;
-  }
-  
-  .tab-list-active {
-    border: solid #ccc;
-    border-width: 1px 1px 0 1px;
-    background-color: #0ea109;
-
-  }
+}

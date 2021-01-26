@@ -17,6 +17,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
+  // met les champs dans le state
   changeField: (value, name) => {
     const object = {
       [name]: value,
