@@ -4,15 +4,14 @@
 body {
   font-family: sans-serif;
   background-image: url('https://c.pxhere.com/photos/4a/f0/autumn_background_board_dry_dry_leaves_fall_foliage_HD_wallpaper-1560989.jpg!d');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
-  position: fixed;
-  font-size: 20px;
 }
 
 @media screen and (max-width: 620px) {
   .body{
     background-repeat:repeat-y;
+    overflow-y: scroll;
   }
   }
 

@@ -13,6 +13,7 @@ export default (store) => (next) => (action) => {
     // Action de s'enregister => pas besoin de reconnecter
     // Renvoie sur la page d'acceuil
     case REGISTER_INPUT_SUBMIT:
+
       axios({
         method: 'post',
         url: 'http://of-course-back/public/users/new',
@@ -26,15 +27,19 @@ export default (store) => (next) => (action) => {
       })
         .then((res) => {
           const serverResponse = res.data;
-          dispatch(registerSuccess({
-            ...serverResponse,
-            token: serverResponse,
-            pseudo: store.getState().user.pseudo,
-          }));
-          // TODO Faire un message qui préviens de la réussite de l'inscription 
-          alert('Votre inscription est bien prise en compte Vous allez être redirigé vers la page d\'acceuil');
+          dispatch(
+            registerSuccess({
+              ...serverResponse,
+              token: serverResponse,
+              pseudo: store.getState().user.pseudo,
+            })
+          );
+          // TODO Faire un message qui préviens de la réussite de l'inscription
+          alert(
+            "Votre inscription est bien prise en compte Vous allez être redirigé vers la page d'acceuil"
+          );
           window.location.assign('/');
-        // Retour du serveur avec les infos du user
+          // Retour du serveur avec les infos du user
         })
         .catch((err) => {
           console.error(err);
