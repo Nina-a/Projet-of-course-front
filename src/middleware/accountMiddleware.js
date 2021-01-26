@@ -1,17 +1,6 @@
 import axios from 'axios';
+
 import {
-  FETCH_RECIPES, fetchRecipesSuccess, fetchRecipesError, ADD_RECIPE, addRecipeSuccess, addRecipeError,
-} from '../actions/recipes';
-import { FETCH_CATEGORIES, fetchCategoriesSuccess } from '../actions/categories';
-import { FETCH_INGREDIENT, fetchIngredientSuccess } from '../actions/ingredients';
-import {
-  LOGIN_INPUT_SUBMIT,
-  CHECK_AUTH,
-  LOGIN_INPUT_LOGOUT,
-  loginSuccess,
-  loginError,
-  logoutSuccess,
-  logoutError,
   REGISTER_INPUT_SUBMIT,
   registerSuccess,
   registerError,
@@ -21,6 +10,8 @@ export default (store) => (next) => (action) => {
   next(action);
   const { dispatch } = store;
   switch (action.type) {
+    // Action de s'enregister => pas besoin de reconnecter
+    // Renvoie sur la page d'acceuil
     case REGISTER_INPUT_SUBMIT:
       axios({
         method: 'post',
@@ -30,25 +21,24 @@ export default (store) => (next) => (action) => {
           email: store.getState().user.email,
           password: store.getState().user.password,
           pseudo: store.getState().user.pseudo,
-          // avatar: store.getState().user.avatar,
           role: 'user',
         },
       })
         .then((res) => {
           const serverResponse = res.data;
-          // console.log(serverResponse);
           dispatch(registerSuccess({
             ...serverResponse,
+            token: serverResponse,
             pseudo: store.getState().user.pseudo,
           }));
-          alert('Votre inscription est bien prise en compte /n Vous allez être redirigé vers la page de login');
-          window.location.assign('/login');
+          // TODO Faire un message qui préviens de la réussite de l'inscription 
+          alert('Votre inscription est bien prise en compte Vous allez être redirigé vers la page d\'acceuil');
+          window.location.assign('/');
         // Retour du serveur avec les infos du user
         })
         .catch((err) => {
           console.error(err);
           dispatch(registerError());
-          // En cas d'user non trouvé dans la data, le serveur retourne une erreur
         });
       break;
     default:

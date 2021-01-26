@@ -2,7 +2,7 @@
  * Import
  */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect, should } from 'chai';
 import sinon from 'sinon';
 // Components
@@ -19,11 +19,11 @@ describe('Formulaire', () => {
 
   it('should submit event when click on submit', () => {
     const onSubmit = sinon.spy();
-    const wrapper = mount(<RegisterForm onSubmitForm={onSubmit} />);
-    const button = wrapper.find('button');
+    const wrapper = shallow(<RegisterForm handleRegister={onSubmit} />);
+    const button = wrapper.find('form');
 
     button.simulate('submit');
-    expect(onSubmit).to.have.property('handleRegisterSubmit', 1);
+    expect(onSubmit.callCount).equals(1);
   });
   // un test suspendu avec skip
 });

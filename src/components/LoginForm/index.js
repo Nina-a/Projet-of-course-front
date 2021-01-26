@@ -15,16 +15,6 @@ const LoginForm = ({
   loading,
   isLogged,
 }) => {
-  // https://www.freecodecamp.org/news/how-to-persist-a-logged-in-user-in-react/
-  const [user, setUser] = useState(false);
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem('user');
-    if (loggedInUser) {
-      setUser(JSON.parse(loggedInUser));
-    }
-  }, [isLogged]);
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
@@ -46,7 +36,7 @@ const LoginForm = ({
   return (
     <div className="login-form">
       <h1 className="login-title">Formulaire de connexion</h1>
-      {user && user.isLogged && (
+      {isLogged && (
         <div className="login-form-logged">
 
           <button
@@ -58,7 +48,7 @@ const LoginForm = ({
           </button>
         </div>
       )}
-      {!user && (
+      {!isLogged && (
         <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
           <Field
             name="email"

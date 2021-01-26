@@ -24,16 +24,16 @@ const RegisterForm = ({
       const reader = new FileReader();
 
       reader.addEventListener(
-        'load', () => {
+        'load',
+        () => {
           // convert image file to base64 string
           changeField(reader.result, 'avatar');
         },
-        false,
+        false
       );
 
       reader.readAsDataURL(evt.target.files[0]);
-    }
-    else {
+    } else {
       changeField(evt.target.value, evt.target.name);
     }
     console.log(evt.target.value);
@@ -71,7 +71,7 @@ const RegisterForm = ({
             type="password"
             className="form-control"
             id="password"
-            placeholder="password"
+            placeholder="Mot de passe"
             onChange={changeInput}
             name="password"
             value={password}
@@ -88,7 +88,9 @@ const RegisterForm = ({
             value={pseudo}
           />
         </div>
-        <button type="submit" className="btn registerFormButton">Submit</button>
+        <button type="submit" className="btn registerFormButton">
+          Submit
+        </button>
       </form>
     </div>
   );

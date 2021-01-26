@@ -18,7 +18,7 @@ const initialState = {
   password: '',
   isLogged: false,
   pseudo: '',
-  loggedMessage: 'Bienvenue intel',
+  loggedMessage: 'Bienvenue',
   name: '',
   avatar: '',
   token: '',
@@ -92,6 +92,7 @@ const user = (state = initialState, action = {}) => {
         loading: true,
       };
       // == Action pour s'inscrire
+      // L'action d'inscription s'est bien déroulée
     case REGISTER_SUCCESS:
       return {
         ...state,
@@ -100,6 +101,7 @@ const user = (state = initialState, action = {}) => {
         pseudo: state.pseudo,
         loggedMessage: `Bienvenue ${state.pseudo}`,
       };
+
     case REGISTER_ERROR:
       return {
         ...state,
