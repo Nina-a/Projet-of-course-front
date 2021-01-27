@@ -18,7 +18,6 @@ const initialState = {
   name: '',
   avatar: '',
   token: '',
-  redirectToHomepage: false,
 };
 
 const user = (state = initialState, action = {}) => {
@@ -32,7 +31,6 @@ const user = (state = initialState, action = {}) => {
         isLogged: true,
         pseudo: state.pseudo,
         loggedMessage: `Bienvenue ${state.pseudo}`,
-        redirectToHomepage: true,
       };
     // L'action d'inscription n'a pas aboutie
     // TODO

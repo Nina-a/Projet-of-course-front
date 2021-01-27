@@ -3,7 +3,9 @@ import App from '../components/App';
 import { fetchRecipes } from '../actions/recipes';
 import { checkAuth } from '../actions/user';
 
-const mapState = null;
+const mapState = (state) => ({
+  redirectToHomepage: state.app.redirectToHomepage,
+});
 
 const mapDispatch = (dispatch) => ({
   fetchRecipes: () => {
