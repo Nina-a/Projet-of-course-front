@@ -5,13 +5,14 @@ import {
   registerSuccess,
   registerError,
   SUBMIT_LOGOUT,
+  logoutSuccess,
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
   next(action);
   const { dispatch } = store;
   switch (action.type) {
-    // Action de s'enregister => pas besoin de se connecter
+    // =================== Action pour s'inscrire============================================
     // Renvoie sur la page d'acceuil
     case SUBMIT_REGISTER:
       axios({
@@ -27,13 +28,7 @@ export default (store) => (next) => (action) => {
       })
         .then((res) => {
           const serverResponse = res.data;
-          dispatch(
-            registerSuccess({
-              ...serverResponse,
-              token: serverResponse,
-              pseudo: store.getState().user.pseudo,
-            }),
-          );
+          dispatch(registerSuccess(serverResponse.token));
           // TODO Faire un message qui préviens de la réussite de l'inscription
           alert(
             "Votre inscription est bien prise en compte Vous allez être redirigé vers la page d'acceuil",
@@ -45,30 +40,26 @@ export default (store) => (next) => (action) => {
         });
       break;
 
-    // Action de se déconnecter
+    // =================== Action pour se déconnecter============================================
     case SUBMIT_LOGOUT:
-      axios.get(
-        axios({
-          method: 'get',
-          url: 'http://of-course-back/public/users/logout',
-        }),
-        {
-          headers: {
-            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
-          },
+      axios({
+        method: 'POST',
+        url: 'http://of-course-back/public/users/logout',
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem('user')).token
+          }`,
         },
-      )
-        .then((res) => {
-          const { data } = res;
-          console.log('deco réussie');
+      })
+        .then((_) => {
+          // history.push('/');
           dispatch(logoutSuccess());
         })
         .catch((err) => {
-          debugger;
           // console.error(err);
-          dispatch(logoutSuccess());
+          dispatch(logoutError());
         });
-      window.location.assign('/');
+
       break;
     default:
       // console.log('default');

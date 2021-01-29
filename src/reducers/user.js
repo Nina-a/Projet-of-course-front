@@ -3,7 +3,7 @@ import {
   SUBMIT_REGISTER,
   REGISTER_SUCCESS,
   REGISTER_ERROR,
-  SUBMIT_LOGOUT,
+  LOGOUT_SUCCESS,
   LOGIN_INPUT_CHANGE,
   LOGIN_INPUT_SUBMIT,
   LOGIN_SUCCESS,
@@ -26,6 +26,16 @@ const user = (state = initialState, action = {}) => {
     // =================== Action pour s'inscrire==========================================
     // L'action d'inscription s'est bien déroulée
     case REGISTER_SUCCESS:
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          token: action.token,
+          isLogged: true,
+          pseudo: state.pseudo,
+          loggedMessage: `Bienvenue ${state.pseudo}`,
+        }),
+      );
+
       return {
         ...state,
         loading: false,
@@ -56,15 +66,19 @@ const user = (state = initialState, action = {}) => {
         ...action.payload,
       };
     // =================== Action pour se déconnecter==========================================
-    case SUBMIT_LOGOUT:
+    case LOGOUT_SUCCESS:
     {
       localStorage.removeItem('user');
       return {
         ...state,
+        email: '',
+        name: '',
         isLogged: false,
         pseudo: '',
         token: '',
         loggedMessage: '',
+        password: '',
+        avatar: '',
       };
     }
     // // =================== Action pour se connecter ==========================================
@@ -74,7 +88,7 @@ const user = (state = initialState, action = {}) => {
     //     ...action.payload,
     //   };
 
-      /* case CHECK_AUTH:
+    /* case CHECK_AUTH:
     {
       const userStorage = localStorage.getItem('user');
       if (userStorage && JSON.parse(userStorage)) {
@@ -93,7 +107,7 @@ const user = (state = initialState, action = {}) => {
       };
     }
     */
-      /* case LOGIN_SUCCESS:
+    /* case LOGIN_SUCCESS:
       localStorage.setItem(
         'user',
         JSON.stringify({
@@ -112,7 +126,7 @@ const user = (state = initialState, action = {}) => {
         loggedMessage: `Bienvenue ${action.payload.pseudo}`,
       }; */
 
-      /* case LOGIN_ERROR:
+    /* case LOGIN_ERROR:
       return {
         ...state,
         loading: false,
@@ -121,7 +135,7 @@ const user = (state = initialState, action = {}) => {
         loggedMessage: '',
       }; */
 
-      /*
+    /*
     case LOGIN_INPUT_SUBMIT:
       return {
         ...state,

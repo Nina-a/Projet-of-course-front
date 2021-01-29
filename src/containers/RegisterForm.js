@@ -14,7 +14,6 @@ const mapState = (state) => ({
   pseudo: state.user.pseudo,
   password: state.user.password,
   avatar: state.user.avatar,
-  redirectToHomepage: state.app.redirectToHomepage,
 });
 
 const mapDispatch = (dispatch) => ({

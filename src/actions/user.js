@@ -19,9 +19,9 @@ export const submitRegister = () => ({
   type: SUBMIT_REGISTER,
 });
 
-export const registerSuccess = (payload) => ({
+export const registerSuccess = (token) => ({
   type: REGISTER_SUCCESS,
-  payload,
+  token,
 });
 
 export const registerError = () => ({
@@ -29,7 +29,7 @@ export const registerError = () => ({
 });
 
 // =================== Action pour se déconnecter ==========================================
-export const SubmitLogout = () => ({
+export const submitLogout = () => ({
   type: SUBMIT_LOGOUT,
 });
 
