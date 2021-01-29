@@ -1,18 +1,26 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import logo from '../../assets/images/logo.png';
 
 // == Import
 import './style.scss';
 
 // == Composant
-const NavBar = ({ isLogged, handleLogout }) => {
+const NavBar = ({ isLogged, handleLogout, redirectToHomepage }) => {
   const handleLogoutFromButton = (evt) => {
     evt.preventDefault();
     handleLogout();
   };
+
+  const history = useHistory();
+  useEffect(() => {
+    if (redirectToHomepage) {
+      history.push('/');
+    }
+  }, [redirectToHomepage]);
 
   return (
     <div>
@@ -51,6 +59,7 @@ const NavBar = ({ isLogged, handleLogout }) => {
 NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   handleLogout: PropTypes.func.isRequired,
+  redirectToHomepage: PropTypes.bool.isRequired,
 };
 
 export default NavBar;

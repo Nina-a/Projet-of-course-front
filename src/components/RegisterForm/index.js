@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router';
+import React from 'react';
 
 import './style.scss';
 
@@ -13,16 +12,7 @@ const RegisterForm = ({
   avatar,
   onChange,
   changeField,
-  redirectToHomepage,
 }) => {
-  const history = useHistory();
-
-  useEffect(() => {
-    if (redirectToHomepage) {
-      history.push('/');
-    }
-  }, [redirectToHomepage]);
-
   const handleRegisterSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
