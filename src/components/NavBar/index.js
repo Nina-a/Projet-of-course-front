@@ -9,7 +9,7 @@ import logo from '../../assets/images/logo.png';
 import './style.scss';
 
 // == Composant
-const NavBar = ({ isLogged, handleLogout, redirectToHomepage }) => {
+const NavBar = ({ isLogged, handleLogout, redirectToHomepage, redirectToHomePageDone }) => {
   const handleLogoutFromButton = (evt) => {
     evt.preventDefault();
     handleLogout();
@@ -19,6 +19,7 @@ const NavBar = ({ isLogged, handleLogout, redirectToHomepage }) => {
   useEffect(() => {
     if (redirectToHomepage) {
       history.push('/');
+      redirectToHomePageDone();
     }
   }, [redirectToHomepage]);
 
@@ -60,6 +61,7 @@ NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   handleLogout: PropTypes.func.isRequired,
   redirectToHomepage: PropTypes.bool.isRequired,
+  redirectToHomePageDone: PropTypes.func.isRequired,
 };
 
 export default NavBar;
