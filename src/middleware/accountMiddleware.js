@@ -1,19 +1,19 @@
 import axios from 'axios';
 
 import {
-  REGISTER_INPUT_SUBMIT,
+  SUBMIT_REGISTER,
   registerSuccess,
   registerError,
+  SUBMIT_LOGOUT,
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
   next(action);
   const { dispatch } = store;
   switch (action.type) {
-    // Action de s'enregister => pas besoin de reconnecter
+    // Action de s'enregister => pas besoin de se connecter
     // Renvoie sur la page d'acceuil
-    case REGISTER_INPUT_SUBMIT:
-
+    case SUBMIT_REGISTER:
       axios({
         method: 'post',
         url: 'http://of-course-back/public/users/new',
@@ -38,13 +38,37 @@ export default (store) => (next) => (action) => {
           alert(
             "Votre inscription est bien prise en compte Vous allez être redirigé vers la page d'acceuil",
           );
-          // window.location.assign('/');
-          // Retour du serveur avec les infos du user
         })
         .catch((err) => {
           console.error(err);
           dispatch(registerError());
         });
+      break;
+
+    // Action de se déconnecter
+    case SUBMIT_LOGOUT:
+      axios.get(
+        axios({
+          method: 'get',
+          url: 'http://of-course-back/public/users/logout',
+        }),
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
+          },
+        },
+      )
+        .then((res) => {
+          const { data } = res;
+          console.log('deco réussie');
+          dispatch(logoutSuccess());
+        })
+        .catch((err) => {
+          debugger;
+          // console.error(err);
+          dispatch(logoutSuccess());
+        });
+      window.location.assign('/');
       break;
     default:
       // console.log('default');

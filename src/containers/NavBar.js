@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
+import { SubmitLogout } from '../actions/user';
 
 const mapStateToProps = (state) => {
   console.log(state);
@@ -7,6 +8,10 @@ const mapStateToProps = (state) => {
     isLogged: state.user.isLogged,
   };
 };
-const mapDispatchToProps = null;
+const mapDispatchToProps = (dispatch) => ({
+  handleLogout: () => {
+    dispatch(SubmitLogout());
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

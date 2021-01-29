@@ -5,7 +5,7 @@ import {
   registerSuccess,
   registerInputChange,
   registerError,
-  registerInputSubmit,
+  submitRegister,
 } from '../actions/user';
 
 const mapState = (state) => ({
@@ -37,7 +37,7 @@ const mapDispatch = (dispatch) => ({
   //   dispatch(registerError());
   // },
   handleRegister: (payload) => {
-    dispatch(registerInputSubmit(payload));
+    dispatch(submitRegister(payload));
   },
 });
 

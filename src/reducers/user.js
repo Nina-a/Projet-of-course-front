@@ -1,8 +1,9 @@
 import {
   REGISTER_INPUT_CHANGE,
-  REGISTER_INPUT_SUBMIT,
+  SUBMIT_REGISTER,
   REGISTER_SUCCESS,
   REGISTER_ERROR,
+  SUBMIT_LOGOUT,
   LOGIN_INPUT_CHANGE,
   LOGIN_INPUT_SUBMIT,
   LOGIN_SUCCESS,
@@ -43,7 +44,7 @@ const user = (state = initialState, action = {}) => {
         loggedMessage: '',
       };
     // Soumission du formulaire d'inscription
-    case REGISTER_INPUT_SUBMIT:
+    case SUBMIT_REGISTER:
       return {
         ...state,
         loading: true,
@@ -54,6 +55,25 @@ const user = (state = initialState, action = {}) => {
         ...state,
         ...action.payload,
       };
+    // =================== Action pour se déconnecter==========================================
+    case SUBMIT_LOGOUT:
+    {
+      localStorage.removeItem('user');
+      return {
+        ...state,
+        isLogged: false,
+        pseudo: '',
+        token: '',
+        loggedMessage: '',
+      };
+    }
+    // // =================== Action pour se connecter ==========================================
+    // case LOGIN_INPUT_CHANGE:
+    //   return {
+    //     ...state,
+    //     ...action.payload,
+    //   };
+
       /* case CHECK_AUTH:
     {
       const userStorage = localStorage.getItem('user');
@@ -73,19 +93,6 @@ const user = (state = initialState, action = {}) => {
       };
     }
     */
-      /* case LOGIN_INPUT_LOGOUT:
-    {
-      localStorage.removeItem('user');
-      window.location.assign('/');
-      return {
-        ...state,
-        isLogged: false,
-        pseudo: '',
-        token: '',
-        loggedMessage: '',
-      };
-    }
-*/
       /* case LOGIN_SUCCESS:
       localStorage.setItem(
         'user',
@@ -114,12 +121,6 @@ const user = (state = initialState, action = {}) => {
         loggedMessage: '',
       }; */
 
-      /* case LOGIN_INPUT_CHANGE:
-      return {
-        ...state,
-        ...action.payload,
-      };
-      */
       /*
     case LOGIN_INPUT_SUBMIT:
       return {
