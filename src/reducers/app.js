@@ -1,4 +1,4 @@
-import { REGISTER_SUCCESS, LOGOUT_SUCCESS } from '../actions/user';
+import { REGISTER_SUCCESS, LOGOUT_SUCCESS, LOGIN_SUCCESS } from '../actions/user';
 import { REDIRECT_TO_HOME_PAGE_DONE } from '../actions/app';
 
 const initialState = {
@@ -22,6 +22,12 @@ const app = (state = initialState, action = {}) => {
         ...state,
         redirectToHomepage: false,
       };
+    case LOGIN_SUCCESS: {
+      return {
+        ...state,
+        redirectToHomepage: true,
+      };
+    }
     default:
       return state;
   }

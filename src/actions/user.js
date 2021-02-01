@@ -5,6 +5,9 @@ export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const SUBMIT_LOGOUT = 'SUBMIT_LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGIN_INPUT_CHANGE = 'LOGIN_INPUT_CHANGE';
+export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+
 // export const CHECK_AUTH = 'CHECK_AUTH';
 
 // =================== Action pour s'inscrire============================================
@@ -41,6 +44,15 @@ export const logoutSuccess = () => ({
 export const loginInputChange = (payload) => ({
   type: LOGIN_INPUT_CHANGE,
   payload,
+});
+
+export const loginSubmit = () => ({
+  type: SUBMIT_LOGIN,
+});
+
+export const loginSuccess = (token) => ({
+  type: LOGIN_SUCCESS,
+  token,
 });
 /*
 export const checkAuth = () => ({

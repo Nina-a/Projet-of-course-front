@@ -6,6 +6,8 @@ import {
   registerError,
   SUBMIT_LOGOUT,
   logoutSuccess,
+  SUBMIT_LOGIN,
+  loginSuccess,
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
@@ -60,6 +62,28 @@ export default (store) => (next) => (action) => {
           dispatch(logoutError());
         });
 
+      break;
+
+    // =================== Action pour se connecter============================================
+    case SUBMIT_LOGIN:
+      axios({
+        method: 'post',
+        url: 'http://of-course-back/public/users/login',
+        data: {
+          email: store.getState().user.email,
+          password: store.getState().user.password,
+        },
+      })
+        .then((res) => {
+          const serverResponse = res.data;
+          dispatch(loginSuccess(serverResponse.token));
+          // Retour du serveur avec les infos du user
+        })
+        .catch((err) => {
+          console.error(err);
+          dispatch(loginError());
+          // En cas d'user non trouvé dans la data, le serveur retourne une erreur
+        });
       break;
     default:
       // console.log('default');
