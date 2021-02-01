@@ -4,12 +4,13 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_ERROR = 'REGISTER_ERROR';
 export const SUBMIT_LOGOUT = 'SUBMIT_LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_ERROR = 'LOGOUT_ERROR';
 export const LOGIN_INPUT_CHANGE = 'LOGIN_INPUT_CHANGE';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const RELOAD_USER = 'RELOAD_USER';
 
-// export const CHECK_AUTH = 'CHECK_AUTH';
-
+// export const CHECK_AUTH='CHECK_AUTH';
 // =================== Action pour s'inscrire============================================
 // Change les valeurs dans le state lors du remplissage des champs
 export const registerInputChange = (payload) => ({
@@ -39,6 +40,9 @@ export const submitLogout = () => ({
 export const logoutSuccess = () => ({
   type: LOGOUT_SUCCESS,
 });
+export const logoutError = () => ({
+  type: LOGOUT_ERROR,
+});
 
 // =================== Action pour se connecter =============================================
 export const loginInputChange = (payload) => ({
@@ -54,8 +58,11 @@ export const loginSuccess = (token) => ({
   type: LOGIN_SUCCESS,
   token,
 });
-/*
-export const checkAuth = () => ({
-  type: CHECK_AUTH,
+
+// =================== Action pour la persistance de la connection ==========================
+export const reloadUser = () => ({
+  type: RELOAD_USER,
 });
-*/
+// export const checkAuth = () => ({
+//   type: CHECK_AUTH,
+// });

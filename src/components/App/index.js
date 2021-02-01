@@ -18,10 +18,9 @@ const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
 }));
 // == Composant
-// TODO rajouter fetchRecipes
-const App = ({ fetchRecipes, checkAuth }) => {
+const App = ({ fetchRecipes, reloadUser }) => {
   useEffect(() => {
-    //checkAuth();
+    reloadUser();
     fetchRecipes();
   }, []);
   return (
@@ -60,6 +59,7 @@ const App = ({ fetchRecipes, checkAuth }) => {
 // == PropTypes
 App.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
+  reloadUser: PropTypes.func.isRequired,
 };
 
 // == Export

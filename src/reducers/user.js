@@ -7,6 +7,7 @@ import {
   LOGIN_INPUT_CHANGE,
   SUBMIT_LOGIN,
   LOGIN_SUCCESS,
+  RELOAD_USER,
 } from '../actions/user';
 
 const initialState = {
@@ -114,7 +115,8 @@ const user = (state = initialState, action = {}) => {
         pseudo: state.pseudo,
         loggedMessage: `Bienvenue ${state.pseudo}`,
       };
-      /* case CHECK_AUTH:
+    // =================== Action pour ne pas perdre la connection apres un refresh ==========
+    case RELOAD_USER:
     {
       const userStorage = localStorage.getItem('user');
       if (userStorage && JSON.parse(userStorage)) {
@@ -127,32 +129,12 @@ const user = (state = initialState, action = {}) => {
           };
         }
       }
-
       return {
         ...state,
       };
     }
-    */
-      /* case LOGIN_SUCCESS:
-      localStorage.setItem(
-        'user',
-        JSON.stringify({
-          token: action.payload.token.token,
-          isLogged: true,
-          pseudo: action.payload.pseudo,
-          loggedMessage: `Bienvenue ${action.payload.pseudo}`,
-        }),
-      );
-      return {
-        ...state,
-        token: action.payload.token,
-        loading: false,
-        isLogged: true,
-        pseudo: action.payload.pseudo,
-        loggedMessage: `Bienvenue ${action.payload.pseudo}`,
-      }; */
 
-      /* case LOGIN_ERROR:
+    /* case LOGIN_ERROR:
       return {
         ...state,
         loading: false,
@@ -160,14 +142,6 @@ const user = (state = initialState, action = {}) => {
         pseudo: '',
         loggedMessage: '',
       }; */
-
-      /*
-    case LOGIN_INPUT_SUBMIT:
-      return {
-        ...state,
-        loading: true,
-      };
-      */
 
     default:
       return state;

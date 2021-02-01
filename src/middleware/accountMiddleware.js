@@ -8,6 +8,7 @@ import {
   logoutSuccess,
   SUBMIT_LOGIN,
   loginSuccess,
+  logoutError,
 } from '../actions/user';
 
 export default (store) => (next) => (action) => {
