@@ -18,10 +18,9 @@ const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
 }));
 // == Composant
-// TODO rajouter fetchRecipes
-const App = ({ fetchRecipes, checkAuth }) => {
+const App = ({ fetchRecipes, reloadUser }) => {
   useEffect(() => {
-    checkAuth();
+    reloadUser();
     fetchRecipes();
   }, []);
   return (
@@ -47,7 +46,7 @@ const App = ({ fetchRecipes, checkAuth }) => {
           <LoginForm className="connexion" />
         </Route>
         <Route exact path="/register">
-          <RegisterForm />
+          <RegisterForm className="RecipeForm" />
         </Route>
         <Route exact path="/addRecipe">
           <RecipeForm className="RecipeForm" />
@@ -60,6 +59,7 @@ const App = ({ fetchRecipes, checkAuth }) => {
 // == PropTypes
 App.propTypes = {
   fetchRecipes: PropTypes.func.isRequired,
+  reloadUser: PropTypes.func.isRequired,
 };
 
 // == Export

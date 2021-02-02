@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Field from './Field';
 // import { useField } from './hooks';
 
 import './style.scss';
@@ -11,7 +10,6 @@ const LoginForm = ({
   password,
   changeField,
   handleLogin,
-  handleLogout,
   loading,
   isLogged,
 }) => {
@@ -20,9 +18,8 @@ const LoginForm = ({
     handleLogin();
   };
 
-  const handleLogoutForm = (evt) => {
-    evt.preventDefault();
-    handleLogout();
+  const changeInput = (evt) => {
+    changeField(evt.target.value, evt.target.name);
   };
 
   if (loading) {
@@ -36,43 +33,38 @@ const LoginForm = ({
   return (
     <div className="login-form">
       <h1 className="login-title">Formulaire de connexion</h1>
-      {isLogged && (
-        <div className="login-form-logged">
-
-          <button
-            type="button"
-            className="login-form-button"
-            onClick={handleLogoutForm}
-          >
-            Déconnexion
-          </button>
-        </div>
-      )}
-      {!isLogged && (
-        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-          <Field
+      <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            onChange={changeInput}
             name="email"
-            placeholder="Adresse Email"
-            onChange={changeField}
             value={email}
+            placeholder="Email"
           />
-          <Field
-            name="password"
+        </div>
+        <div className="form-group">
+          <input
             type="password"
-            placeholder="Mot de passe"
-            onChange={changeField}
+            className="form-control"
+            id="password"
+            onChange={changeInput}
+            name="password"
             value={password}
+            placeholder="Mot de passe"
           />
-          <button
-            type="submit"
-            className="login-form-button"
-          >
-            OK
-          </button>
-          <Link className="registerLink" to="/register">Si vous n'avez pas de compte, merci de vous inscrire ici</Link>
+        </div>
+        <button
+          type="submit"
+          className="login-form-button"
+        >
+          OK
+        </button>
+        <Link className="registerLink" to="/register">Si vous n'avez pas de compte, merci de vous inscrire ici</Link>
 
-        </form>
-      )}
+      </form>
     </div>
   );
 };
@@ -82,7 +74,6 @@ LoginForm.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
-  handleLogout: PropTypes.func.isRequired,
   isLogged: PropTypes.bool,
   loading: PropTypes.bool.isRequired,
   loggedMessage: PropTypes.string,

@@ -7,6 +7,7 @@ import reducerShoppingList from './shoppingList';
 import recipeForm from './recipeForm';
 import categories from './category';
 import ingredients from './ingredient';
+import app from './app';
 
 export default combineReducers({
   counter,
@@ -17,4 +18,5 @@ export default combineReducers({
   recipeForm,
   categories,
   ingredients,
+  app,
 });

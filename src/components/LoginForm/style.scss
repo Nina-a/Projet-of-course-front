@@ -23,12 +23,18 @@
     font-size: 1em;
     color: #fff;
     background-color:green;
-    border-radius: .3em;
+    border-radius: .5em;
     border: 0;
     padding: .7em;
     height: 2.5em;
   }
-  
+
+  .form-control{
+    border-radius: 0.3em;
+    background-color: transparent;
+    border-bottom: green solid 0.1em;
+    border-left:green solid 0.1em;
+  }
   .login-title, .loadingConnexion-title{
     font-size:100px;
     margin-bottom: 50px;

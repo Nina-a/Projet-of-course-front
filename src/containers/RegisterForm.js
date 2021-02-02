@@ -5,7 +5,7 @@ import {
   registerSuccess,
   registerInputChange,
   registerError,
-  registerInputSubmit,
+  submitRegister,
 } from '../actions/user';
 
 const mapState = (state) => ({
@@ -24,17 +24,19 @@ const mapDispatch = (dispatch) => ({
     };
     dispatch(registerInputChange(object));
   },
+  /*
   handleCheckAuth: () => {
     dispatch(checkAuth());
   },
-  handlerRegisterSuccess: () => {
-    dispatch(registerSuccess());
-  },
-  handlerRegisterError: () => {
-    dispatch(registerError());
-  },
+  */
+  // handlerRegisterSuccess: (payload) => {
+  //   dispatch(registerSuccess(payload));
+  // },
+  // handlerRegisterError: () => {
+  //   dispatch(registerError());
+  // },
   handleRegister: (payload) => {
-    dispatch(registerInputSubmit(payload));
+    dispatch(submitRegister(payload));
   },
 });
 

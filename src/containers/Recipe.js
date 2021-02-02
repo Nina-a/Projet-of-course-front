@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CardRecipe from '../components/Recipes/recipe';
+import CardRecipe from '../components/Recipes/cardrecipe';
 import { addToPlanning } from '../actions/recipes';
 // import reducerrecipes from '../reducers/reci
 

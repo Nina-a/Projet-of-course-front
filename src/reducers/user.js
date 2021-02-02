@@ -1,15 +1,13 @@
 import {
-  LOGIN_INPUT_CHANGE,
-  LOGIN_INPUT_SUBMIT,
-  LOGIN_SUCCESS,
-  LOGIN_ERROR,
-  LOGOUT_SUCCESS,
   REGISTER_INPUT_CHANGE,
-  REGISTER_ERROR,
+  SUBMIT_REGISTER,
   REGISTER_SUCCESS,
-  REGISTER_INPUT_SUBMIT,
-  CHECK_AUTH,
-  LOGIN_INPUT_LOGOUT,
+  REGISTER_ERROR,
+  LOGOUT_SUCCESS,
+  LOGIN_INPUT_CHANGE,
+  SUBMIT_LOGIN,
+  LOGIN_SUCCESS,
+  RELOAD_USER,
 } from '../actions/user';
 
 const initialState = {
@@ -26,7 +24,99 @@ const initialState = {
 
 const user = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHECK_AUTH:
+    // =================== Action pour s'inscrire==========================================
+    // Soumission du formulaire d'inscription
+    case SUBMIT_REGISTER:
+      return {
+        ...state,
+        loading: true,
+      };
+    // L'action d'inscription s'est bien déroulée
+    case REGISTER_SUCCESS:
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          token: action.token,
+          isLogged: true,
+          pseudo: state.pseudo,
+          loggedMessage: `Bienvenue ${state.pseudo}`,
+        }),
+      );
+      return {
+        ...state,
+        token: action.token,
+        loading: false,
+        isLogged: true,
+        pseudo: state.pseudo,
+        loggedMessage: `Bienvenue ${state.pseudo}`,
+      };
+    // L'action d'inscription n'a pas aboutie
+    // TODO
+    case REGISTER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        isLogged: false,
+        pseudo: '',
+        loggedMessage: '',
+      };
+
+    // Changement des valeurs dans le formulaire d'inscription
+    case REGISTER_INPUT_CHANGE:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    // =================== Action pour se déconnecter==========================================
+    case LOGOUT_SUCCESS:
+    {
+      localStorage.removeItem('user');
+      return {
+        ...state,
+        email: '',
+        name: '',
+        isLogged: false,
+        pseudo: '',
+        token: '',
+        loggedMessage: '',
+        password: '',
+        avatar: '',
+      };
+    }
+    // =================== Action pour se connecter ==========================================
+    // Changement des valeurs dans le formulaire d'inscription
+    case LOGIN_INPUT_CHANGE:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    // Soumission du formulaire de connexion
+    case SUBMIT_LOGIN:
+      return {
+        ...state,
+        loading: true,
+      };
+    // L'action d'inscription s'est bien déroulée
+    case LOGIN_SUCCESS:
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          token: action.token,
+          isLogged: true,
+          pseudo: state.pseudo,
+          loggedMessage: `Bienvenue ${state.pseudo}`,
+        }),
+      );
+      return {
+        ...state,
+        token: action.token,
+        loading: false,
+        isLogged: true,
+        pseudo: state.pseudo,
+        loggedMessage: `Bienvenue ${state.pseudo}`,
+      };
+    // =================== Action pour ne pas perdre la connection apres un refresh ==========
+    case RELOAD_USER:
     {
       const userStorage = localStorage.getItem('user');
       if (userStorage && JSON.parse(userStorage)) {
@@ -39,87 +129,20 @@ const user = (state = initialState, action = {}) => {
           };
         }
       }
-
       return {
         ...state,
       };
     }
 
-    case LOGIN_INPUT_LOGOUT:
-    {
-      localStorage.removeItem('user');
-      window.location.assign('/');
+    /* case LOGIN_ERROR:
       return {
         ...state,
+        loading: false,
         isLogged: false,
         pseudo: '',
-        token: '',
         loggedMessage: '',
-      };
-    }
+      }; */
 
-    case LOGIN_SUCCESS:
-      localStorage.setItem('user', JSON.stringify({
-        token: action.payload.token.token,
-        isLogged: true,
-        pseudo: action.payload.pseudo,
-        loggedMessage: `Bienvenue ${action.payload.pseudo}`,
-      }));
-      return {
-        ...state,
-        token: action.payload.token,
-        loading: false,
-        isLogged: true,
-        pseudo: action.payload.pseudo,
-        loggedMessage: `Bienvenue ${action.payload.pseudo}`,
-      };
-    case LOGIN_ERROR:
-      return {
-        ...state,
-        loading: false,
-        isLogged: false,
-        pseudo: '',
-        loggedMessage: '',
-      };
-    case LOGIN_INPUT_CHANGE:
-      return {
-        ...state,
-        ...action.payload,
-      };
-    case LOGIN_INPUT_SUBMIT:
-      return {
-        ...state,
-        loading: true,
-      };
-      // == Action pour s'inscrire
-      // L'action d'inscription s'est bien déroulée
-    case REGISTER_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        isLogged: true,
-        pseudo: state.pseudo,
-        loggedMessage: `Bienvenue ${state.pseudo}`,
-      };
-
-    case REGISTER_ERROR:
-      return {
-        ...state,
-        loading: false,
-        isLogged: false,
-        pseudo: '',
-        loggedMessage: '',
-      };
-    case REGISTER_INPUT_SUBMIT:
-      return {
-        ...state,
-        loading: true,
-      };
-    case REGISTER_INPUT_CHANGE:
-      return {
-        ...state,
-        ...action.payload,
-      };
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LoginForm from '../components/LoginForm';
-import { loginInputChange, loginInputSubmit, loginInputLogout } from '../actions/user';
+import { loginInputChange, loginSubmit } from '../actions/user';
 
 const mapState = (state) => ({
   email: state.user.email,
@@ -18,11 +18,9 @@ const mapDispatch = (dispatch) => ({
     dispatch(loginInputChange(object));
   },
   handleLogin: () => {
-    dispatch(loginInputSubmit());
+    dispatch(loginSubmit());
   },
-  handleLogout: () => {
-    dispatch(loginInputLogout());
-  },
+
 });
 
 export default connect(mapState, mapDispatch)(LoginForm);
