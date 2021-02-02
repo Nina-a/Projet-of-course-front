@@ -65,7 +65,6 @@ const LoginForm = ({
         <Link className="registerLink" to="/register">Si vous n'avez pas de compte, merci de vous inscrire ici</Link>
 
       </form>
-      )
     </div>
   );
 };
