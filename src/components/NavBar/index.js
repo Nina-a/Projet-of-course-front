@@ -9,7 +9,12 @@ import logo from '../../assets/images/logo.png';
 import './style.scss';
 
 // == Composant
-const NavBar = ({ isLogged, handleLogout, redirectToHomepage, redirectToHomePageDone }) => {
+const NavBar = ({
+  isLogged,
+  handleLogout,
+  redirectToHomepage,
+  redirectToHomePageDone,
+}) => {
   const handleLogoutFromButton = (evt) => {
     evt.preventDefault();
     handleLogout();
@@ -43,17 +48,21 @@ const NavBar = ({ isLogged, handleLogout, redirectToHomepage, redirectToHomePage
           Courses
         </NavLink>
         {isLogged && (
-          <NavLink type="button" className="navigation-link" onClick={handleLogoutFromButton} to="">
-            Déconnexion
-          </NavLink>
+        <NavLink
+          type="button"
+          className="navigation-link"
+          onClick={handleLogoutFromButton}
+          to=""
+        >
+          Déconnexion
+        </NavLink>
         )}
         {!isLogged && (
-          <NavLink exact className="navigation-link" to="/login">
-            Connexion
-          </NavLink>
+        <NavLink exact className="navigation-link" to="/login">
+          Connexion
+        </NavLink>
         )}
       </nav>
-      ;
     </div>
   );
 };
