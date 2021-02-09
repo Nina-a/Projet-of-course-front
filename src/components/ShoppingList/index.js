@@ -9,32 +9,27 @@ import './style.scss';
 
 // == Composant
 const ShoppingList = ({ shoppingList }) => {
+  const options = {
+    orientation: 'landscape',
+  };
   const ref = React.createRef();
-  console.log(shoppingList);
   return (
     <div className="shoppingList">
       <h1 className="shoppingList-title">Liste de courses</h1>
-      <div className="list-wrapper">
-        <table className="table" ref={ref}>
-          <thead>
-            <tr>
-              <th>Qté & Produit</th>
-            </tr>
-          </thead>
-          <ul>
-            {
+      <Pdf targetRef={ref} filename="liste de course.pdf" options={options}>
+        {({ toPdf }) => <button type="button" className="btn btn-success" onClick={toPdf}>Télécharger ma liste</button>}
+      </Pdf>
+      <div className="list-wrapper" ref={ref}>
+        <h2 className="shoppingList-title-h2">Qté & Produit</h2>
+        <ul className="col">
+          {
           shoppingList.map((ingredientObjet) => (
-            <Ingredient key={ingredientObjet.id} {...ingredientObjet} />
+            <Ingredient key={ingredientObjet.ingredient_id} {...ingredientObjet} />
           ))
         }
-          </ul>
-        </table>
+        </ul>
       </div>
       <button type="button" className="btn btn-danger">Editer ma liste</button>
-      <Pdf targetRef={ref} filename="liste de course.pdf">
-        {({ toPdf }) => <button type="button" className="btn btn-success" onClick={toPdf} scale={0.60}>Télécharger ma liste</button>}
-      </Pdf>
-
     </div>
   );
 };

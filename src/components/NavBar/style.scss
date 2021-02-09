@@ -24,6 +24,7 @@ box-shadow: 10px 4px 23px 0px rgba(0,0,0,0.75);
   outline: none;
   display:flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 .menu .avatar {
   padding: 2em 0.5em;
@@ -38,7 +39,7 @@ box-shadow: 10px 4px 23px 0px rgba(0,0,0,0.75);
 }
 
 .navigation-link {
-  padding: 50px 5px;
+  padding: 40px 5px;
   letter-spacing :2px;
   margin: 5px 0;
   color:black;

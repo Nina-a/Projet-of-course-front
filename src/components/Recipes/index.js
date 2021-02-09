@@ -17,44 +17,40 @@ const Recipes = (
   {
     listEntree, listPlat, listDessert, isLogged,
   },
-) => {
-  console.log('plop');
-
-  return (
-    <div className="recipesDiv">
-      <h1 className="recipes-title">Liste des recettes</h1>
-      <div className="maintabsrecipes">
-        {isLogged && (
-          <div className="button_add_recipe">
-            <Link to="/addRecipe">
-              <Button className="add_recipe" variant="success" size="lg">
-                Ajouter une recette
-              </Button>
-            </Link>
-          </div>
-        )}
-
-        <Tabs>
-          <div label="Entrées" className="entree">
-            <div className="card-group">
-              <CardRecipe recipe={listEntree} />
-            </div>
-          </div>
-          <div label="Plats">
-            <div className="card-group">
-              <CardRecipe recipe={listPlat} />
-            </div>
-          </div>
-          <div label="Desserts">
-            <div className="card-group">
-              <CardRecipe recipe={listDessert} />
-            </div>
-          </div>
-        </Tabs>
+) => (
+  <div className="recipesDiv">
+    <h1 className="recipes-title">Liste des recettes</h1>
+    <div className="maintabsrecipes">
+      {isLogged && (
+      <div className="button_add_recipe">
+        <Link to="/addRecipe">
+          <Button className="add_recipe" variant="success" size="lg">
+            Ajouter une recette
+          </Button>
+        </Link>
       </div>
+      )}
+
+      <Tabs>
+        <div label="Entrées" className="entree">
+          <div className="card-group">
+            <CardRecipe recipe={listEntree} />
+          </div>
+        </div>
+        <div label="Plats">
+          <div className="card-group">
+            <CardRecipe recipe={listPlat} />
+          </div>
+        </div>
+        <div label="Desserts">
+          <div className="card-group">
+            <CardRecipe recipe={listDessert} />
+          </div>
+        </div>
+      </Tabs>
     </div>
-  );
-};
+  </div>
+);
 // == PropTypes
 Recipes.propTypes = {
   listEntree: PropTypes.array.isRequired,

@@ -78,13 +78,14 @@ export const initialState = {
 };
 const planningreducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case ADD_TO_PLANNING:
+    case ADD_TO_PLANNING: {
       // Données reçues par l'action
       state.planning[action.value][action.category] = action.title;
 
       return {
         ...state,
       };
+    }
     default:
       return state;
   }

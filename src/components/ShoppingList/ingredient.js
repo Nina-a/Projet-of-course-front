@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Ingredient = (ingredientData) => {
-  const { ingredient, onTodoCheck } = ingredientData;
+  const { ingredient } = ingredientData;
   console.log(ingredientData);
   console.log('ingredient', ingredient);
   return (
@@ -25,6 +25,5 @@ Ingredient.propTypes = {
       unit: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  onTodoCheck: PropTypes.func.isRequired,
 };
 export default Ingredient;
