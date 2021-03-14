@@ -48,7 +48,7 @@ const App = ({ fetchRecipes, reloadUser }) => {
         <Route exact path="/register">
           <RegisterForm className="RecipeForm" />
         </Route>
-        <Route exact path="/addRecipe">
+        <Route exact path="/recipes/add">
           <RecipeForm className="RecipeForm" />
         </Route>
       </main>
