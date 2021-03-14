@@ -23,7 +23,7 @@ const Recipes = (
     <div className="maintabsrecipes">
       {isLogged && (
       <div className="button_add_recipe">
-        <Link to="/addRecipe">
+        <Link to="/recipes/add">
           <Button className="add_recipe" variant="success" size="lg">
             Ajouter une recette
           </Button>
