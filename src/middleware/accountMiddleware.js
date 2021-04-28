@@ -55,7 +55,6 @@ export default (store) => (next) => (action) => {
         },
       })
         .then((_) => {
-          // history.push('/');
           dispatch(logoutSuccess());
         })
         .catch((err) => {

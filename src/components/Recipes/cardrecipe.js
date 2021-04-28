@@ -27,21 +27,11 @@ const CardRecipe = ({ recipe, addToPlanning, isLogged }) => {
               onChange={(e) => addToPlanning(recipeDetail, e.target.value,
                 recipeDetail.categories[0].title)}
             >
-              <option value="0">Choississez un jour</option>
-              <option value="1">Lundi midi</option>
-              <option value="2">Lundi soir</option>
-              <option value="3">Mardi midi</option>
-              <option value="4">Mardi soir</option>
-              <option value="5">Mercredi midi</option>
-              <option value="6">Mercredi soir</option>
-              <option value="7">Jeudi midi</option>
-              <option value="8">Jeudi soir</option>
-              <option value="9">Vendredi midi</option>
-              <option value="10">Vendredi soir</option>
-              <option value="11">Samedi midi</option>
-              <option value="12">Samedi soir</option>
-              <option value="13">Dimanche midi</option>
-              <option value="14">Dimanche soir</option>
+            <option value="0">Choississez un jour</option>
+              {["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"].map((jour, i) => (
+                ["midi", "soir"].map((moment, j) => (
+                <option value={1+2*i+j} inner>{`${jour} ${moment}`}</option>
+              ))))}
             </select>
           </div>
         </div>
