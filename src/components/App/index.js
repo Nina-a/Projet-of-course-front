@@ -14,9 +14,9 @@ import './styles.css';
 import data from '../../data';
 import RecipeForm from '../../containers/RecipeForm';
 
-const ingredientData = data.map((dataObjet) => ({
+/*const ingredientData = data.map((dataObjet) => ({
   ingredient: dataObjet.ingredients,
-}));
+}));*/
 // == Composant
 const App = ({ fetchRecipes, reloadUser }) => {
   useEffect(() => {
@@ -40,7 +40,7 @@ const App = ({ fetchRecipes, reloadUser }) => {
           <Planning className="planning" />
         </Route>
         <Route exact path="/shoppingList">
-          <ShoppingList list={ingredientData} className="shoppinglist" />
+          <ShoppingList className="shoppinglist" />
         </Route>
         <Route exact path="/login">
           <LoginForm className="connexion" />
@@ -52,7 +52,6 @@ const App = ({ fetchRecipes, reloadUser }) => {
           <RecipeForm className="RecipeForm" />
         </Route>
       </main>
-
     </div>
   );
 };
