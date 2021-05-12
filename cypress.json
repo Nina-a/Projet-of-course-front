@@ -1,3 +1,12 @@
 {
-  "watchForFileChanges": true
+  "viewportWidth": 1643,
+  "viewportHeight": 1082,
+  "watchForFileChanges": true,
+  
+  "component": {
+    "componentFolder": "src",
+    "testFiles": "./**/*.test.{js,ts,jsx,tsx}",
+    "viewportWidth": 1643,
+    "viewportHeight": 1082
+  }
 }

@@ -30,7 +30,7 @@ const NavBar = ({
 
   return (
     <div>
-      <nav className="menu" tabIndex="0">
+      <nav className="menu" tabIndex="0" data-test-id="Navbarre">
         <div className="smartphone-menu-trigger" />
         <header className="avatar">
           <img src={logo} alt="logo" />

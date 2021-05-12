@@ -19,6 +19,8 @@
     "@babel/preset-env": "*",
     "@babel/preset-react": "*",
     "@babel/register": "*",
+    "@cypress/react": "^5.5.0",
+    "@cypress/webpack-dev-server": "^1.1.6",
     "babel-eslint": "*",
     "babel-loader": "*",
     "bundle-stats-webpack-plugin": "*",
