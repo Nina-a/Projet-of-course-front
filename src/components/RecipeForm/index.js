@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import AddIngredient from './addingredients';
 
 const RecipeForm = ({
   title,
@@ -11,11 +12,9 @@ const RecipeForm = ({
     evt.preventDefault();
     handleRecipe();
   };
-
   const changeInput = (evt) => {
     changeField(evt.target.value, evt.target.name);
   };
-
   return (
     <div className="main-recipeForm">
       <form className="recipeForm" onSubmit={handleRecipeSubmit}>
@@ -38,16 +37,9 @@ const RecipeForm = ({
           <option value="2">Plat</option>
           <option value="3">Déssert</option>
         </select>
+        
+        <AddIngredient />
 
-        <input
-            type="text"
-            className="form-control"
-            id="ingredients"
-            onChange={changeInput}
-            name="title"
-            value=""
-            placeholder="ingredients"
-          />
         <button type="submit" className="btn ">Ajouter</button>
         </div>
       </form>
@@ -55,10 +47,10 @@ const RecipeForm = ({
   );
 };
 
-RecipeForm.propTypes = {
+/*RecipeForm.propTypes = {
   title: PropTypes.string.isRequired,
   handleRecipe: PropTypes.func.isRequired,
   changeField: PropTypes.func.isRequired,
-};
+};*/
 
 export default RecipeForm;

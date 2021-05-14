@@ -1,0 +1,11 @@
+.add_ingredients{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.ingredients{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
