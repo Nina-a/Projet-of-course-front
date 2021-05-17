@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 import AddIngredient from './addingredients';
@@ -7,6 +7,7 @@ const RecipeForm = ({
   title,
   handleRecipe,
   changeField,
+  fetchIngredients,
 }) => {
   const handleRecipeSubmit = (evt) => {
     evt.preventDefault();
@@ -15,6 +16,11 @@ const RecipeForm = ({
   const changeInput = (evt) => {
     changeField(evt.target.value, evt.target.name);
   };
+
+  useEffect(() => {
+    fetchIngredients();
+  }, []);
+  
   return (
     <div className="main-recipeForm">
       <form className="recipeForm" onSubmit={handleRecipeSubmit}>
