@@ -20,11 +20,11 @@ main.main {
   /** overflow-y: auto; */
 }
 
-.homeimg {
+/*.homeimg {
 
   width: 150px;
   height: 150px;
-}
+}*/
 
 
 @media only screen and (max-width: 1200px) {
@@ -32,7 +32,6 @@ main.main {
   .header {
     font-size: 10rem;
   }
-
 }
 
 
@@ -41,7 +40,6 @@ main.main {
   .header {
     font-size: 8rem;
   }
-
 }
 
 
@@ -51,7 +49,6 @@ main.main {
     padding-top: 0px;
     font-size: 6rem;
   }
-
 }
 
 @media only screen and (max-width: 415px) {
@@ -61,13 +58,6 @@ main.main {
     margin-bottom:50px;
     font-size: 5rem;
   }
-
-  .homeimg {
-
-    width: 35%;
-    height: 35%;
-  }
-
   .home {
     height: auto;
   }
@@ -80,12 +70,6 @@ main.main {
     margin-bottom:50px;
     font-size: 4rem;
     text-align: center;
-  }
-
-  .homeimg {
-
-    width: 35%;
-    height: 35%;
   }
 
   .home {

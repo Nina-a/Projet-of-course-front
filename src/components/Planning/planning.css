@@ -212,4 +212,11 @@ li{
   .body{
     background-repeat:repeat-y;
   }
+  .planning-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size:50px;
+    }
   }
