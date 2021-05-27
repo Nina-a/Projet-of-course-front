@@ -1,22 +1,24 @@
+
+
 .recipes-title {
-  font-size:100px;
   margin-bottom: 50px;
   font-family: 'Dancing Script';
   text-align: center;
   margin-top:70px;
+  font-size: 100px;
 }
 
-.add_to_favorite{
-margin-bottom:20px;
-}
 .button_add_recipe{
 margin-bottom: 20px;
 }
 
+.btn + .add_to_favorite{
+  //width: 80%;
+}
 .card {
   padding-top: 30px;
   min-width: 20%;
-  max-width:30%;
+  max-width: 25%;
   max-height: 70%;
   padding: 0;
   margin-top:3px;
@@ -47,7 +49,7 @@ margin-bottom: 20px;
   text-align: center;
   width: 80%;
   border: none;
-  margin-left: 150px;
+  margin-left: 10%;
 }
 
 .card-group {
@@ -58,7 +60,6 @@ margin-bottom: 20px;
   height: 735px;
   margin-top: 10px;
   //justify-content: space-between;
-
 }  
 .btn{
   margin:auto;
@@ -96,6 +97,7 @@ margin-bottom: 20px;
   padding: 0.5rem 0.75rem;
   width: 25%;
   background-color: #b36fb0;
+  cursor: pointer;
 }
 
 .tab-list-active {
@@ -117,11 +119,9 @@ margin-bottom: 20px;
     text-align: center;
     display: block;
   }
-
 }
 
 @media (max-width: 1200px) {
-
   .card {
     padding-top: 30px;
     min-width: 49%;
@@ -132,6 +132,110 @@ margin-bottom: 20px;
     text-align: center;
     display: block;
   }
-
 }
-
+@media (max-width: 900px){
+  .recipes-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size:70px;
+    }
+  .maintabsrecipes {
+    text-align: center;
+    width: 100%;
+    border: none;
+    margin-left: 5%;
+  }
+  .tab-list {  
+    padding-left: 0;
+    color: white;
+    justify-content: center;
+  }
+  .tab-list-item {
+    display: inline-block;
+    list-style: none;
+    border-radius: 10px;
+    margin-bottom: -1px;
+    padding: 0.5rem 0.75rem;
+    width: 33%;
+  }
+  .card-group {
+    overflow-y: scroll;
+    flex-wrap:wrap;
+    display:flex;
+    flex-direction: row;
+    //height: 735px;
+    margin-top: 10px;
+    justify-content:center;
+  }  
+  .card {
+    padding-top: 30px;
+    min-width: 49%;
+    max-height: 70%;
+    padding: 0;
+    margin-top:3px;
+    margin-right:3px;
+    text-align: center;
+    display: block;
+  }
+  .card-image {
+    max-width: 90%;
+    height: auto;
+    padding-top:100px;
+  }
+}
+@media (max-width: 500px){
+  .recipes-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size:50px;
+    }
+  .maintabsrecipes {
+    text-align: center;
+    width: 100%;
+    border: none;
+    margin-left: 5%;
+    height: 100%;
+  }
+  .tab-list {  
+    padding-left: 0;
+    color: white;
+    justify-content: center;
+    width:90%;
+    margin-left: 3%;
+  }
+  .tab-list-item {
+    display: inline-block;
+    list-style: none;
+    border-radius: 10px;
+    margin-bottom: -1px;
+    padding: 0.5rem 0.75rem;
+    width: 33%;
+  }
+  .card-group {
+    overflow-y: scroll;
+    flex-wrap:wrap;
+    display:flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content:center;
+  }  
+  .card {
+    padding-top: 30px;
+    min-width: 90%;
+    max-height: 90%;
+    padding: 0;
+    margin-top:3px;
+    margin-right:3px;
+    text-align: center;
+    display: block;
+  }
+  .card-image {
+    max-width: 90%;
+    height: auto;
+    padding-top:100px;
+  }
+}

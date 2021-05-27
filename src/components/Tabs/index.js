@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // == Import intern
 import Tab from './tab';
+import './style.css'
 // == Composant
 class Tabs extends Component {
   constructor(props) {

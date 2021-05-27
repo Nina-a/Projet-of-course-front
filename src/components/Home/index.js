@@ -22,9 +22,8 @@ const Home = () => (
       </div>
       <div className="agenda">
         <div className="div_agenda_img">
-          <NavLink exact className="navigation-link" to="/planning">
             <img className="homeimg" src={planning} alt="liste des courses" />
-          </NavLink>
+
         </div>
         <div className="div_agenda_p">
           <p>2) Plannifiez vos repas en un clin d'oeil</p>
@@ -32,9 +31,7 @@ const Home = () => (
       </div>
       <div className="course">
         <div className="div_course_img">
-          <NavLink exact className="navigation-link" to="/shoppingList">
             <img className="homeimg" src={course} alt="liste des courses" />
-          </NavLink>
         </div>
         <div className="div_course_p">
           <p>3) Et voilà, votre liste de courses est prête !!</p>
