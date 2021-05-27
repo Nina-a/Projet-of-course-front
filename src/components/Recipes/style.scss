@@ -8,17 +8,17 @@
   font-size: 100px;
 }
 
-.add_to_favorite{
-margin-bottom:20px;
-}
 .button_add_recipe{
 margin-bottom: 20px;
 }
 
+.btn + .add_to_favorite{
+  //width: 80%;
+}
 .card {
   padding-top: 30px;
   min-width: 20%;
-  max-width:30%;
+  max-width: 25%;
   max-height: 70%;
   padding: 0;
   margin-top:3px;
@@ -49,7 +49,7 @@ margin-bottom: 20px;
   text-align: center;
   width: 80%;
   border: none;
-  margin-left: 150px;
+  margin-left: 10%;
 }
 
 .card-group {
@@ -60,7 +60,6 @@ margin-bottom: 20px;
   height: 735px;
   margin-top: 10px;
   //justify-content: space-between;
-
 }  
 .btn{
   margin:auto;
@@ -98,6 +97,7 @@ margin-bottom: 20px;
   padding: 0.5rem 0.75rem;
   width: 25%;
   background-color: #b36fb0;
+  cursor: pointer;
 }
 
 .tab-list-active {
@@ -139,7 +139,7 @@ margin-bottom: 20px;
     font-size: 20px;
     margin-bottom: 50px;
     margin-top: 50px;
-    font-size:50px;
+    font-size:70px;
     }
   .maintabsrecipes {
     text-align: center;
@@ -159,7 +159,6 @@ margin-bottom: 20px;
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
     width: 33%;
-    background-color: #b36fb0;
   }
   .card-group {
     overflow-y: scroll;
@@ -172,7 +171,7 @@ margin-bottom: 20px;
   }  
   .card {
     padding-top: 30px;
-    min-width: 90%;
+    min-width: 49%;
     max-height: 70%;
     padding: 0;
     margin-top:3px;
@@ -205,6 +204,8 @@ margin-bottom: 20px;
     padding-left: 0;
     color: white;
     justify-content: center;
+    width:90%;
+    margin-left: 3%;
   }
   .tab-list-item {
     display: inline-block;
@@ -213,7 +214,6 @@ margin-bottom: 20px;
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
     width: 33%;
-    background-color: #b36fb0;
   }
   .card-group {
     overflow-y: scroll;

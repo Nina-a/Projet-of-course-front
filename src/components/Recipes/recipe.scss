@@ -1,6 +1,6 @@
 .card-img-top{
-  width: 341px;
-  height: 222px;
+  width: 15vw;
+  height: 30vh;
   margin-top: 20px;
 }
 
@@ -88,6 +88,13 @@
   .card-img-top{
     width: 20vw;
     height: 30vh;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .card-img-top{
+    width: 30vw;
+    height: 22vh;
     margin-top: 20px;
   }
 }
