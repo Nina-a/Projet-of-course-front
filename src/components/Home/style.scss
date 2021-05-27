@@ -55,7 +55,7 @@
   margin:auto;
   display: flex;
   flex-direction: row;
-  text-align: right;
+  //text-align: right;
   //margin-right: 20%;
   font-family: 'Dancing Script', cursive;
   font-size: 2rem;
@@ -71,12 +71,9 @@ p{
 }
 // Tout ce qu'il y aura en dessous sera fait pour le responsive
 @media only screen and (max-width: 807px) {
-  .recette {
+  /*.recette {
     align-content: flex-start;
-  }
-  p {
-    display:none;
-  }
+  }*/
   .maindiv {
     justify-content: flex-start;
     margin: 0px;
@@ -86,44 +83,22 @@ p{
  
 }
 
-@media only screen and (max-width: 607px) {
+/*@media only screen and (max-width: 607px) {
   .recette {
     align-content: flex-start;
-  }
-  p {
-    display:none;
   }
   .maindiv{
     justify-content: flex-start;
     margin: 0px;
-    
     width:500px;
   }
-
   .homeimg {
-
     width:150px;
     height:150px;
   }
-}
+}*/
 
-@media only screen and (max-width: 500px) {
-  .recette {
-    align-content: flex-start;
-  }
-  p {
-    display:none;
-  }
-  .maindiv {
-   
-    margin: 0px;
-    
-    width:300px;
-  }
-}
-
-
-@media only screen and (max-width: 422px) {
+@media only screen and (max-width: 600px) {
   .recette {
     align-content: flex-start;
   }
@@ -143,9 +118,6 @@ p{
     margin:auto;
     text-align:center;
   }
-  .fleche{
-    display:none;
-  }
   p{
     display:initial;
     font-size:23px;
@@ -153,12 +125,10 @@ p{
     font-family: 'Times New Roman', Times, serif;
   }
   .agenda, .course, .recette{
-    text-align: left;
-    margin-right: 0px;
+    margin-right:0px;
     margin-left:0px;
-    width:100%;
-    margin-bottom: 30px;
-
+    width:90%;
+    margin-bottom:30px;
   }
   .homeimg{
     display: none;
